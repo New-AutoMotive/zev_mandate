@@ -1,5 +1,9 @@
+# File types
 *.png
 *.csv
 *.json
 *.xlsx
+
+# Directories
 /credentials
+__pycache__
