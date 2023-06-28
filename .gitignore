@@ -7,3 +7,18 @@
 # Directories
 /credentials
 __pycache__
+data/GB_Postcodes
+
+# Specific files
+data/ITL1_MAY_2021_UK_BFC.cpg
+data/ITL1_MAY_2021_UK_BFC.dbf
+data/ITL1_MAY_2021_UK_BFC.prj
+data/ITL1_MAY_2021_UK_BFC.shp
+data/ITL1_MAY_2021_UK_BFC.shx
+data/design.pkl
+data/infuse_ctry_2011.dbf
+data/infuse_ctry_2011.prj
+data/infuse_ctry_2011.shp
+data/infuse_ctry_2011.shx
+
+
