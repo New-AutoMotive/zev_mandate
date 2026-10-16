@@ -21,3 +21,22 @@ data/infuse_ctry_2011.prj
 data/infuse_ctry_2011.shp
 data/infuse_ctry_2011.shx
 .DS_Store
+# Environments
+venv/
+.venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.~lock.*
+
+# Local caches and bulky archive material
+data/cache/
+archive/plots/
+archive/data_old/
+archive/outputs/
+outputs/
+
+# Small CSVs that are part of the model
+!params/**/*.csv
+!tests/fixtures/*.csv
+!reference/*.csv

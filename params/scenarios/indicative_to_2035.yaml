@@ -1,0 +1,23 @@
+# Legislated rules to 2030, then the government's indicative trajectory to 2035.
+#
+# 2031-35 targets are policy, not law: Oct 2023 government response, repeated in the
+# Aug 2026 ZEV Mandate Review consultation (Tables 1 and 6, footnote 72: "not yet been
+# adopted in legislation").
+#   https://www.gov.uk/government/consultations/zero-emission-vehicle-mandate-review
+#
+# Post-2030 flexibilities are unknown. Borrowing and CO2 conversion stay at their 2030
+# value (zero) by carry-forward. Banking runs to 2035, which is an assumption.
+
+extends: ../vets.yaml
+name: VETS + indicative 2031-35 trajectory
+scheme_years: [2024, 2035]
+
+vehicle_types:
+  car:
+    zev_target: {2031: 0.84, 2032: 0.88, 2033: 0.92, 2034: 0.96, 2035: 1.0}
+    banking:
+      last_usable_year: 2035
+  van:
+    zev_target: {2031: 0.76, 2032: 0.82, 2033: 0.88, 2034: 0.94, 2035: 1.0}
+    banking:
+      last_usable_year: 2035
