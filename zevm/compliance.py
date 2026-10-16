@@ -215,6 +215,8 @@ def _meet_obligation(row, state, strategy):
     need -= banked_used
     row.update(current_used=current_used, spare_current=row["allowances"] - current_used,
                banked_used=banked_used, deficit_before_market=max(need, 0.0),
+               # surplus (+) or shortfall (-) after own credits and bank, before any trading
+               own_position=row["allowances"] - current_used - max(need, 0.0),
                bought=0.0, sold=0.0, sold_from_bank=0.0)
 
 

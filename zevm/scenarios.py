@@ -372,7 +372,9 @@ def market_summary(results: pd.DataFrame) -> pd.DataFrame:
         total_registrations=("total_registrations", "sum"),
         zev_registrations=("zev_registrations", "sum"),
         zev_target=("zev_target", "first"),
+        nonzev_registrations=("nonzev_registrations", "sum"),
         allowances=("allowances", "sum"),
+        current_used=("current_used", "sum"),
         co2_credits=("co2_credits", "sum"),
         banked_used=("banked_used", "sum"),
         traded=("bought", "sum"),
@@ -389,3 +391,18 @@ def market_summary(results: pd.DataFrame) -> pd.DataFrame:
     out.insert(5, "required_after_co2", 1 - (out["allowances"] + out["co2_credits"]) / out["total_registrations"])
     out["payment_gbp_m"] = out.pop("payment_gbp") / 1e6
     return out.drop(columns="zev_registrations").reset_index()
+
+
+def trailing_inputs(h: History, months: int = 12) -> pd.DataFrame:
+    """The last `months` months per group, as one pseudo scheme year labelled with the
+    latest month's year. Used to check performance on a rolling basis against that year's
+    target, with no banking, borrowing or debt history."""
+    m = h.monthly.assign(month=pd.to_datetime(h.monthly["month"]))
+    last = m["month"].max()
+    window = m[m["month"] > last - pd.DateOffset(months=months)]
+    out = window.groupby("group")[FLOWS].sum().reset_index()
+    out["year"] = last.year
+    base = h.yearly.drop_duplicates("group").set_index("group")
+    out["co2_baseline"] = out["group"].map(base["co2_baseline"])
+    out["basis"] = f"trailing {months}m to {last:%b %Y}"
+    return out

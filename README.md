@@ -14,7 +14,8 @@ zevm/        The Python package
                banking, borrowing + uplift, market trading, payments
   scenarios.py history (late-data uplift, current-year estimate) + projections to 2030/35
   data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
-  plots.py     chart style
+  plots.py     charts for the notebooks (style in zevm/style/)
+notebooks/   tracker.ipynb (this year by manufacturer), scenarios.ipynb (projections)
 sql/         One query per file; {project} and @start/@end are filled in by zevm.data
 tests/
 scripts/     DfT/NAEI data download scripts
@@ -23,7 +24,10 @@ data/        Downloaded DfT tables (data/cache/ is local only)
 archive/     Original 2023–25 notebooks, kept for reference (see archive/README.md)
 ```
 
-Planned next: `zevm/fleet.py` (port of the stock model), slim notebooks in `notebooks/`.
+Planned next: `zevm/fleet.py` (port of the stock model from archive notebook 01).
+
+Start with `notebooks/tracker.ipynb` or `notebooks/scenarios.ipynb`. Outputs are stripped on commit;
+CSV exports go to `outputs/` (not committed).
 
 ## Setup
 
