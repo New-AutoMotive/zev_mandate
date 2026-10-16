@@ -56,3 +56,14 @@ def test_coverage_columns_add_up_to_non_zev(summary_and_results):
     summary, _ = summary_and_results
     parts = summary[[c for c, _, _ in plots.COVERAGE]].sum(axis=1)
     assert parts.to_numpy() == pytest.approx(summary["nonzev_registrations"].to_numpy(), rel=1e-6)
+
+
+def test_fleet_charts():
+    from zevm import fleet
+    from tests.test_fleet import FP, summary_frame, synthetic_history
+    h = synthetic_history()
+    out = fleet.run_many(h, fleet.registrations_from_summary(summary_frame(), h, FP, extend_to=2035), FP)
+    v = fleet.validate(h, FP)
+    assert plots.emissions_vs_naei(v, fleet.totals(out), co2_scale=0.95).axes
+    assert plots.parc_by_fuel(out, "A").axes
+    assert plots.parc_by_fuel(out, "B", column="co2_mt").axes
