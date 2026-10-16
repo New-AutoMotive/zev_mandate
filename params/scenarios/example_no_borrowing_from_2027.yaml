@@ -1,0 +1,7 @@
+# Illustrative override, not a real policy proposal: shows how to change one flexibility.
+extends: ../vets.yaml
+name: "Example: no car borrowing from 2027"
+vehicle_types:
+  car:
+    borrowing:
+      cap: {2027: 0.0, 2028: 0.0, 2029: 0.0}

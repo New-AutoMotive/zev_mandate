@@ -1,0 +1,33 @@
+[project]
+name = "zevm"
+version = "0.1.0"
+description = "Model of the UK ZEV mandate (Vehicle Emissions Trading Schemes) with flexibilities and scenarios"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+    "matplotlib>=3.8",
+    "google-cloud-bigquery>=3.20",
+    "db-dtypes>=1.2",
+    "pyarrow>=15",
+    "odfpy>=1.4",
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "nbstripout>=0.7", "jupyter"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["zevm*"]
+
+[tool.setuptools.package-data]
+zevm = ["style/*.mplstyle"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

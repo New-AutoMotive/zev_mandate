@@ -1,0 +1,154 @@
+# UK Vehicle Emissions Trading Schemes: the law in force
+#
+# The Vehicle Emissions Trading Schemes Order 2023 (SI 2023/1394), as amended by
+# SI 2024/1130, SI 2025/678 and SI 2025/1101 (the "(No. 2) Order", in force 1 Jan 2026,
+# applying from the 2025 scheme year). Revised text checked 16 Oct 2026:
+#   https://www.legislation.gov.uk/uksi/2023/1394
+# Article references below are to the Order ("art. 15" = article 15).
+#
+# The trading period ends with the 2030 scheme year (art. 3(1)). Nothing here covers
+# 2031+; see params/scenarios/ for indicative and consultation trajectories.
+#
+# Conventions
+# - Shares are fractions (0.22, not 22).
+# - Year tables carry forward to later years that are not listed. Every table here
+#   lists every year 2024-2030 so the legal values can be read without that rule.
+# - Caps "of registrations" mean the participant's total registrations (ZEV + non-ZEV)
+#   of that vehicle type in the scheme year the cap applies to.
+
+name: VETS as amended (SI 2025/1101)
+scheme_years: [2024, 2030]
+
+geography:
+  # 2024 scheme year was GB only; whole UK from 1 Jan 2025 (art. 2(3), 3(2), SI 2024/1130).
+  2024: GB
+  2025: UK
+
+vehicle_types:
+
+  car:
+    # Implied ZEV target = 1 - P, where P is Sch. 6 Pt 1 col. 2 (unamended since 2023).
+    zev_target: {2024: 0.22, 2025: 0.28, 2026: 0.33, 2027: 0.38, 2028: 0.52, 2029: 0.66, 2030: 0.80}
+
+    # Registration allowances = (1 - zev_target) x current-year total registrations,
+    # rounded to 0.1 (art. 13(2), (8)). One allowance or credit is surrendered per non-ZEV (art. 24, 27).
+    # Surrender order: credits, current allowances, borrowed, banked (art. 27(2)).
+    allowance_rounding: 0.1
+
+    banking:
+      # Registration allowances usable in the allocation year + 3 more (art. 14(1), 30(1)(b)).
+      # Credits (SPV, car club, converted) are valid only for the year acquired (art. 30(2)(b)).
+      allowance_life_years: 4
+      last_usable_year: 2030
+
+    borrowing:
+      # Cap as share of registrations in the year borrowed for (art. 15(2)-(3)).
+      cap: {2024: 0.165, 2025: 0.196, 2026: 0.0825, 2027: 0.076, 2028: 0.078, 2029: 0.066, 2030: 0.0}
+      repay_by: 2030                 # art. 15(12)
+      # Uplift on repayment = 1.035^k - 1, k = years between borrowing and repayment,
+      # rounded up to a whole allowance (art. 15(8)-(11)). Table runs k = 1..6.
+      uplift_rate: 0.035
+      uplift_max_years: 6
+      tradeable: false               # art. 15(15)
+      # Cannot hold banked allowances while borrowings are outstanding (art. 15(14)).
+      bank_while_owing: false
+
+    co2_to_zev:
+      # Unused CO2 allowances (g/km) per ZEV credit (art. 23(1)).
+      grams_per_credit: 167
+      # Cap as share of registrations in the year the CO2 allowances were allocated for
+      # (art. 23(3)-(5C)). Not allowed for 2030 (art. 23(1)(c)).
+      # Equivalent to 65/90/80/70/60/50% of the ZEV target; the law states it only in this form.
+      cap: {2024: 0.143, 2025: 0.252, 2026: 0.264, 2027: 0.266, 2028: 0.312, 2029: 0.33, 2030: 0.0}
+      # Only the participant's own surplus: own CO2 activity must not exceed own allocation.
+      # Whether CO2 allowances bought in can be converted is unclear in the text (art. 23(1)(a)).
+      own_surplus_only: true
+      tradeable: false               # art. 23(6)
+
+    zev_to_co2:
+      # One unused registration allowance -> CO2 allowances (art. 35). No cap.
+      # Requires the registration obligation met from current + banked allowances; not borrowed.
+      grams_per_allowance: 135
+
+    payment_per_vehicle_gbp: {2024: 15000, 2025: 12000}   # art. 28(2), (2A)
+
+    special_purpose_vehicles:
+      # ZE SPVs earn credits; car clubs get +0.5 capped at 2.5% of fleet (art. 19-21, 20(6)).
+      credit: 1.0
+      wheelchair_accessible_credit: 1.5
+      car_club_bonus: 0.5
+      car_club_cap_share: 0.025
+
+    co2_scheme:
+      # CO2 allowances = non-ZEV registrations x fixed baseline B (g/km) from Sch. 1 (art. 34).
+      # No annual tightening to 2030. Surplus can be traded, converted, or it expires (art. 37, 40).
+      # Not bankable. Deficit payment per g/km (art. 39(2)).
+      payment_per_gram_gbp: 86
+      min_non_zev_registrations: 1000   # participants have > 999 non-ZEVs (art. 32(1))
+      bankable: false
+
+  van:
+    # Sch. 6 Pt 2: P = 90/84/76/66/54/42/30%.
+    zev_target: {2024: 0.10, 2025: 0.16, 2026: 0.24, 2027: 0.34, 2028: 0.46, 2029: 0.58, 2030: 0.70}
+    allowance_rounding: 0.1
+
+    banking:
+      allowance_life_years: 4         # art. 46, 62
+      last_usable_year: 2030
+
+    borrowing:
+      cap: {2024: 0.09, 2025: 0.112, 2026: 0.06, 2027: 0.068, 2028: 0.069, 2029: 0.058, 2030: 0.0}   # art. 47
+      repay_by: 2030
+      uplift_rate: 0.035
+      uplift_max_years: 6
+      tradeable: false
+      bank_while_owing: false
+
+    co2_to_zev:
+      grams_per_credit: 216           # art. 55(1)
+      cap: {2024: 0.065, 2025: 0.144, 2026: 0.192, 2027: 0.238, 2028: 0.276, 2029: 0.29, 2030: 0.0}   # art. 55(3)-(5C)
+      own_surplus_only: true
+      tradeable: false
+
+    zev_to_co2:
+      grams_per_allowance: 206        # art. 67
+
+    # 2024: £9,000 for unaccounted activity (not unpaid uplift); £15,000 from 2025 (art. 60).
+    payment_per_vehicle_gbp: {2024: 9000, 2025: 15000}
+
+    special_purpose_vehicles:
+      credit: 1.0
+      wheelchair_accessible_credit: 1.5
+      car_club_bonus: 0.5
+      car_club_cap_share: 0.025
+
+    co2_scheme:
+      payment_per_gram_gbp: 86        # art. 71(2)
+      min_non_zev_registrations: 1000 # art. 64(1)
+      bankable: false
+
+# Car <-> van flexibility (SI 2025/1101; usable from the 2025 trading window). Uncapped.
+# Needs a surplus that is not from borrowing.
+car_van_exchange:
+  van_allowance_to_car_credits: 2.0   # art. 23A (dual participant), 57A (traded)
+  car_allowances_per_van_credit: 2.5  # art. 55A (dual), 25A (traded: 1 car allowance -> 0.4 van credit)
+
+low_volume:
+  # Sch. 4 and art. 13(3)-(7). Allowances = own registrations up to the cap, so in effect
+  # exempt from the ZEV target. Micro (< 1,000) automatically; small (1,000-2,499) on
+  # application, for 3 years, not for 2030. Not available to connected groups or pools.
+  micro_threshold: 1000
+  small_threshold: 2500
+  allowance_cap: 2499
+  small_status_years: 3
+
+pooling:
+  # Sch. 5: connected manufacturers only (s.1122 CTA 2010), one year at a time, pooled in
+  # both the registration and CO2 schemes. Pool CO2 baseline = members' baselines weighted
+  # by 2021 non-ZEV registrations (Sch. 1).
+  connected_only: true
+
+# Known gaps in the law, kept here so the model's choices are visible:
+# - art. 12(3)/44(3) trading-period aggregate cap was not updated for the 2027-29 caps;
+#   its practical effect is unclear. Not modelled.
+# - Reverse conversion (art. 35/67) has no year limit, so it is read as available in 2030.

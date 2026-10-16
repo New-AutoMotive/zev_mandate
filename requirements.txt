@@ -1,9 +1,0 @@
-pandas
-numpy
-requests
-beautifulsoup4
-six
-python-dateutil
-matplotlib
-plotly
-google-cloud-bigquery
