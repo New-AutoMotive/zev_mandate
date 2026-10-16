@@ -10,7 +10,9 @@ compliance and fleet scenarios.
 params/      Mandate rules. vets.yaml = law in force (to 2030); scenarios/*.yaml extend it.
 zevm/        The Python package
   rules.py     load and query params
+  data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
   plots.py     chart style
+sql/         One query per file; {project} and @start/@end are filled in by zevm.data
 tests/
 scripts/     DfT/NAEI data download scripts
 reference/   Source documents and old spreadsheet outputs used as test checks
@@ -18,7 +20,7 @@ data/        Downloaded DfT tables (data/cache/ is local only)
 archive/     Original 2023–25 notebooks, kept for reference (see archive/README.md)
 ```
 
-Planned next: `zevm/data.py` + `sql/` (BigQuery pulls), `zevm/compliance.py` (allowances,
+Planned next: `zevm/compliance.py` (allowances,
 CO2 conversion, banking/borrowing, trading), `zevm/scenarios.py`, `zevm/fleet.py`, and
 slim notebooks in `notebooks/`.
 
@@ -30,6 +32,24 @@ uv pip install --python .venv -e ".[dev]"
 .venv/bin/nbstripout --install --attributes /dev/null   # strips outputs from notebooks/*.ipynb on commit
 gcloud auth application-default login                    # BigQuery access, no key file needed
 ```
+
+## Getting registrations
+
+```python
+from zevm import data, rules
+raw = data.registrations("car")                    # 2021 to last complete month; ~$0.14 per fresh pull
+pools = data.summarise(raw, by="pool", freq="year", params=rules.load("vets"))
+vans = data.summarise(data.registrations("van"), by="entity", vehicle_type="van")
+```
+
+Results are cached for 7 days (`max_age_days=`); `refresh=True` forces a pull and
+`offline=True` uses whatever is cached. The ZEV count covers `ELECTRICITY` vehicles, plus
+`FUEL CELLS` vehicles rated 0 g/km. Non-ZEVs with no CO2 value get the mean of their make,
+fuel and month, so they don't count as 0 g/km (about 1% of CO2 activity is filled in this way).
+In GB-only scheme years (2024), Northern Ireland is dropped.
+
+Pool grouping (cars only) uses `VES_dataset.VETS_Pool_Baselines`. Makes not in that table
+fall back to the legal entity in `parentZEVMandateM1`.
 
 ## Changing the mandate
 
