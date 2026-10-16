@@ -81,6 +81,13 @@ def _end_labels(ax, items, fmt="{:.0%}", min_gap=None):
                     textcoords="offset pixels", va="center", fontsize=9, color=INK_2, annotation_clip=False)
 
 
+def _short(name: str) -> str:
+    """End-label text: "A. On target" -> "A"; "Opt 1 (70%) | steady" -> "Opt 1 (70%)"."""
+    if len(name) > 2 and name[1] == "." and name[0].isalnum():
+        return name[0]
+    return name.split(" | ")[0][:24]
+
+
 def _shade_projection(ax, years, basis):
     """Light band behind estimated and projected years, labelled once."""
     df = pd.DataFrame({"year": years, "basis": basis}).drop_duplicates("year")
@@ -167,7 +174,7 @@ def scenario_lines(summary: pd.DataFrame, column: str, title: str, pct: bool = F
     for name, g in summary.groupby("scenario", sort=False):
         g = g.sort_values("year")
         ax.plot(g["year"], g[column], color=cols[name], marker="o", markersize=4, label=name)
-        ends.append((name.split(".")[0] if "." in name[:3] else name[:18], g["year"].iloc[-1], g[column].iloc[-1], cols[name]))
+        ends.append((_short(name), g["year"].iloc[-1], g[column].iloc[-1], cols[name]))
     if show_target:
         t = summary.drop_duplicates("year").sort_values("year")
         ax.step(t["year"], t["zev_target"], where="mid", color=INK_2, lw=1.2, label="Target")

@@ -100,6 +100,10 @@ Scenario options: `zev_share` ("target", a constant, or a year table), `zev_shar
 "uniform"), `params` (any params file) and `strategy`. How each one works is documented at
 the top of `zevm/scenarios.py`.
 
+The ZEV Mandate Review consultation (Aug 2026) options are in
+`params/scenarios/review_option{1..4}_*.yaml`, with assumptions noted at the top of each
+file. The scenarios notebook compares them.
+
 Caveat on counts: VES totals for a month drift upward for a year or two after it is first
 published, and end up 9-17% above DfT/SMMT. The ZEV share stays right. Recent months are
 close to official figures; older years are inflated, so absolute shortfalls and £ payments
