@@ -8,14 +8,18 @@ compliance and fleet scenarios.
 
 ```
 params/      Mandate rules. vets.yaml = law in force (to 2030); scenarios/*.yaml extend it.
+             fleet.yaml = fleet/emissions assumptions (lifespan, mileage, fuel use, CO2 factors).
 zevm/        The Python package
   rules.py     load and query params
   compliance.py  scheme accounting per participant-year: allowances, CO2<->ZEV conversion,
                banking, borrowing + uplift, market trading, payments
   scenarios.py history (late-data uplift, current-year estimate) + projections to 2030/35
   data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
+  fleet.py     car parc -> vehicle miles -> fuel -> tailpipe CO2, driven by scenario registrations;
+               validated against NAEI
   plots.py     charts for the notebooks (style in zevm/style/)
-notebooks/   tracker.ipynb (this year by manufacturer), scenarios.ipynb (projections)
+notebooks/   tracker.ipynb (this year by manufacturer), scenarios.ipynb (projections),
+             fleet.ipynb (parc and emissions to 2035 by scenario)
 sql/         One query per file; {project} and @start/@end are filled in by zevm.data
 tests/
 scripts/     DfT/NAEI data download scripts
@@ -23,8 +27,6 @@ reference/   Source documents and old spreadsheet outputs used as test checks
 data/        Downloaded DfT tables (data/cache/ is local only)
 archive/     Original 2023–25 notebooks, kept for reference (see archive/README.md)
 ```
-
-Planned next: `zevm/fleet.py` (port of the stock model from archive notebook 01).
 
 Start with `notebooks/tracker.ipynb` or `notebooks/scenarios.ipynb`. Outputs are stripped on commit;
 CSV exports go to `outputs/` (not committed).
@@ -102,6 +104,38 @@ Caveats:
 - The late-data uplift assumes the records VES adds to a month later are genuine new first
   registrations. That hasn't been checked against DfT or SMMT figures.
 - Vans use the car uplift curve.
+
+## Fleet and emissions
+
+```python
+from zevm import fleet
+fp = fleet.load_params()                    # params/fleet.yaml
+hist = fleet.load_history(fp)               # DfT VEH0105/0142/1153, DESNZ fuel, NAEI, MOT mileage (data/)
+regs = fleet.registrations_from_summary(scenarios.market_summary(res), hist, fp, extend_to=2035)
+out = fleet.run_many(hist, regs, fp)        # scenario x year x fuel: parc, additions, retirements,
+                                            #   vehicle_miles, fuel_ktoe, co2_mt
+fleet.totals(out)                           # one row per scenario-year, with BEV share of parc and miles
+fleet.validate(hist, fp)                    # CO2 from DESNZ fuel use vs NAEI 1A3bi, by year
+fleet.backtest(hist, fp, 2014)              # stock model from the 2014 parc vs the actual parc
+```
+
+The parc starts from the DfT year-end count (fuel groups petrol, diesel, hybrid, bev). Each
+scenario's ZEVs are added as BEVs. Its non-ZEVs are split by `registrations.nonzev_split`.
+Cars retire at 14–23 years old. The existing stock's retirements are scaled so the base-year
+parc retires exactly, which means parc[t] = parc[t-1] + additions − retirements holds by
+construction. Fuel per mile is calibrated from DESNZ fuel consumption, and new cars use
+`fuel_use.new_vs_fleet` times the fleet figure. CO2 is scaled to NAEI.
+`zevm/fleet.py` lists the archive notebook's bugs that were not carried forward.
+
+Caveats:
+- The data files in `data/` run to 2023 (parc, registrations), 2020 (DESNZ fuel, NAEI) and
+  2024 (mileage). `scripts/data_downloader.py` fetches newer DfT/DESNZ tables, but the
+  readers have only been tested on the current files.
+- Diesel retires faster in reality than the fixed lifespan implies: from 2014, the backtest
+  overstates the 2023 diesel parc by 15%.
+- The post-2023 split of non-ZEVs, new-car fuel use and flat mileage are assumptions
+  (marked in `params/fleet.yaml`). The CO2 factors are the DESNZ 2023 ones from the notebook.
+- Only tailpipe CO2 is counted. Electricity is not.
 
 ## Changing the mandate
 
