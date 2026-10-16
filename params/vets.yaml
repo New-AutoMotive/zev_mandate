@@ -141,6 +141,7 @@ low_volume:
   small_threshold: 2500
   allowance_cap: 2499
   small_status_years: 3
+  small_status_excluded_years: [2030]   # Sch. 4 para 7
 
 pooling:
   # Sch. 5: connected manufacturers only (s.1122 CTA 2010), one year at a time, pooled in

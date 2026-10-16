@@ -10,6 +10,8 @@ compliance and fleet scenarios.
 params/      Mandate rules. vets.yaml = law in force (to 2030); scenarios/*.yaml extend it.
 zevm/        The Python package
   rules.py     load and query params
+  compliance.py  scheme accounting per participant-year: allowances, CO2<->ZEV conversion,
+               banking, borrowing + uplift, market trading, payments
   data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
   plots.py     chart style
 sql/         One query per file; {project} and @start/@end are filled in by zevm.data
@@ -20,7 +22,7 @@ data/        Downloaded DfT tables (data/cache/ is local only)
 archive/     Original 2023–25 notebooks, kept for reference (see archive/README.md)
 ```
 
-Planned next: `zevm/compliance.py` (allowances,
+Planned next: (allowances,
 CO2 conversion, banking/borrowing, trading), `zevm/scenarios.py`, `zevm/fleet.py`, and
 slim notebooks in `notebooks/`.
 
@@ -50,6 +52,25 @@ In GB-only scheme years (2024), Northern Ireland is dropped.
 
 Pool grouping (cars only) uses `VES_dataset.VETS_Pool_Baselines`. Makes not in that table
 fall back to the legal entity in `parentZEVMandateM1`.
+
+## Compliance
+
+```python
+from zevm import compliance
+from zevm.compliance import Strategy
+pools = data.pool_baselines()
+inputs = compliance.attach_baselines(data.summarise(raw, by="pool", freq="year", params=p), pools,
+                                     data.entity_baselines("car"))
+result = compliance.run(inputs, p, "car", Strategy())                  # every flexibility, trading on
+alone = compliance.run(inputs, p, "car", Strategy(trading="none"))     # no ZEV allowance trading
+market = compliance.run(compliance.market_total(inputs), p, "car")     # whole market as one participant
+```
+
+Each row of the result is one participant-year with every step: allowances, CO2 credits
+(and the cap), banked/borrowed/bought/sold, repayments and uplift, shortfall and £ payments.
+The step order and what isn't modelled yet are documented at the top of `zevm/compliance.py`.
+Market trading clears pro rata with no price: it shows whether enough allowances exist,
+not who pays whom.
 
 ## Changing the mandate
 
