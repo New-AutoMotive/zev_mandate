@@ -1,4 +1,7 @@
--- Published monthly new car registrations by fuel, for checking the VES-based counts.
+-- New AutoMotive's ECC new car registrations by fuel, as first published each month.
+-- A snapshot taken at publication, not a corrected series: VES keeps adding late records,
+-- so today's VES count for a month is normally higher than the published figure.
+-- Comparing the two shows how much a month's count rises after it is first published.
 SELECT
   monthOfFirstRegistration AS month,
   fuelType AS fuel,
