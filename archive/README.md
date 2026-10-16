@@ -35,6 +35,9 @@ run from here as they are.
 - Rolling 12-month totals are compared with a single fixed 22% target, not calendar scheme years.
 - `05.01a`: `ukevs` is used before it is defined, and `co2ComplianceAdj` is computed before `co2Compliance` exists.
 - `datetime.today().replace(month=month-1)` crashes in January.
+- `01)`: ktoe→gallons uses petrol 0.86 / diesel 0.98 going in and the two swapped coming back;
+  history uses 2023 CO2 factors but projections use 2021 ones; the retirement factor also
+  scales new cars' retirements; fleet MPG is an arithmetic mean of MPG.
 
 ## Other folders
 

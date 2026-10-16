@@ -226,3 +226,78 @@ def bank_and_debt(summary: pd.DataFrame, title: str = "Banked allowances and out
     fig.legend(handles, labels, loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.06), fontsize=9)
     fig.suptitle(title, x=0.01, ha="left", fontsize=14)
     return fig
+
+
+# ---------------------------------------------------------------- fleet
+
+# Fuel groups take palette slots 1-4 in this order (passes adjacent CVD checks). Yellow and
+# aqua are under 3:1 on white, so every fuel line is end-labelled.
+FUEL_COLOURS = {"petrol": BLUE, "diesel": CORAL, "hybrid": YELLOW, "bev": AQUA}
+FUEL_LABELS = {"petrol": "Petrol", "diesel": "Diesel", "hybrid": "Hybrid", "bev": "BEV"}
+
+
+def _millions(ax, axis="y"):
+    fmt = mticker.FuncFormatter(lambda v, _: f"{v / 1e6:g}m")
+    (ax.yaxis if axis == "y" else ax.xaxis).set_major_formatter(fmt)
+
+
+def emissions_vs_naei(validation: pd.DataFrame, totals: pd.DataFrame | None = None, co2_scale: float = 1.0,
+                      title: str = "Car tailpipe CO2e: NAEI, fuel-based model and scenarios"):
+    """NAEI 1A3bi (cars) against CO2 from DESNZ fuel use (fleet.validate), and optionally
+    each scenario's projection (fleet.totals). Modelled lines are multiplied by `co2_scale`
+    (fleet.calibration()["co2_scale"]) for history; projections in `totals` already are."""
+    fig, ax = plt.subplots(figsize=(10, 5.5))
+    ends = []
+    if totals is not None:
+        proj = totals[totals["basis"] == "projected"]
+        _shade_projection(ax, proj["year"], proj["basis"])
+        cols = colours_for(proj["scenario"])
+        for name, g in proj.groupby("scenario", sort=False):
+            g = g.sort_values("year")
+            ax.plot(g["year"], g["co2_mt"], color=cols[name], marker="o", markersize=4, label=name)
+            ends.append((name[:24], g["year"].iloc[-1], g["co2_mt"].iloc[-1], cols[name]))
+    naei = validation["naei_mt"].dropna() if "naei_mt" in validation else pd.Series(dtype=float)
+    naei = naei[naei.index >= validation.index.min()]
+    ax.plot(naei.index, naei.values, color=INK, marker="o", markersize=4, label="NAEI 1A3bi cars")
+    model = validation["co2_total_mt"] * co2_scale
+    ax.plot(model.index, model.values, color=MUTED, ls="--", lw=1.6,
+            label="From DESNZ fuel use" + (f" (x{co2_scale:.3f} to NAEI)" if co2_scale != 1 else ""))
+    ax.set_ylim(bottom=0)
+    ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+    ax.set_ylabel("Mt CO2e")
+    ax.set_title(title)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=2, fontsize=9)
+    if not naei.empty:
+        ends.append(("NAEI", naei.index[-1], naei.iloc[-1], INK))
+    _end_labels(ax, ends, fmt="{:.1f} Mt")
+    ax.set_xlim(right=ax.get_xlim()[1] + 1.2)
+    return fig
+
+
+def parc_by_fuel(tidy: pd.DataFrame, scenario: str, column: str = "parc", title: str | None = None):
+    """One line per fuel group for one scenario of fleet.run_many output (observed years
+    plus projection, projected years shaded)."""
+    s = tidy[tidy["scenario"] == scenario] if "scenario" in tidy else tidy
+    fig, ax = plt.subplots(figsize=(10, 5.5))
+    _shade_projection(ax, s["year"], s["basis"])
+    ends = []
+    for fuel, colour in FUEL_COLOURS.items():
+        g = s[s["fuel"] == fuel].dropna(subset=[column]).sort_values("year")
+        if g.empty:
+            continue
+        ax.plot(g["year"], g[column], color=colour, label=FUEL_LABELS[fuel])
+        ends.append((FUEL_LABELS[fuel], g["year"].iloc[-1], g[column].iloc[-1], colour))
+    ax.set_ylim(bottom=0)
+    ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+    if column == "co2_mt":
+        fmt = "{:.1f} Mt"
+        ax.set_ylabel("Mt CO2e")
+    else:
+        _millions(ax)
+        fmt = None
+    default = {"parc": "Cars on the road by fuel", "co2_mt": "Tailpipe CO2e by fuel"}.get(column, f"{column} by fuel")
+    ax.set_title(title or f"{default}: {scenario}")
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=4)
+    _end_labels(ax, ends, fmt=fmt)
+    ax.set_xlim(right=s["year"].max() + 1.5)
+    return fig
