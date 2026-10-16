@@ -1,1429 +1,1654 @@
-variable,BodyType,Fuel,value
-2009-10-01,Buses and coaches,Diesel,0.0
-2009-10-01,Buses and coaches,Other,0.0
-2009-10-01,Buses and coaches,Petrol,0.0
-2009-10-01,Buses and coaches,Pure Electric,0.0
-2009-10-01,Cars,Diesel,0.0
-2009-10-01,Cars,Hybrid,0.0
-2009-10-01,Cars,Other,0.0
-2009-10-01,Cars,Petrol,0.0
-2009-10-01,Cars,Pure Electric,0.0
-2009-10-01,Heavy goods vehicles,Diesel,0.0
-2009-10-01,Heavy goods vehicles,Other,0.0
-2009-10-01,Heavy goods vehicles,Petrol,0.0
-2009-10-01,Heavy goods vehicles,Pure Electric,0.0
-2009-10-01,Light goods vehicles,Diesel,0.0
-2009-10-01,Light goods vehicles,Hybrid,0.0
-2009-10-01,Light goods vehicles,Other,0.0
-2009-10-01,Light goods vehicles,Petrol,0.0
-2009-10-01,Light goods vehicles,Pure Electric,0.0
-2009-10-01,Motorcycles,Diesel,0.0
-2009-10-01,Motorcycles,Hybrid,0.0
-2009-10-01,Motorcycles,Other,0.0
-2009-10-01,Motorcycles,Petrol,0.0
-2009-10-01,Motorcycles,Pure Electric,0.0
-2009-10-01,Other vehicles,Diesel,0.0
-2009-10-01,Other vehicles,Hybrid,0.0
-2009-10-01,Other vehicles,Other,0.0
-2009-10-01,Other vehicles,Petrol,0.0
-2009-10-01,Other vehicles,Pure Electric,0.0
-2010-01-01,Buses and coaches,Diesel,0.0
-2010-01-01,Buses and coaches,Other,0.0
-2010-01-01,Buses and coaches,Petrol,0.0
-2010-01-01,Buses and coaches,Pure Electric,0.0
-2010-01-01,Cars,Diesel,0.0
-2010-01-01,Cars,Hybrid,0.0
-2010-01-01,Cars,Other,0.0
-2010-01-01,Cars,Petrol,0.0
-2010-01-01,Cars,Pure Electric,0.0
-2010-01-01,Heavy goods vehicles,Diesel,0.0
-2010-01-01,Heavy goods vehicles,Other,0.0
-2010-01-01,Heavy goods vehicles,Petrol,0.0
-2010-01-01,Heavy goods vehicles,Pure Electric,0.0
-2010-01-01,Light goods vehicles,Diesel,0.0
-2010-01-01,Light goods vehicles,Hybrid,0.0
-2010-01-01,Light goods vehicles,Other,0.0
-2010-01-01,Light goods vehicles,Petrol,0.0
-2010-01-01,Light goods vehicles,Pure Electric,0.0
-2010-01-01,Motorcycles,Diesel,0.0
-2010-01-01,Motorcycles,Hybrid,0.0
-2010-01-01,Motorcycles,Other,0.0
-2010-01-01,Motorcycles,Petrol,0.0
-2010-01-01,Motorcycles,Pure Electric,0.0
-2010-01-01,Other vehicles,Diesel,0.0
-2010-01-01,Other vehicles,Hybrid,0.0
-2010-01-01,Other vehicles,Other,0.0
-2010-01-01,Other vehicles,Petrol,0.0
-2010-01-01,Other vehicles,Pure Electric,0.0
-2010-04-01,Buses and coaches,Diesel,0.0
-2010-04-01,Buses and coaches,Other,0.0
-2010-04-01,Buses and coaches,Petrol,0.0
-2010-04-01,Buses and coaches,Pure Electric,0.0
-2010-04-01,Cars,Diesel,0.0
-2010-04-01,Cars,Hybrid,0.0
-2010-04-01,Cars,Other,0.0
-2010-04-01,Cars,Petrol,0.0
-2010-04-01,Cars,Pure Electric,0.0
-2010-04-01,Heavy goods vehicles,Diesel,0.0
-2010-04-01,Heavy goods vehicles,Other,0.0
-2010-04-01,Heavy goods vehicles,Petrol,0.0
-2010-04-01,Heavy goods vehicles,Pure Electric,0.0
-2010-04-01,Light goods vehicles,Diesel,0.0
-2010-04-01,Light goods vehicles,Hybrid,0.0
-2010-04-01,Light goods vehicles,Other,0.0
-2010-04-01,Light goods vehicles,Petrol,0.0
-2010-04-01,Light goods vehicles,Pure Electric,0.0
-2010-04-01,Motorcycles,Diesel,0.0
-2010-04-01,Motorcycles,Hybrid,0.0
-2010-04-01,Motorcycles,Other,0.0
-2010-04-01,Motorcycles,Petrol,0.0
-2010-04-01,Motorcycles,Pure Electric,0.0
-2010-04-01,Other vehicles,Diesel,0.0
-2010-04-01,Other vehicles,Hybrid,0.0
-2010-04-01,Other vehicles,Other,0.0
-2010-04-01,Other vehicles,Petrol,0.0
-2010-04-01,Other vehicles,Pure Electric,0.0
-2010-07-01,Buses and coaches,Diesel,0.0
-2010-07-01,Buses and coaches,Other,0.0
-2010-07-01,Buses and coaches,Petrol,0.0
-2010-07-01,Buses and coaches,Pure Electric,0.0
-2010-07-01,Cars,Diesel,0.0
-2010-07-01,Cars,Hybrid,0.0
-2010-07-01,Cars,Other,0.0
-2010-07-01,Cars,Petrol,0.0
-2010-07-01,Cars,Pure Electric,0.0
-2010-07-01,Heavy goods vehicles,Diesel,0.0
-2010-07-01,Heavy goods vehicles,Other,0.0
-2010-07-01,Heavy goods vehicles,Petrol,0.0
-2010-07-01,Heavy goods vehicles,Pure Electric,0.0
-2010-07-01,Light goods vehicles,Diesel,0.0
-2010-07-01,Light goods vehicles,Hybrid,0.0
-2010-07-01,Light goods vehicles,Other,0.0
-2010-07-01,Light goods vehicles,Petrol,0.0
-2010-07-01,Light goods vehicles,Pure Electric,0.0
-2010-07-01,Motorcycles,Diesel,0.0
-2010-07-01,Motorcycles,Hybrid,0.0
-2010-07-01,Motorcycles,Other,0.0
-2010-07-01,Motorcycles,Petrol,0.0
-2010-07-01,Motorcycles,Pure Electric,0.0
-2010-07-01,Other vehicles,Diesel,0.0
-2010-07-01,Other vehicles,Hybrid,0.0
-2010-07-01,Other vehicles,Other,0.0
-2010-07-01,Other vehicles,Petrol,0.0
-2010-07-01,Other vehicles,Pure Electric,0.0
-2010-10-01,Buses and coaches,Diesel,0.0
-2010-10-01,Buses and coaches,Other,0.0
-2010-10-01,Buses and coaches,Petrol,0.0
-2010-10-01,Buses and coaches,Pure Electric,0.0
-2010-10-01,Cars,Diesel,0.0
-2010-10-01,Cars,Hybrid,0.0
-2010-10-01,Cars,Other,0.0
-2010-10-01,Cars,Petrol,0.0
-2010-10-01,Cars,Pure Electric,0.0
-2010-10-01,Heavy goods vehicles,Diesel,0.0
-2010-10-01,Heavy goods vehicles,Other,0.0
-2010-10-01,Heavy goods vehicles,Petrol,0.0
-2010-10-01,Heavy goods vehicles,Pure Electric,0.0
-2010-10-01,Light goods vehicles,Diesel,0.0
-2010-10-01,Light goods vehicles,Hybrid,0.0
-2010-10-01,Light goods vehicles,Other,0.0
-2010-10-01,Light goods vehicles,Petrol,0.0
-2010-10-01,Light goods vehicles,Pure Electric,0.0
-2010-10-01,Motorcycles,Diesel,0.0
-2010-10-01,Motorcycles,Hybrid,0.0
-2010-10-01,Motorcycles,Other,0.0
-2010-10-01,Motorcycles,Petrol,0.0
-2010-10-01,Motorcycles,Pure Electric,0.0
-2010-10-01,Other vehicles,Diesel,0.0
-2010-10-01,Other vehicles,Hybrid,0.0
-2010-10-01,Other vehicles,Other,0.0
-2010-10-01,Other vehicles,Petrol,0.0
-2010-10-01,Other vehicles,Pure Electric,0.0
-2011-01-01,Buses and coaches,Diesel,0.0
-2011-01-01,Buses and coaches,Other,0.0
-2011-01-01,Buses and coaches,Petrol,0.0
-2011-01-01,Buses and coaches,Pure Electric,0.0
-2011-01-01,Cars,Diesel,0.0
-2011-01-01,Cars,Hybrid,0.0
-2011-01-01,Cars,Other,0.0
-2011-01-01,Cars,Petrol,0.0
-2011-01-01,Cars,Pure Electric,0.0
-2011-01-01,Heavy goods vehicles,Diesel,0.0
-2011-01-01,Heavy goods vehicles,Other,0.0
-2011-01-01,Heavy goods vehicles,Petrol,0.0
-2011-01-01,Heavy goods vehicles,Pure Electric,0.0
-2011-01-01,Light goods vehicles,Diesel,0.0
-2011-01-01,Light goods vehicles,Hybrid,0.0
-2011-01-01,Light goods vehicles,Other,0.0
-2011-01-01,Light goods vehicles,Petrol,0.0
-2011-01-01,Light goods vehicles,Pure Electric,0.0
-2011-01-01,Motorcycles,Diesel,0.0
-2011-01-01,Motorcycles,Hybrid,0.0
-2011-01-01,Motorcycles,Other,0.0
-2011-01-01,Motorcycles,Petrol,0.0
-2011-01-01,Motorcycles,Pure Electric,0.0
-2011-01-01,Other vehicles,Diesel,0.0
-2011-01-01,Other vehicles,Hybrid,0.0
-2011-01-01,Other vehicles,Other,0.0
-2011-01-01,Other vehicles,Petrol,0.0
-2011-01-01,Other vehicles,Pure Electric,0.0
-2011-04-01,Buses and coaches,Diesel,0.0
-2011-04-01,Buses and coaches,Other,0.0
-2011-04-01,Buses and coaches,Petrol,0.0
-2011-04-01,Buses and coaches,Pure Electric,0.0
-2011-04-01,Cars,Diesel,0.0
-2011-04-01,Cars,Hybrid,0.0
-2011-04-01,Cars,Other,0.0
-2011-04-01,Cars,Petrol,0.0
-2011-04-01,Cars,Pure Electric,0.0
-2011-04-01,Heavy goods vehicles,Diesel,0.0
-2011-04-01,Heavy goods vehicles,Other,0.0
-2011-04-01,Heavy goods vehicles,Petrol,0.0
-2011-04-01,Heavy goods vehicles,Pure Electric,0.0
-2011-04-01,Light goods vehicles,Diesel,0.0
-2011-04-01,Light goods vehicles,Hybrid,0.0
-2011-04-01,Light goods vehicles,Other,0.0
-2011-04-01,Light goods vehicles,Petrol,0.0
-2011-04-01,Light goods vehicles,Pure Electric,0.0
-2011-04-01,Motorcycles,Diesel,0.0
-2011-04-01,Motorcycles,Hybrid,0.0
-2011-04-01,Motorcycles,Other,0.0
-2011-04-01,Motorcycles,Petrol,0.0
-2011-04-01,Motorcycles,Pure Electric,0.0
-2011-04-01,Other vehicles,Diesel,0.0
-2011-04-01,Other vehicles,Hybrid,0.0
-2011-04-01,Other vehicles,Other,0.0
-2011-04-01,Other vehicles,Petrol,0.0
-2011-04-01,Other vehicles,Pure Electric,0.0
-2011-07-01,Buses and coaches,Diesel,0.0
-2011-07-01,Buses and coaches,Other,0.0
-2011-07-01,Buses and coaches,Petrol,0.0
-2011-07-01,Buses and coaches,Pure Electric,0.0
-2011-07-01,Cars,Diesel,0.0
-2011-07-01,Cars,Hybrid,0.0
-2011-07-01,Cars,Other,0.0
-2011-07-01,Cars,Petrol,0.0
-2011-07-01,Cars,Pure Electric,0.0
-2011-07-01,Heavy goods vehicles,Diesel,0.0
-2011-07-01,Heavy goods vehicles,Other,0.0
-2011-07-01,Heavy goods vehicles,Petrol,0.0
-2011-07-01,Heavy goods vehicles,Pure Electric,0.0
-2011-07-01,Light goods vehicles,Diesel,0.0
-2011-07-01,Light goods vehicles,Hybrid,0.0
-2011-07-01,Light goods vehicles,Other,0.0
-2011-07-01,Light goods vehicles,Petrol,0.0
-2011-07-01,Light goods vehicles,Pure Electric,0.0
-2011-07-01,Motorcycles,Diesel,0.0
-2011-07-01,Motorcycles,Hybrid,0.0
-2011-07-01,Motorcycles,Other,0.0
-2011-07-01,Motorcycles,Petrol,0.0
-2011-07-01,Motorcycles,Pure Electric,0.0
-2011-07-01,Other vehicles,Diesel,0.0
-2011-07-01,Other vehicles,Hybrid,0.0
-2011-07-01,Other vehicles,Other,0.0
-2011-07-01,Other vehicles,Petrol,0.0
-2011-07-01,Other vehicles,Pure Electric,0.0
-2011-10-01,Buses and coaches,Diesel,0.0
-2011-10-01,Buses and coaches,Other,0.0
-2011-10-01,Buses and coaches,Petrol,0.0
-2011-10-01,Buses and coaches,Pure Electric,0.0
-2011-10-01,Cars,Diesel,0.0
-2011-10-01,Cars,Hybrid,0.0
-2011-10-01,Cars,Other,0.0
-2011-10-01,Cars,Petrol,0.0
-2011-10-01,Cars,Pure Electric,0.0
-2011-10-01,Heavy goods vehicles,Diesel,0.0
-2011-10-01,Heavy goods vehicles,Other,0.0
-2011-10-01,Heavy goods vehicles,Petrol,0.0
-2011-10-01,Heavy goods vehicles,Pure Electric,0.0
-2011-10-01,Light goods vehicles,Diesel,0.0
-2011-10-01,Light goods vehicles,Hybrid,0.0
-2011-10-01,Light goods vehicles,Other,0.0
-2011-10-01,Light goods vehicles,Petrol,0.0
-2011-10-01,Light goods vehicles,Pure Electric,0.0
-2011-10-01,Motorcycles,Diesel,0.0
-2011-10-01,Motorcycles,Hybrid,0.0
-2011-10-01,Motorcycles,Other,0.0
-2011-10-01,Motorcycles,Petrol,0.0
-2011-10-01,Motorcycles,Pure Electric,0.0
-2011-10-01,Other vehicles,Diesel,0.0
-2011-10-01,Other vehicles,Hybrid,0.0
-2011-10-01,Other vehicles,Other,0.0
-2011-10-01,Other vehicles,Petrol,0.0
-2011-10-01,Other vehicles,Pure Electric,0.0
-2012-01-01,Buses and coaches,Diesel,0.0
-2012-01-01,Buses and coaches,Other,0.0
-2012-01-01,Buses and coaches,Petrol,0.0
-2012-01-01,Buses and coaches,Pure Electric,0.0
-2012-01-01,Cars,Diesel,0.0
-2012-01-01,Cars,Hybrid,0.0
-2012-01-01,Cars,Other,0.0
-2012-01-01,Cars,Petrol,0.0
-2012-01-01,Cars,Pure Electric,0.0
-2012-01-01,Heavy goods vehicles,Diesel,0.0
-2012-01-01,Heavy goods vehicles,Other,0.0
-2012-01-01,Heavy goods vehicles,Petrol,0.0
-2012-01-01,Heavy goods vehicles,Pure Electric,0.0
-2012-01-01,Light goods vehicles,Diesel,0.0
-2012-01-01,Light goods vehicles,Hybrid,0.0
-2012-01-01,Light goods vehicles,Other,0.0
-2012-01-01,Light goods vehicles,Petrol,0.0
-2012-01-01,Light goods vehicles,Pure Electric,0.0
-2012-01-01,Motorcycles,Diesel,0.0
-2012-01-01,Motorcycles,Hybrid,0.0
-2012-01-01,Motorcycles,Other,0.0
-2012-01-01,Motorcycles,Petrol,0.0
-2012-01-01,Motorcycles,Pure Electric,0.0
-2012-01-01,Other vehicles,Diesel,0.0
-2012-01-01,Other vehicles,Hybrid,0.0
-2012-01-01,Other vehicles,Other,0.0
-2012-01-01,Other vehicles,Petrol,0.0
-2012-01-01,Other vehicles,Pure Electric,0.0
-2012-04-01,Buses and coaches,Diesel,0.0
-2012-04-01,Buses and coaches,Other,0.0
-2012-04-01,Buses and coaches,Petrol,0.0
-2012-04-01,Buses and coaches,Pure Electric,0.0
-2012-04-01,Cars,Diesel,0.0
-2012-04-01,Cars,Hybrid,0.0
-2012-04-01,Cars,Other,0.0
-2012-04-01,Cars,Petrol,0.0
-2012-04-01,Cars,Pure Electric,0.0
-2012-04-01,Heavy goods vehicles,Diesel,0.0
-2012-04-01,Heavy goods vehicles,Other,0.0
-2012-04-01,Heavy goods vehicles,Petrol,0.0
-2012-04-01,Heavy goods vehicles,Pure Electric,0.0
-2012-04-01,Light goods vehicles,Diesel,0.0
-2012-04-01,Light goods vehicles,Hybrid,0.0
-2012-04-01,Light goods vehicles,Other,0.0
-2012-04-01,Light goods vehicles,Petrol,0.0
-2012-04-01,Light goods vehicles,Pure Electric,0.0
-2012-04-01,Motorcycles,Diesel,0.0
-2012-04-01,Motorcycles,Hybrid,0.0
-2012-04-01,Motorcycles,Other,0.0
-2012-04-01,Motorcycles,Petrol,0.0
-2012-04-01,Motorcycles,Pure Electric,0.0
-2012-04-01,Other vehicles,Diesel,0.0
-2012-04-01,Other vehicles,Hybrid,0.0
-2012-04-01,Other vehicles,Other,0.0
-2012-04-01,Other vehicles,Petrol,0.0
-2012-04-01,Other vehicles,Pure Electric,0.0
-2012-07-01,Buses and coaches,Diesel,0.0
-2012-07-01,Buses and coaches,Other,0.0
-2012-07-01,Buses and coaches,Petrol,0.0
-2012-07-01,Buses and coaches,Pure Electric,0.0
-2012-07-01,Cars,Diesel,0.0
-2012-07-01,Cars,Hybrid,0.0
-2012-07-01,Cars,Other,0.0
-2012-07-01,Cars,Petrol,0.0
-2012-07-01,Cars,Pure Electric,0.0
-2012-07-01,Heavy goods vehicles,Diesel,0.0
-2012-07-01,Heavy goods vehicles,Other,0.0
-2012-07-01,Heavy goods vehicles,Petrol,0.0
-2012-07-01,Heavy goods vehicles,Pure Electric,0.0
-2012-07-01,Light goods vehicles,Diesel,0.0
-2012-07-01,Light goods vehicles,Hybrid,0.0
-2012-07-01,Light goods vehicles,Other,0.0
-2012-07-01,Light goods vehicles,Petrol,0.0
-2012-07-01,Light goods vehicles,Pure Electric,0.0
-2012-07-01,Motorcycles,Diesel,0.0
-2012-07-01,Motorcycles,Hybrid,0.0
-2012-07-01,Motorcycles,Other,0.0
-2012-07-01,Motorcycles,Petrol,0.0
-2012-07-01,Motorcycles,Pure Electric,0.0
-2012-07-01,Other vehicles,Diesel,0.0
-2012-07-01,Other vehicles,Hybrid,0.0
-2012-07-01,Other vehicles,Other,0.0
-2012-07-01,Other vehicles,Petrol,0.0
-2012-07-01,Other vehicles,Pure Electric,0.0
-2012-10-01,Buses and coaches,Diesel,0.0
-2012-10-01,Buses and coaches,Other,0.0
-2012-10-01,Buses and coaches,Petrol,0.0
-2012-10-01,Buses and coaches,Pure Electric,0.0
-2012-10-01,Cars,Diesel,0.0
-2012-10-01,Cars,Hybrid,0.0
-2012-10-01,Cars,Other,0.0
-2012-10-01,Cars,Petrol,0.0
-2012-10-01,Cars,Pure Electric,0.0
-2012-10-01,Heavy goods vehicles,Diesel,0.0
-2012-10-01,Heavy goods vehicles,Other,0.0
-2012-10-01,Heavy goods vehicles,Petrol,0.0
-2012-10-01,Heavy goods vehicles,Pure Electric,0.0
-2012-10-01,Light goods vehicles,Diesel,0.0
-2012-10-01,Light goods vehicles,Hybrid,0.0
-2012-10-01,Light goods vehicles,Other,0.0
-2012-10-01,Light goods vehicles,Petrol,0.0
-2012-10-01,Light goods vehicles,Pure Electric,0.0
-2012-10-01,Motorcycles,Diesel,0.0
-2012-10-01,Motorcycles,Hybrid,0.0
-2012-10-01,Motorcycles,Other,0.0
-2012-10-01,Motorcycles,Petrol,0.0
-2012-10-01,Motorcycles,Pure Electric,0.0
-2012-10-01,Other vehicles,Diesel,0.0
-2012-10-01,Other vehicles,Hybrid,0.0
-2012-10-01,Other vehicles,Other,0.0
-2012-10-01,Other vehicles,Petrol,0.0
-2012-10-01,Other vehicles,Pure Electric,0.0
-2013-01-01,Buses and coaches,Diesel,0.0
-2013-01-01,Buses and coaches,Other,0.0
-2013-01-01,Buses and coaches,Petrol,0.0
-2013-01-01,Buses and coaches,Pure Electric,0.0
-2013-01-01,Cars,Diesel,0.0
-2013-01-01,Cars,Hybrid,0.0
-2013-01-01,Cars,Other,0.0
-2013-01-01,Cars,Petrol,0.0
-2013-01-01,Cars,Pure Electric,0.0
-2013-01-01,Heavy goods vehicles,Diesel,0.0
-2013-01-01,Heavy goods vehicles,Other,0.0
-2013-01-01,Heavy goods vehicles,Petrol,0.0
-2013-01-01,Heavy goods vehicles,Pure Electric,0.0
-2013-01-01,Light goods vehicles,Diesel,0.0
-2013-01-01,Light goods vehicles,Hybrid,0.0
-2013-01-01,Light goods vehicles,Other,0.0
-2013-01-01,Light goods vehicles,Petrol,0.0
-2013-01-01,Light goods vehicles,Pure Electric,0.0
-2013-01-01,Motorcycles,Diesel,0.0
-2013-01-01,Motorcycles,Hybrid,0.0
-2013-01-01,Motorcycles,Other,0.0
-2013-01-01,Motorcycles,Petrol,0.0
-2013-01-01,Motorcycles,Pure Electric,0.0
-2013-01-01,Other vehicles,Diesel,0.0
-2013-01-01,Other vehicles,Hybrid,0.0
-2013-01-01,Other vehicles,Other,0.0
-2013-01-01,Other vehicles,Petrol,0.0
-2013-01-01,Other vehicles,Pure Electric,0.0
-2013-04-01,Buses and coaches,Diesel,0.0
-2013-04-01,Buses and coaches,Other,0.0
-2013-04-01,Buses and coaches,Petrol,0.0
-2013-04-01,Buses and coaches,Pure Electric,0.0
-2013-04-01,Cars,Diesel,0.0
-2013-04-01,Cars,Hybrid,0.0
-2013-04-01,Cars,Other,0.0
-2013-04-01,Cars,Petrol,0.0
-2013-04-01,Cars,Pure Electric,0.0
-2013-04-01,Heavy goods vehicles,Diesel,0.0
-2013-04-01,Heavy goods vehicles,Other,0.0
-2013-04-01,Heavy goods vehicles,Petrol,0.0
-2013-04-01,Heavy goods vehicles,Pure Electric,0.0
-2013-04-01,Light goods vehicles,Diesel,0.0
-2013-04-01,Light goods vehicles,Hybrid,0.0
-2013-04-01,Light goods vehicles,Other,0.0
-2013-04-01,Light goods vehicles,Petrol,0.0
-2013-04-01,Light goods vehicles,Pure Electric,0.0
-2013-04-01,Motorcycles,Diesel,0.0
-2013-04-01,Motorcycles,Hybrid,0.0
-2013-04-01,Motorcycles,Other,0.0
-2013-04-01,Motorcycles,Petrol,0.0
-2013-04-01,Motorcycles,Pure Electric,0.0
-2013-04-01,Other vehicles,Diesel,0.0
-2013-04-01,Other vehicles,Hybrid,0.0
-2013-04-01,Other vehicles,Other,0.0
-2013-04-01,Other vehicles,Petrol,0.0
-2013-04-01,Other vehicles,Pure Electric,0.0
-2013-07-01,Buses and coaches,Diesel,0.0
-2013-07-01,Buses and coaches,Other,0.0
-2013-07-01,Buses and coaches,Petrol,0.0
-2013-07-01,Buses and coaches,Pure Electric,0.0
-2013-07-01,Cars,Diesel,0.0
-2013-07-01,Cars,Hybrid,0.0
-2013-07-01,Cars,Other,0.0
-2013-07-01,Cars,Petrol,0.0
-2013-07-01,Cars,Pure Electric,0.0
-2013-07-01,Heavy goods vehicles,Diesel,0.0
-2013-07-01,Heavy goods vehicles,Other,0.0
-2013-07-01,Heavy goods vehicles,Petrol,0.0
-2013-07-01,Heavy goods vehicles,Pure Electric,0.0
-2013-07-01,Light goods vehicles,Diesel,0.0
-2013-07-01,Light goods vehicles,Hybrid,0.0
-2013-07-01,Light goods vehicles,Other,0.0
-2013-07-01,Light goods vehicles,Petrol,0.0
-2013-07-01,Light goods vehicles,Pure Electric,0.0
-2013-07-01,Motorcycles,Diesel,0.0
-2013-07-01,Motorcycles,Hybrid,0.0
-2013-07-01,Motorcycles,Other,0.0
-2013-07-01,Motorcycles,Petrol,0.0
-2013-07-01,Motorcycles,Pure Electric,0.0
-2013-07-01,Other vehicles,Diesel,0.0
-2013-07-01,Other vehicles,Hybrid,0.0
-2013-07-01,Other vehicles,Other,0.0
-2013-07-01,Other vehicles,Petrol,0.0
-2013-07-01,Other vehicles,Pure Electric,0.0
-2013-10-01,Buses and coaches,Diesel,0.0
-2013-10-01,Buses and coaches,Other,0.0
-2013-10-01,Buses and coaches,Petrol,0.0
-2013-10-01,Buses and coaches,Pure Electric,0.0
-2013-10-01,Cars,Diesel,0.0
-2013-10-01,Cars,Hybrid,0.0
-2013-10-01,Cars,Other,0.0
-2013-10-01,Cars,Petrol,0.0
-2013-10-01,Cars,Pure Electric,0.0
-2013-10-01,Heavy goods vehicles,Diesel,0.0
-2013-10-01,Heavy goods vehicles,Other,0.0
-2013-10-01,Heavy goods vehicles,Petrol,0.0
-2013-10-01,Heavy goods vehicles,Pure Electric,0.0
-2013-10-01,Light goods vehicles,Diesel,0.0
-2013-10-01,Light goods vehicles,Hybrid,0.0
-2013-10-01,Light goods vehicles,Other,0.0
-2013-10-01,Light goods vehicles,Petrol,0.0
-2013-10-01,Light goods vehicles,Pure Electric,0.0
-2013-10-01,Motorcycles,Diesel,0.0
-2013-10-01,Motorcycles,Hybrid,0.0
-2013-10-01,Motorcycles,Other,0.0
-2013-10-01,Motorcycles,Petrol,0.0
-2013-10-01,Motorcycles,Pure Electric,0.0
-2013-10-01,Other vehicles,Diesel,0.0
-2013-10-01,Other vehicles,Hybrid,0.0
-2013-10-01,Other vehicles,Other,0.0
-2013-10-01,Other vehicles,Petrol,0.0
-2013-10-01,Other vehicles,Pure Electric,0.0
-2014-01-01,Buses and coaches,Diesel,0.0
-2014-01-01,Buses and coaches,Other,0.0
-2014-01-01,Buses and coaches,Petrol,0.0
-2014-01-01,Buses and coaches,Pure Electric,0.0
-2014-01-01,Cars,Diesel,0.0
-2014-01-01,Cars,Hybrid,0.0
-2014-01-01,Cars,Other,0.0
-2014-01-01,Cars,Petrol,0.0
-2014-01-01,Cars,Pure Electric,0.0
-2014-01-01,Heavy goods vehicles,Diesel,0.0
-2014-01-01,Heavy goods vehicles,Other,0.0
-2014-01-01,Heavy goods vehicles,Petrol,0.0
-2014-01-01,Heavy goods vehicles,Pure Electric,0.0
-2014-01-01,Light goods vehicles,Diesel,0.0
-2014-01-01,Light goods vehicles,Hybrid,0.0
-2014-01-01,Light goods vehicles,Other,0.0
-2014-01-01,Light goods vehicles,Petrol,0.0
-2014-01-01,Light goods vehicles,Pure Electric,0.0
-2014-01-01,Motorcycles,Diesel,0.0
-2014-01-01,Motorcycles,Hybrid,0.0
-2014-01-01,Motorcycles,Other,0.0
-2014-01-01,Motorcycles,Petrol,0.0
-2014-01-01,Motorcycles,Pure Electric,0.0
-2014-01-01,Other vehicles,Diesel,0.0
-2014-01-01,Other vehicles,Hybrid,0.0
-2014-01-01,Other vehicles,Other,0.0
-2014-01-01,Other vehicles,Petrol,0.0
-2014-01-01,Other vehicles,Pure Electric,0.0
-2014-04-01,Buses and coaches,Diesel,0.0
-2014-04-01,Buses and coaches,Other,0.0
-2014-04-01,Buses and coaches,Petrol,0.0
-2014-04-01,Buses and coaches,Pure Electric,0.0
-2014-04-01,Cars,Diesel,0.0
-2014-04-01,Cars,Hybrid,0.0
-2014-04-01,Cars,Other,0.0
-2014-04-01,Cars,Petrol,0.0
-2014-04-01,Cars,Pure Electric,0.0
-2014-04-01,Heavy goods vehicles,Diesel,0.0
-2014-04-01,Heavy goods vehicles,Other,0.0
-2014-04-01,Heavy goods vehicles,Petrol,0.0
-2014-04-01,Heavy goods vehicles,Pure Electric,0.0
-2014-04-01,Light goods vehicles,Diesel,0.0
-2014-04-01,Light goods vehicles,Hybrid,0.0
-2014-04-01,Light goods vehicles,Other,0.0
-2014-04-01,Light goods vehicles,Petrol,0.0
-2014-04-01,Light goods vehicles,Pure Electric,0.0
-2014-04-01,Motorcycles,Diesel,0.0
-2014-04-01,Motorcycles,Hybrid,0.0
-2014-04-01,Motorcycles,Other,0.0
-2014-04-01,Motorcycles,Petrol,0.0
-2014-04-01,Motorcycles,Pure Electric,0.0
-2014-04-01,Other vehicles,Diesel,0.0
-2014-04-01,Other vehicles,Hybrid,0.0
-2014-04-01,Other vehicles,Other,0.0
-2014-04-01,Other vehicles,Petrol,0.0
-2014-04-01,Other vehicles,Pure Electric,0.0
-2014-07-01,Buses and coaches,Diesel,164386.0
-2014-07-01,Buses and coaches,Other,494.0
-2014-07-01,Buses and coaches,Petrol,5076.0
-2014-07-01,Buses and coaches,Pure Electric,152.0
-2014-07-01,Cars,Diesel,10876461.0
-2014-07-01,Cars,Hybrid,4262.0
-2014-07-01,Cars,Other,238503.0
-2014-07-01,Cars,Petrol,18976660.0
-2014-07-01,Cars,Pure Electric,12071.0
-2014-07-01,Heavy goods vehicles,Diesel,489471.0
-2014-07-01,Heavy goods vehicles,Other,1152.0
-2014-07-01,Heavy goods vehicles,Petrol,2702.0
-2014-07-01,Heavy goods vehicles,Pure Electric,491.0
-2014-07-01,Light goods vehicles,Diesel,3374639.0
-2014-07-01,Light goods vehicles,Hybrid,0.0
-2014-07-01,Light goods vehicles,Other,14732.0
-2014-07-01,Light goods vehicles,Petrol,146601.0
-2014-07-01,Light goods vehicles,Pure Electric,3971.0
-2014-07-01,Motorcycles,Diesel,1196.0
-2014-07-01,Motorcycles,Hybrid,0.0
-2014-07-01,Motorcycles,Other,1078.0
-2014-07-01,Motorcycles,Petrol,1335719.0
-2014-07-01,Motorcycles,Pure Electric,949.0
-2014-07-01,Other vehicles,Diesel,560664.0
-2014-07-01,Other vehicles,Hybrid,0.0
-2014-07-01,Other vehicles,Other,86205.0
-2014-07-01,Other vehicles,Petrol,70517.0
-2014-07-01,Other vehicles,Pure Electric,68.0
-2014-10-01,Buses and coaches,Diesel,161819.0
-2014-10-01,Buses and coaches,Other,495.0
-2014-10-01,Buses and coaches,Petrol,4682.0
-2014-10-01,Buses and coaches,Pure Electric,168.0
-2014-10-01,Cars,Diesel,10968863.0
-2014-10-01,Cars,Hybrid,7232.0
-2014-10-01,Cars,Other,246560.0
-2014-10-01,Cars,Petrol,18739719.0
-2014-10-01,Cars,Pure Electric,14328.0
-2014-10-01,Heavy goods vehicles,Diesel,486167.0
-2014-10-01,Heavy goods vehicles,Other,1125.0
-2014-10-01,Heavy goods vehicles,Petrol,2439.0
-2014-10-01,Heavy goods vehicles,Pure Electric,486.0
-2014-10-01,Light goods vehicles,Diesel,3359301.0
-2014-10-01,Light goods vehicles,Hybrid,7.0
-2014-10-01,Light goods vehicles,Other,14310.0
-2014-10-01,Light goods vehicles,Petrol,136193.0
-2014-10-01,Light goods vehicles,Pure Electric,4099.0
-2014-10-01,Motorcycles,Diesel,1103.0
-2014-10-01,Motorcycles,Hybrid,0.0
-2014-10-01,Motorcycles,Other,1013.0
-2014-10-01,Motorcycles,Petrol,1220561.0
-2014-10-01,Motorcycles,Pure Electric,895.0
-2014-10-01,Other vehicles,Diesel,556149.0
-2014-10-01,Other vehicles,Hybrid,0.0
-2014-10-01,Other vehicles,Other,87270.0
-2014-10-01,Other vehicles,Petrol,66926.0
-2014-10-01,Other vehicles,Pure Electric,65.0
-2015-01-01,Buses and coaches,Diesel,161800.0
-2015-01-01,Buses and coaches,Other,509.0
-2015-01-01,Buses and coaches,Petrol,4611.0
-2015-01-01,Buses and coaches,Pure Electric,175.0
-2015-01-01,Cars,Diesel,11165352.0
-2015-01-01,Cars,Hybrid,12326.0
-2015-01-01,Cars,Other,263097.0
-2015-01-01,Cars,Petrol,18715212.0
-2015-01-01,Cars,Pure Electric,16997.0
-2015-01-01,Heavy goods vehicles,Diesel,486828.0
-2015-01-01,Heavy goods vehicles,Other,1101.0
-2015-01-01,Heavy goods vehicles,Petrol,2372.0
-2015-01-01,Heavy goods vehicles,Pure Electric,466.0
-2015-01-01,Light goods vehicles,Diesel,3403956.0
-2015-01-01,Light goods vehicles,Hybrid,85.0
-2015-01-01,Light goods vehicles,Other,14267.0
-2015-01-01,Light goods vehicles,Petrol,134222.0
-2015-01-01,Light goods vehicles,Pure Electric,4183.0
-2015-01-01,Motorcycles,Diesel,1061.0
-2015-01-01,Motorcycles,Hybrid,0.0
-2015-01-01,Motorcycles,Other,969.0
-2015-01-01,Motorcycles,Petrol,1210156.0
-2015-01-01,Motorcycles,Pure Electric,855.0
-2015-01-01,Other vehicles,Diesel,556263.0
-2015-01-01,Other vehicles,Hybrid,0.0
-2015-01-01,Other vehicles,Other,88459.0
-2015-01-01,Other vehicles,Petrol,66304.0
-2015-01-01,Other vehicles,Pure Electric,70.0
-2015-04-01,Buses and coaches,Diesel,162751.0
-2015-04-01,Buses and coaches,Other,502.0
-2015-04-01,Buses and coaches,Petrol,4821.0
-2015-04-01,Buses and coaches,Pure Electric,180.0
-2015-04-01,Cars,Diesel,11370953.0
-2015-04-01,Cars,Hybrid,15714.0
-2015-04-01,Cars,Other,279420.0
-2015-04-01,Cars,Petrol,18770864.0
-2015-04-01,Cars,Pure Electric,19038.0
-2015-04-01,Heavy goods vehicles,Diesel,493170.0
-2015-04-01,Heavy goods vehicles,Other,1066.0
-2015-04-01,Heavy goods vehicles,Petrol,2503.0
-2015-04-01,Heavy goods vehicles,Pure Electric,437.0
-2015-04-01,Light goods vehicles,Diesel,3464859.0
-2015-04-01,Light goods vehicles,Hybrid,87.0
-2015-04-01,Light goods vehicles,Other,14327.0
-2015-04-01,Light goods vehicles,Petrol,140104.0
-2015-04-01,Light goods vehicles,Pure Electric,4361.0
-2015-04-01,Motorcycles,Diesel,1123.0
-2015-04-01,Motorcycles,Hybrid,0.0
-2015-04-01,Motorcycles,Other,976.0
-2015-04-01,Motorcycles,Petrol,1307515.0
-2015-04-01,Motorcycles,Pure Electric,855.0
-2015-04-01,Other vehicles,Diesel,562245.0
-2015-04-01,Other vehicles,Hybrid,0.0
-2015-04-01,Other vehicles,Other,89537.0
-2015-04-01,Other vehicles,Petrol,69369.0
-2015-04-01,Other vehicles,Pure Electric,70.0
-2015-07-01,Buses and coaches,Diesel,163094.0
-2015-07-01,Buses and coaches,Other,513.0
-2015-07-01,Buses and coaches,Petrol,4796.0
-2015-07-01,Buses and coaches,Pure Electric,190.0
-2015-07-01,Cars,Diesel,11548315.0
-2015-07-01,Cars,Hybrid,19104.0
-2015-07-01,Cars,Other,295194.0
-2015-07-01,Cars,Petrol,18733724.0
-2015-07-01,Cars,Pure Electric,21359.0
-2015-07-01,Heavy goods vehicles,Diesel,497233.0
-2015-07-01,Heavy goods vehicles,Other,992.0
-2015-07-01,Heavy goods vehicles,Petrol,2542.0
-2015-07-01,Heavy goods vehicles,Pure Electric,417.0
-2015-07-01,Light goods vehicles,Diesel,3511276.0
-2015-07-01,Light goods vehicles,Hybrid,92.0
-2015-07-01,Light goods vehicles,Other,14214.0
-2015-07-01,Light goods vehicles,Petrol,140537.0
-2015-07-01,Light goods vehicles,Pure Electric,4494.0
-2015-07-01,Motorcycles,Diesel,1116.0
-2015-07-01,Motorcycles,Hybrid,0.0
-2015-07-01,Motorcycles,Other,1029.0
-2015-07-01,Motorcycles,Petrol,1323505.0
-2015-07-01,Motorcycles,Pure Electric,911.0
-2015-07-01,Other vehicles,Diesel,565587.0
-2015-07-01,Other vehicles,Hybrid,0.0
-2015-07-01,Other vehicles,Other,91155.0
-2015-07-01,Other vehicles,Petrol,69918.0
-2015-07-01,Other vehicles,Pure Electric,68.0
-2015-10-01,Buses and coaches,Diesel,161691.0
-2015-10-01,Buses and coaches,Other,505.0
-2015-10-01,Buses and coaches,Petrol,4538.0
-2015-10-01,Buses and coaches,Pure Electric,193.0
-2015-10-01,Cars,Diesel,11651974.0
-2015-10-01,Cars,Hybrid,22988.0
-2015-10-01,Cars,Other,308603.0
-2015-10-01,Cars,Petrol,18574731.0
-2015-10-01,Cars,Pure Electric,24451.0
-2015-10-01,Heavy goods vehicles,Diesel,496104.0
-2015-10-01,Heavy goods vehicles,Other,941.0
-2015-10-01,Heavy goods vehicles,Petrol,2312.0
-2015-10-01,Heavy goods vehicles,Pure Electric,410.0
-2015-10-01,Light goods vehicles,Diesel,3523051.0
-2015-10-01,Light goods vehicles,Hybrid,102.0
-2015-10-01,Light goods vehicles,Other,13922.0
-2015-10-01,Light goods vehicles,Petrol,133238.0
-2015-10-01,Light goods vehicles,Pure Electric,4636.0
-2015-10-01,Motorcycles,Diesel,990.0
-2015-10-01,Motorcycles,Hybrid,0.0
-2015-10-01,Motorcycles,Other,1021.0
-2015-10-01,Motorcycles,Petrol,1237661.0
-2015-10-01,Motorcycles,Pure Electric,913.0
-2015-10-01,Other vehicles,Diesel,565667.0
-2015-10-01,Other vehicles,Hybrid,0.0
-2015-10-01,Other vehicles,Other,91617.0
-2015-10-01,Other vehicles,Petrol,67785.0
-2015-10-01,Other vehicles,Pure Electric,69.0
-2016-01-01,Buses and coaches,Diesel,161449.0
-2016-01-01,Buses and coaches,Other,501.0
-2016-01-01,Buses and coaches,Petrol,4418.0
-2016-01-01,Buses and coaches,Pure Electric,195.0
-2016-01-01,Cars,Diesel,11899443.0
-2016-01-01,Cars,Hybrid,30448.0
-2016-01-01,Cars,Other,330811.0
-2016-01-01,Cars,Petrol,18632197.0
-2016-01-01,Cars,Pure Electric,27592.0
-2016-01-01,Heavy goods vehicles,Diesel,497393.0
-2016-01-01,Heavy goods vehicles,Other,921.0
-2016-01-01,Heavy goods vehicles,Petrol,2288.0
-2016-01-01,Heavy goods vehicles,Pure Electric,420.0
-2016-01-01,Light goods vehicles,Diesel,3577595.0
-2016-01-01,Light goods vehicles,Hybrid,124.0
-2016-01-01,Light goods vehicles,Other,13914.0
-2016-01-01,Light goods vehicles,Petrol,131861.0
-2016-01-01,Light goods vehicles,Pure Electric,4795.0
-2016-01-01,Motorcycles,Diesel,969.0
-2016-01-01,Motorcycles,Hybrid,0.0
-2016-01-01,Motorcycles,Other,1110.0
-2016-01-01,Motorcycles,Petrol,1235355.0
-2016-01-01,Motorcycles,Pure Electric,998.0
-2016-01-01,Other vehicles,Diesel,567592.0
-2016-01-01,Other vehicles,Hybrid,0.0
-2016-01-01,Other vehicles,Other,93145.0
-2016-01-01,Other vehicles,Petrol,67786.0
-2016-01-01,Other vehicles,Pure Electric,72.0
-2016-04-01,Buses and coaches,Diesel,162132.0
-2016-04-01,Buses and coaches,Other,495.0
-2016-04-01,Buses and coaches,Petrol,4558.0
-2016-04-01,Buses and coaches,Pure Electric,195.0
-2016-04-01,Cars,Diesel,12047285.0
-2016-04-01,Cars,Hybrid,36513.0
-2016-04-01,Cars,Other,349828.0
-2016-04-01,Cars,Petrol,18624629.0
-2016-04-01,Cars,Pure Electric,29479.0
-2016-04-01,Heavy goods vehicles,Diesel,504483.0
-2016-04-01,Heavy goods vehicles,Other,895.0
-2016-04-01,Heavy goods vehicles,Petrol,2393.0
-2016-04-01,Heavy goods vehicles,Pure Electric,405.0
-2016-04-01,Light goods vehicles,Diesel,3631265.0
-2016-04-01,Light goods vehicles,Hybrid,143.0
-2016-04-01,Light goods vehicles,Other,13991.0
-2016-04-01,Light goods vehicles,Petrol,136439.0
-2016-04-01,Light goods vehicles,Pure Electric,4999.0
-2016-04-01,Motorcycles,Diesel,1013.0
-2016-04-01,Motorcycles,Hybrid,0.0
-2016-04-01,Motorcycles,Other,1129.0
-2016-04-01,Motorcycles,Petrol,1320283.0
-2016-04-01,Motorcycles,Pure Electric,1008.0
-2016-04-01,Other vehicles,Diesel,569588.0
-2016-04-01,Other vehicles,Hybrid,0.0
-2016-04-01,Other vehicles,Other,94747.0
-2016-04-01,Other vehicles,Petrol,70204.0
-2016-04-01,Other vehicles,Pure Electric,75.0
-2016-07-01,Buses and coaches,Diesel,162285.0
-2016-07-01,Buses and coaches,Other,518.0
-2016-07-01,Buses and coaches,Petrol,4477.0
-2016-07-01,Buses and coaches,Pure Electric,231.0
-2016-07-01,Cars,Diesel,12186310.0
-2016-07-01,Cars,Hybrid,42635.0
-2016-07-01,Cars,Other,370680.0
-2016-07-01,Cars,Petrol,18586527.0
-2016-07-01,Cars,Pure Electric,32388.0
-2016-07-01,Heavy goods vehicles,Diesel,508089.0
-2016-07-01,Heavy goods vehicles,Other,853.0
-2016-07-01,Heavy goods vehicles,Petrol,2095.0
-2016-07-01,Heavy goods vehicles,Pure Electric,405.0
-2016-07-01,Light goods vehicles,Diesel,3674865.0
-2016-07-01,Light goods vehicles,Hybrid,160.0
-2016-07-01,Light goods vehicles,Other,14045.0
-2016-07-01,Light goods vehicles,Petrol,136194.0
-2016-07-01,Light goods vehicles,Pure Electric,5218.0
-2016-07-01,Motorcycles,Diesel,1015.0
-2016-07-01,Motorcycles,Hybrid,0.0
-2016-07-01,Motorcycles,Other,1071.0
-2016-07-01,Motorcycles,Petrol,1337089.0
-2016-07-01,Motorcycles,Pure Electric,954.0
-2016-07-01,Other vehicles,Diesel,573585.0
-2016-07-01,Other vehicles,Hybrid,0.0
-2016-07-01,Other vehicles,Other,98057.0
-2016-07-01,Other vehicles,Petrol,70663.0
-2016-07-01,Other vehicles,Pure Electric,79.0
-2016-10-01,Buses and coaches,Diesel,160743.0
-2016-10-01,Buses and coaches,Other,538.0
-2016-10-01,Buses and coaches,Petrol,4216.0
-2016-10-01,Buses and coaches,Pure Electric,260.0
-2016-10-01,Cars,Diesel,12296229.0
-2016-10-01,Cars,Hybrid,47909.0
-2016-10-01,Cars,Other,386247.0
-2016-10-01,Cars,Petrol,18492246.0
-2016-10-01,Cars,Pure Electric,34488.0
-2016-10-01,Heavy goods vehicles,Diesel,507475.0
-2016-10-01,Heavy goods vehicles,Other,823.0
-2016-10-01,Heavy goods vehicles,Petrol,1888.0
-2016-10-01,Heavy goods vehicles,Pure Electric,405.0
-2016-10-01,Light goods vehicles,Diesel,3680626.0
-2016-10-01,Light goods vehicles,Hybrid,173.0
-2016-10-01,Light goods vehicles,Other,13719.0
-2016-10-01,Light goods vehicles,Petrol,129359.0
-2016-10-01,Light goods vehicles,Pure Electric,5336.0
-2016-10-01,Motorcycles,Diesel,936.0
-2016-10-01,Motorcycles,Hybrid,0.0
-2016-10-01,Motorcycles,Other,1132.0
-2016-10-01,Motorcycles,Petrol,1255226.0
-2016-10-01,Motorcycles,Pure Electric,1035.0
-2016-10-01,Other vehicles,Diesel,572042.0
-2016-10-01,Other vehicles,Hybrid,0.0
-2016-10-01,Other vehicles,Other,99952.0
-2016-10-01,Other vehicles,Petrol,69017.0
-2016-10-01,Other vehicles,Pure Electric,81.0
-2017-01-01,Buses and coaches,Diesel,160372.0
-2017-01-01,Buses and coaches,Other,550.0
-2017-01-01,Buses and coaches,Petrol,4163.0
-2017-01-01,Buses and coaches,Pure Electric,262.0
-2017-01-01,Cars,Diesel,12437476.0
-2017-01-01,Cars,Hybrid,54777.0
-2017-01-01,Cars,Other,414604.0
-2017-01-01,Cars,Petrol,18527931.0
-2017-01-01,Cars,Pure Electric,38931.0
-2017-01-01,Heavy goods vehicles,Diesel,506603.0
-2017-01-01,Heavy goods vehicles,Other,825.0
-2017-01-01,Heavy goods vehicles,Petrol,1872.0
-2017-01-01,Heavy goods vehicles,Pure Electric,404.0
-2017-01-01,Light goods vehicles,Diesel,3720055.0
-2017-01-01,Light goods vehicles,Hybrid,205.0
-2017-01-01,Light goods vehicles,Other,13795.0
-2017-01-01,Light goods vehicles,Petrol,128611.0
-2017-01-01,Light goods vehicles,Pure Electric,5645.0
-2017-01-01,Motorcycles,Diesel,907.0
-2017-01-01,Motorcycles,Hybrid,0.0
-2017-01-01,Motorcycles,Other,1134.0
-2017-01-01,Motorcycles,Petrol,1249961.0
-2017-01-01,Motorcycles,Pure Electric,1040.0
-2017-01-01,Other vehicles,Diesel,572914.0
-2017-01-01,Other vehicles,Hybrid,0.0
-2017-01-01,Other vehicles,Other,102631.0
-2017-01-01,Other vehicles,Petrol,69059.0
-2017-01-01,Other vehicles,Pure Electric,81.0
-2017-04-01,Buses and coaches,Diesel,160594.0
-2017-04-01,Buses and coaches,Other,563.0
-2017-04-01,Buses and coaches,Petrol,4311.0
-2017-04-01,Buses and coaches,Pure Electric,264.0
-2017-04-01,Cars,Diesel,12527272.0
-2017-04-01,Cars,Hybrid,60825.0
-2017-04-01,Cars,Other,438540.0
-2017-04-01,Cars,Petrol,18579819.0
-2017-04-01,Cars,Pure Electric,41970.0
-2017-04-01,Heavy goods vehicles,Diesel,513309.0
-2017-04-01,Heavy goods vehicles,Other,855.0
-2017-04-01,Heavy goods vehicles,Petrol,1992.0
-2017-04-01,Heavy goods vehicles,Pure Electric,393.0
-2017-04-01,Light goods vehicles,Diesel,3767251.0
-2017-04-01,Light goods vehicles,Hybrid,213.0
-2017-04-01,Light goods vehicles,Other,13938.0
-2017-04-01,Light goods vehicles,Petrol,133517.0
-2017-04-01,Light goods vehicles,Pure Electric,5825.0
-2017-04-01,Motorcycles,Diesel,965.0
-2017-04-01,Motorcycles,Hybrid,0.0
-2017-04-01,Motorcycles,Other,1227.0
-2017-04-01,Motorcycles,Petrol,1334416.0
-2017-04-01,Motorcycles,Pure Electric,1125.0
-2017-04-01,Other vehicles,Diesel,584800.0
-2017-04-01,Other vehicles,Hybrid,0.0
-2017-04-01,Other vehicles,Other,104387.0
-2017-04-01,Other vehicles,Petrol,71985.0
-2017-04-01,Other vehicles,Pure Electric,81.0
-2017-07-01,Buses and coaches,Diesel,160251.0
-2017-07-01,Buses and coaches,Other,614.0
-2017-07-01,Buses and coaches,Petrol,4253.0
-2017-07-01,Buses and coaches,Pure Electric,284.0
-2017-07-01,Cars,Diesel,12618478.0
-2017-07-01,Cars,Hybrid,68390.0
-2017-07-01,Cars,Other,469524.0
-2017-07-01,Cars,Petrol,18574282.0
-2017-07-01,Cars,Pure Electric,46045.0
-2017-07-01,Heavy goods vehicles,Diesel,516057.0
-2017-07-01,Heavy goods vehicles,Other,859.0
-2017-07-01,Heavy goods vehicles,Petrol,2020.0
-2017-07-01,Heavy goods vehicles,Pure Electric,382.0
-2017-07-01,Light goods vehicles,Diesel,3808848.0
-2017-07-01,Light goods vehicles,Hybrid,239.0
-2017-07-01,Light goods vehicles,Other,14071.0
-2017-07-01,Light goods vehicles,Petrol,133619.0
-2017-07-01,Light goods vehicles,Pure Electric,6085.0
-2017-07-01,Motorcycles,Diesel,932.0
-2017-07-01,Motorcycles,Hybrid,0.0
-2017-07-01,Motorcycles,Other,1302.0
-2017-07-01,Motorcycles,Petrol,1335963.0
-2017-07-01,Motorcycles,Pure Electric,1195.0
-2017-07-01,Other vehicles,Diesel,588291.0
-2017-07-01,Other vehicles,Hybrid,0.0
-2017-07-01,Other vehicles,Other,106456.0
-2017-07-01,Other vehicles,Petrol,72282.0
-2017-07-01,Other vehicles,Pure Electric,76.0
-2017-10-01,Buses and coaches,Diesel,157787.0
-2017-10-01,Buses and coaches,Other,632.0
-2017-10-01,Buses and coaches,Petrol,4010.0
-2017-10-01,Buses and coaches,Pure Electric,304.0
-2017-10-01,Cars,Diesel,12615832.0
-2017-10-01,Cars,Hybrid,76282.0
-2017-10-01,Cars,Other,490230.0
-2017-10-01,Cars,Petrol,18423529.0
-2017-10-01,Cars,Pure Electric,48907.0
-2017-10-01,Heavy goods vehicles,Diesel,513393.0
-2017-10-01,Heavy goods vehicles,Other,814.0
-2017-10-01,Heavy goods vehicles,Petrol,1847.0
-2017-10-01,Heavy goods vehicles,Pure Electric,364.0
-2017-10-01,Light goods vehicles,Diesel,3800184.0
-2017-10-01,Light goods vehicles,Hybrid,222.0
-2017-10-01,Light goods vehicles,Other,13825.0
-2017-10-01,Light goods vehicles,Petrol,127689.0
-2017-10-01,Light goods vehicles,Pure Electric,6280.0
-2017-10-01,Motorcycles,Diesel,852.0
-2017-10-01,Motorcycles,Hybrid,0.0
-2017-10-01,Motorcycles,Other,1154.0
-2017-10-01,Motorcycles,Petrol,1240564.0
-2017-10-01,Motorcycles,Pure Electric,1054.0
-2017-10-01,Other vehicles,Diesel,588051.0
-2017-10-01,Other vehicles,Hybrid,0.0
-2017-10-01,Other vehicles,Other,104708.0
-2017-10-01,Other vehicles,Petrol,70482.0
-2017-10-01,Other vehicles,Pure Electric,77.0
-2018-01-01,Buses and coaches,Diesel,156961.0
-2018-01-01,Buses and coaches,Other,666.0
-2018-01-01,Buses and coaches,Petrol,3915.0
-2018-01-01,Buses and coaches,Pure Electric,314.0
-2018-01-01,Cars,Diesel,12663178.0
-2018-01-01,Cars,Hybrid,84353.0
-2018-01-01,Cars,Other,519205.0
-2018-01-01,Cars,Petrol,18451971.0
-2018-01-01,Cars,Pure Electric,52612.0
-2018-01-01,Heavy goods vehicles,Diesel,511330.0
-2018-01-01,Heavy goods vehicles,Other,814.0
-2018-01-01,Heavy goods vehicles,Petrol,1853.0
-2018-01-01,Heavy goods vehicles,Pure Electric,363.0
-2018-01-01,Light goods vehicles,Diesel,3834346.0
-2018-01-01,Light goods vehicles,Hybrid,328.0
-2018-01-01,Light goods vehicles,Other,14134.0
-2018-01-01,Light goods vehicles,Petrol,127159.0
-2018-01-01,Light goods vehicles,Pure Electric,6675.0
-2018-01-01,Motorcycles,Diesel,816.0
-2018-01-01,Motorcycles,Hybrid,0.0
-2018-01-01,Motorcycles,Other,1218.0
-2018-01-01,Motorcycles,Petrol,1222570.0
-2018-01-01,Motorcycles,Pure Electric,1117.0
-2018-01-01,Other vehicles,Diesel,587479.0
-2018-01-01,Other vehicles,Hybrid,0.0
-2018-01-01,Other vehicles,Other,101185.0
-2018-01-01,Other vehicles,Petrol,70487.0
-2018-01-01,Other vehicles,Pure Electric,149.0
-2018-04-01,Buses and coaches,Diesel,157144.0
-2018-04-01,Buses and coaches,Other,700.0
-2018-04-01,Buses and coaches,Petrol,4038.0
-2018-04-01,Buses and coaches,Pure Electric,347.0
-2018-04-01,Cars,Diesel,12687498.0
-2018-04-01,Cars,Hybrid,93837.0
-2018-04-01,Cars,Other,552325.0
-2018-04-01,Cars,Petrol,18592985.0
-2018-04-01,Cars,Pure Electric,56026.0
-2018-04-01,Heavy goods vehicles,Diesel,515764.0
-2018-04-01,Heavy goods vehicles,Other,787.0
-2018-04-01,Heavy goods vehicles,Petrol,1984.0
-2018-04-01,Heavy goods vehicles,Pure Electric,352.0
-2018-04-01,Light goods vehicles,Diesel,3877311.0
-2018-04-01,Light goods vehicles,Hybrid,360.0
-2018-04-01,Light goods vehicles,Other,14281.0
-2018-04-01,Light goods vehicles,Petrol,133702.0
-2018-04-01,Light goods vehicles,Pure Electric,6874.0
-2018-04-01,Motorcycles,Diesel,909.0
-2018-04-01,Motorcycles,Hybrid,0.0
-2018-04-01,Motorcycles,Other,1332.0
-2018-04-01,Motorcycles,Petrol,1325372.0
-2018-04-01,Motorcycles,Pure Electric,1227.0
-2018-04-01,Other vehicles,Diesel,589277.0
-2018-04-01,Other vehicles,Hybrid,0.0
-2018-04-01,Other vehicles,Other,99014.0
-2018-04-01,Other vehicles,Petrol,73171.0
-2018-04-01,Other vehicles,Pure Electric,405.0
-2018-07-01,Buses and coaches,Diesel,156481.0
-2018-07-01,Buses and coaches,Other,732.0
-2018-07-01,Buses and coaches,Petrol,4055.0
-2018-07-01,Buses and coaches,Pure Electric,379.0
-2018-07-01,Cars,Diesel,12693725.0
-2018-07-01,Cars,Hybrid,103489.0
-2018-07-01,Cars,Other,590437.0
-2018-07-01,Cars,Petrol,18644041.0
-2018-07-01,Cars,Pure Electric,60307.0
-2018-07-01,Heavy goods vehicles,Diesel,517253.0
-2018-07-01,Heavy goods vehicles,Other,777.0
-2018-07-01,Heavy goods vehicles,Petrol,2010.0
-2018-07-01,Heavy goods vehicles,Pure Electric,347.0
-2018-07-01,Light goods vehicles,Diesel,3911630.0
-2018-07-01,Light goods vehicles,Hybrid,372.0
-2018-07-01,Light goods vehicles,Other,14367.0
-2018-07-01,Light goods vehicles,Petrol,135561.0
-2018-07-01,Light goods vehicles,Pure Electric,7162.0
-2018-07-01,Motorcycles,Diesel,909.0
-2018-07-01,Motorcycles,Hybrid,0.0
-2018-07-01,Motorcycles,Other,1438.0
-2018-07-01,Motorcycles,Petrol,1343138.0
-2018-07-01,Motorcycles,Pure Electric,1341.0
-2018-07-01,Other vehicles,Diesel,593140.0
-2018-07-01,Other vehicles,Hybrid,0.0
-2018-07-01,Other vehicles,Other,108196.0
-2018-07-01,Other vehicles,Petrol,73801.0
-2018-07-01,Other vehicles,Pure Electric,724.0
-2018-10-01,Buses and coaches,Diesel,154237.0
-2018-10-01,Buses and coaches,Other,765.0
-2018-10-01,Buses and coaches,Petrol,3868.0
-2018-10-01,Buses and coaches,Pure Electric,394.0
-2018-10-01,Cars,Diesel,12662139.0
-2018-10-01,Cars,Hybrid,112966.0
-2018-10-01,Cars,Other,619006.0
-2018-10-01,Cars,Petrol,18568990.0
-2018-10-01,Cars,Pure Electric,64881.0
-2018-10-01,Heavy goods vehicles,Diesel,513621.0
-2018-10-01,Heavy goods vehicles,Other,865.0
-2018-10-01,Heavy goods vehicles,Petrol,1844.0
-2018-10-01,Heavy goods vehicles,Pure Electric,347.0
-2018-10-01,Light goods vehicles,Diesel,3911448.0
-2018-10-01,Light goods vehicles,Hybrid,406.0
-2018-10-01,Light goods vehicles,Other,14366.0
-2018-10-01,Light goods vehicles,Petrol,131187.0
-2018-10-01,Light goods vehicles,Pure Electric,7439.0
-2018-10-01,Motorcycles,Diesel,812.0
-2018-10-01,Motorcycles,Hybrid,0.0
-2018-10-01,Motorcycles,Other,1538.0
-2018-10-01,Motorcycles,Petrol,1249634.0
-2018-10-01,Motorcycles,Pure Electric,1454.0
-2018-10-01,Other vehicles,Diesel,594311.0
-2018-10-01,Other vehicles,Hybrid,0.0
-2018-10-01,Other vehicles,Other,110528.0
-2018-10-01,Other vehicles,Petrol,72244.0
-2018-10-01,Other vehicles,Pure Electric,1265.0
-2019-01-01,Buses and coaches,Diesel,153058.0
-2019-01-01,Buses and coaches,Other,790.0
-2019-01-01,Buses and coaches,Petrol,3841.0
-2019-01-01,Buses and coaches,Pure Electric,394.0
-2019-01-01,Cars,Diesel,12650262.0
-2019-01-01,Cars,Hybrid,120314.0
-2019-01-01,Cars,Other,655953.0
-2019-01-01,Cars,Petrol,18713696.0
-2019-01-01,Cars,Pure Electric,69811.0
-2019-01-01,Heavy goods vehicles,Diesel,512811.0
-2019-01-01,Heavy goods vehicles,Other,858.0
-2019-01-01,Heavy goods vehicles,Petrol,1859.0
-2019-01-01,Heavy goods vehicles,Pure Electric,352.0
-2019-01-01,Light goods vehicles,Diesel,3952539.0
-2019-01-01,Light goods vehicles,Hybrid,437.0
-2019-01-01,Light goods vehicles,Other,14798.0
-2019-01-01,Light goods vehicles,Petrol,131834.0
-2019-01-01,Light goods vehicles,Pure Electric,7979.0
-2019-01-01,Motorcycles,Diesel,790.0
-2019-01-01,Motorcycles,Hybrid,0.0
-2019-01-01,Motorcycles,Other,1737.0
-2019-01-01,Motorcycles,Petrol,1260448.0
-2019-01-01,Motorcycles,Pure Electric,1652.0
-2019-01-01,Other vehicles,Diesel,593821.0
-2019-01-01,Other vehicles,Hybrid,0.0
-2019-01-01,Other vehicles,Other,107933.0
-2019-01-01,Other vehicles,Petrol,72591.0
-2019-01-01,Other vehicles,Pure Electric,1632.0
-2019-04-01,Buses and coaches,Diesel,153310.0
-2019-04-01,Buses and coaches,Other,846.0
-2019-04-01,Buses and coaches,Petrol,3945.0
-2019-04-01,Buses and coaches,Pure Electric,410.0
-2019-04-01,Cars,Diesel,12644263.0
-2019-04-01,Cars,Hybrid,125143.0
-2019-04-01,Cars,Other,688990.0
-2019-04-01,Cars,Petrol,18870236.0
-2019-04-01,Cars,Pure Electric,75364.0
-2019-04-01,Heavy goods vehicles,Diesel,519677.0
-2019-04-01,Heavy goods vehicles,Other,917.0
-2019-04-01,Heavy goods vehicles,Petrol,1959.0
-2019-04-01,Heavy goods vehicles,Pure Electric,353.0
-2019-04-01,Light goods vehicles,Diesel,3999703.0
-2019-04-01,Light goods vehicles,Hybrid,491.0
-2019-04-01,Light goods vehicles,Other,15473.0
-2019-04-01,Light goods vehicles,Petrol,137047.0
-2019-04-01,Light goods vehicles,Pure Electric,8560.0
-2019-04-01,Motorcycles,Diesel,851.0
-2019-04-01,Motorcycles,Hybrid,0.0
-2019-04-01,Motorcycles,Other,2124.0
-2019-04-01,Motorcycles,Petrol,1337476.0
-2019-04-01,Motorcycles,Pure Electric,2033.0
-2019-04-01,Other vehicles,Diesel,597055.0
-2019-04-01,Other vehicles,Hybrid,0.0
-2019-04-01,Other vehicles,Other,111368.0
-2019-04-01,Other vehicles,Petrol,74398.0
-2019-04-01,Other vehicles,Pure Electric,2161.0
-2019-07-01,Buses and coaches,Diesel,152631.0
-2019-07-01,Buses and coaches,Other,932.0
-2019-07-01,Buses and coaches,Petrol,3934.0
-2019-07-01,Buses and coaches,Pure Electric,459.0
-2019-07-01,Cars,Diesel,12633170.0
-2019-07-01,Cars,Hybrid,131091.0
-2019-07-01,Cars,Other,734656.0
-2019-07-01,Cars,Petrol,18970857.0
-2019-07-01,Cars,Pure Electric,87320.0
-2019-07-01,Heavy goods vehicles,Diesel,518405.0
-2019-07-01,Heavy goods vehicles,Other,948.0
-2019-07-01,Heavy goods vehicles,Petrol,1966.0
-2019-07-01,Heavy goods vehicles,Pure Electric,363.0
-2019-07-01,Light goods vehicles,Diesel,4033484.0
-2019-07-01,Light goods vehicles,Hybrid,532.0
-2019-07-01,Light goods vehicles,Other,16086.0
-2019-07-01,Light goods vehicles,Petrol,137988.0
-2019-07-01,Light goods vehicles,Pure Electric,9267.0
-2019-07-01,Motorcycles,Diesel,873.0
-2019-07-01,Motorcycles,Hybrid,0.0
-2019-07-01,Motorcycles,Other,2509.0
-2019-07-01,Motorcycles,Petrol,1350550.0
-2019-07-01,Motorcycles,Pure Electric,2420.0
-2019-07-01,Other vehicles,Diesel,599678.0
-2019-07-01,Other vehicles,Hybrid,0.0
-2019-07-01,Other vehicles,Other,113602.0
-2019-07-01,Other vehicles,Petrol,75075.0
-2019-07-01,Other vehicles,Pure Electric,2739.0
-2019-10-01,Buses and coaches,Diesel,151249.0
-2019-10-01,Buses and coaches,Other,964.0
-2019-10-01,Buses and coaches,Petrol,3751.0
-2019-10-01,Buses and coaches,Pure Electric,473.0
-2019-10-01,Cars,Diesel,12567953.0
-2019-10-01,Cars,Hybrid,140534.0
-2019-10-01,Cars,Other,778526.0
-2019-10-01,Cars,Petrol,18894394.0
-2019-10-01,Cars,Pure Electric,99473.0
-2019-10-01,Heavy goods vehicles,Diesel,515664.0
-2019-10-01,Heavy goods vehicles,Other,1041.0
-2019-10-01,Heavy goods vehicles,Petrol,1812.0
-2019-10-01,Heavy goods vehicles,Pure Electric,357.0
-2019-10-01,Light goods vehicles,Diesel,4023699.0
-2019-10-01,Light goods vehicles,Hybrid,577.0
-2019-10-01,Light goods vehicles,Other,16860.0
-2019-10-01,Light goods vehicles,Petrol,133570.0
-2019-10-01,Light goods vehicles,Pure Electric,10330.0
-2019-10-01,Motorcycles,Diesel,786.0
-2019-10-01,Motorcycles,Hybrid,0.0
-2019-10-01,Motorcycles,Other,2878.0
-2019-10-01,Motorcycles,Petrol,1256447.0
-2019-10-01,Motorcycles,Pure Electric,2798.0
-2019-10-01,Other vehicles,Diesel,599600.0
-2019-10-01,Other vehicles,Hybrid,0.0
-2019-10-01,Other vehicles,Other,115276.0
-2019-10-01,Other vehicles,Petrol,73768.0
-2019-10-01,Other vehicles,Pure Electric,3381.0
-2020-01-01,Buses and coaches,Diesel,124820.0
-2020-01-01,Buses and coaches,Other,1016.0
-2020-01-01,Buses and coaches,Petrol,3600.0
-2020-01-01,Buses and coaches,Pure Electric,618.0
-2020-01-01,Cars,Diesel,12550516.0
-2020-01-01,Cars,Hybrid,153664.0
-2020-01-01,Cars,Other,842944.0
-2020-01-01,Cars,Petrol,18959051.0
-2020-01-01,Cars,Pure Electric,117479.0
-2020-01-01,Heavy goods vehicles,Diesel,485017.0
-2020-01-01,Heavy goods vehicles,Other,1052.0
-2020-01-01,Heavy goods vehicles,Petrol,1707.0
-2020-01-01,Heavy goods vehicles,Pure Electric,358.0
-2020-01-01,Light goods vehicles,Diesel,4004353.0
-2020-01-01,Light goods vehicles,Hybrid,655.0
-2020-01-01,Light goods vehicles,Other,17870.0
-2020-01-01,Light goods vehicles,Petrol,131853.0
-2020-01-01,Light goods vehicles,Pure Electric,11562.0
-2020-01-01,Motorcycles,Diesel,756.0
-2020-01-01,Motorcycles,Hybrid,0.0
-2020-01-01,Motorcycles,Other,3167.0
-2020-01-01,Motorcycles,Petrol,1240415.0
-2020-01-01,Motorcycles,Pure Electric,3088.0
-2020-01-01,Other vehicles,Diesel,595071.0
-2020-01-01,Other vehicles,Hybrid,0.0
-2020-01-01,Other vehicles,Other,119278.0
-2020-01-01,Other vehicles,Petrol,73493.0
-2020-01-01,Other vehicles,Pure Electric,3772.0
-2020-04-01,Buses and coaches,Diesel,121994.0
-2020-04-01,Buses and coaches,Other,1168.0
-2020-04-01,Buses and coaches,Petrol,3526.0
-2020-04-01,Buses and coaches,Pure Electric,650.0
-2020-04-01,Cars,Diesel,12348042.0
-2020-04-01,Cars,Hybrid,157066.0
-2020-04-01,Cars,Other,862990.0
-2020-04-01,Cars,Petrol,18718403.0
-2020-04-01,Cars,Pure Electric,127960.0
-2020-04-01,Heavy goods vehicles,Diesel,480047.0
-2020-04-01,Heavy goods vehicles,Other,1020.0
-2020-04-01,Heavy goods vehicles,Petrol,1662.0
-2020-04-01,Heavy goods vehicles,Pure Electric,343.0
-2020-04-01,Light goods vehicles,Diesel,3997845.0
-2020-04-01,Light goods vehicles,Hybrid,729.0
-2020-04-01,Light goods vehicles,Other,18294.0
-2020-04-01,Light goods vehicles,Petrol,131623.0
-2020-04-01,Light goods vehicles,Pure Electric,12050.0
-2020-04-01,Motorcycles,Diesel,799.0
-2020-04-01,Motorcycles,Hybrid,0.0
-2020-04-01,Motorcycles,Other,3483.0
-2020-04-01,Motorcycles,Petrol,1307773.0
-2020-04-01,Motorcycles,Pure Electric,3399.0
-2020-04-01,Other vehicles,Diesel,589280.0
-2020-04-01,Other vehicles,Hybrid,0.0
-2020-04-01,Other vehicles,Other,101929.0
-2020-04-01,Other vehicles,Petrol,75321.0
-2020-04-01,Other vehicles,Pure Electric,3774.0
-2020-07-01,Buses and coaches,Diesel,137898.0
-2020-07-01,Buses and coaches,Other,1237.0
-2020-07-01,Buses and coaches,Petrol,3709.0
-2020-07-01,Buses and coaches,Pure Electric,700.0
-2020-07-01,Cars,Diesel,12357393.0
-2020-07-01,Cars,Hybrid,176441.0
-2020-07-01,Cars,Other,982588.0
-2020-07-01,Cars,Petrol,18897609.0
-2020-07-01,Cars,Pure Electric,162190.0
-2020-07-01,Heavy goods vehicles,Diesel,498162.0
-2020-07-01,Heavy goods vehicles,Other,1034.0
-2020-07-01,Heavy goods vehicles,Petrol,1775.0
-2020-07-01,Heavy goods vehicles,Pure Electric,334.0
-2020-07-01,Light goods vehicles,Diesel,4114862.0
-2020-07-01,Light goods vehicles,Hybrid,812.0
-2020-07-01,Light goods vehicles,Other,19979.0
-2020-07-01,Light goods vehicles,Petrol,136285.0
-2020-07-01,Light goods vehicles,Pure Electric,13603.0
-2020-07-01,Motorcycles,Diesel,815.0
-2020-07-01,Motorcycles,Hybrid,0.0
-2020-07-01,Motorcycles,Other,4172.0
-2020-07-01,Motorcycles,Petrol,1363528.0
-2020-07-01,Motorcycles,Pure Electric,4086.0
-2020-07-01,Other vehicles,Diesel,594456.0
-2020-07-01,Other vehicles,Hybrid,0.0
-2020-07-01,Other vehicles,Other,120974.0
-2020-07-01,Other vehicles,Petrol,77434.0
-2020-07-01,Other vehicles,Pure Electric,4148.0
-2020-10-01,Buses and coaches,Diesel,135294.0
-2020-10-01,Buses and coaches,Other,1321.0
-2020-10-01,Buses and coaches,Petrol,3549.0
-2020-10-01,Buses and coaches,Pure Electric,775.0
-2020-10-01,Cars,Diesel,12255205.0
-2020-10-01,Cars,Hybrid,195529.0
-2020-10-01,Cars,Other,1084319.0
-2020-10-01,Cars,Petrol,18792569.0
-2020-10-01,Cars,Pure Electric,201678.0
-2020-10-01,Heavy goods vehicles,Diesel,499379.0
-2020-10-01,Heavy goods vehicles,Other,1246.0
-2020-10-01,Heavy goods vehicles,Petrol,1704.0
-2020-10-01,Heavy goods vehicles,Pure Electric,367.0
-2020-10-01,Light goods vehicles,Diesel,4118549.0
-2020-10-01,Light goods vehicles,Hybrid,894.0
-2020-10-01,Light goods vehicles,Other,21986.0
-2020-10-01,Light goods vehicles,Petrol,133583.0
-2020-10-01,Light goods vehicles,Pure Electric,15678.0
-2020-10-01,Motorcycles,Diesel,745.0
-2020-10-01,Motorcycles,Hybrid,0.0
-2020-10-01,Motorcycles,Other,4786.0
-2020-10-01,Motorcycles,Petrol,1279864.0
-2020-10-01,Motorcycles,Pure Electric,4708.0
-2020-10-01,Other vehicles,Diesel,593088.0
-2020-10-01,Other vehicles,Hybrid,0.0
-2020-10-01,Other vehicles,Other,122290.0
-2020-10-01,Other vehicles,Petrol,76620.0
-2020-10-01,Other vehicles,Pure Electric,4295.0
-2021-01-01,Buses and coaches,Diesel,133527.0
-2021-01-01,Buses and coaches,Other,1424.0
-2021-01-01,Buses and coaches,Petrol,3458.0
-2021-01-01,Buses and coaches,Pure Electric,860.0
-2021-01-01,Cars,Diesel,12154904.0
-2021-01-01,Cars,Hybrid,217960.0
-2021-01-01,Cars,Other,1196425.0
-2021-01-01,Cars,Petrol,18725281.0
-2021-01-01,Cars,Pure Electric,231412.0
-2021-01-01,Heavy goods vehicles,Diesel,499843.0
-2021-01-01,Heavy goods vehicles,Other,1382.0
-2021-01-01,Heavy goods vehicles,Petrol,1617.0
-2021-01-01,Heavy goods vehicles,Pure Electric,407.0
-2021-01-01,Light goods vehicles,Diesel,4160952.0
-2021-01-01,Light goods vehicles,Hybrid,987.0
-2021-01-01,Light goods vehicles,Other,24808.0
-2021-01-01,Light goods vehicles,Petrol,132777.0
-2021-01-01,Light goods vehicles,Pure Electric,18406.0
-2021-01-01,Motorcycles,Diesel,717.0
-2021-01-01,Motorcycles,Hybrid,0.0
-2021-01-01,Motorcycles,Other,5514.0
-2021-01-01,Motorcycles,Petrol,1268620.0
-2021-01-01,Motorcycles,Pure Electric,5436.0
-2021-01-01,Other vehicles,Diesel,595424.0
-2021-01-01,Other vehicles,Hybrid,0.0
-2021-01-01,Other vehicles,Other,123337.0
-2021-01-01,Other vehicles,Petrol,77550.0
-2021-01-01,Other vehicles,Pure Electric,4376.0
-2021-04-01,Buses and coaches,Diesel,138017.0
-2021-04-01,Buses and coaches,Other,1496.0
-2021-04-01,Buses and coaches,Petrol,3656.0
-2021-04-01,Buses and coaches,Pure Electric,902.0
-2021-04-01,Cars,Diesel,12126958.0
-2021-04-01,Cars,Hybrid,247834.0
-2021-04-01,Cars,Other,1348896.0
-2021-04-01,Cars,Petrol,18911273.0
-2021-04-01,Cars,Pure Electric,272473.0
-2021-04-01,Heavy goods vehicles,Diesel,515267.0
-2021-04-01,Heavy goods vehicles,Other,1529.0
-2021-04-01,Heavy goods vehicles,Petrol,1809.0
-2021-04-01,Heavy goods vehicles,Pure Electric,439.0
-2021-04-01,Light goods vehicles,Diesel,4264040.0
-2021-04-01,Light goods vehicles,Hybrid,1004.0
-2021-04-01,Light goods vehicles,Other,28053.0
-2021-04-01,Light goods vehicles,Petrol,138483.0
-2021-04-01,Light goods vehicles,Pure Electric,21278.0
-2021-04-01,Motorcycles,Diesel,796.0
-2021-04-01,Motorcycles,Hybrid,0.0
-2021-04-01,Motorcycles,Other,6817.0
-2021-04-01,Motorcycles,Petrol,1388006.0
-2021-04-01,Motorcycles,Pure Electric,6732.0
-2021-04-01,Other vehicles,Diesel,601591.0
-2021-04-01,Other vehicles,Hybrid,0.0
-2021-04-01,Other vehicles,Other,123822.0
-2021-04-01,Other vehicles,Petrol,80167.0
-2021-04-01,Other vehicles,Pure Electric,4678.0
-2021-07-01,Buses and coaches,Diesel,139988.0
-2021-07-01,Buses and coaches,Other,1612.0
-2021-07-01,Buses and coaches,Petrol,3674.0
-2021-07-01,Buses and coaches,Pure Electric,1005.0
-2021-07-01,Cars,Diesel,11990337.0
-2021-07-01,Cars,Hybrid,273559.0
-2021-07-01,Cars,Other,1498772.0
-2021-07-01,Cars,Petrol,18850114.0
-2021-07-01,Cars,Pure Electric,320985.0
-2021-07-01,Heavy goods vehicles,Diesel,519332.0
-2021-07-01,Heavy goods vehicles,Other,1615.0
-2021-07-01,Heavy goods vehicles,Petrol,1863.0
-2021-07-01,Heavy goods vehicles,Pure Electric,459.0
-2021-07-01,Light goods vehicles,Diesel,4286379.0
-2021-07-01,Light goods vehicles,Hybrid,1031.0
-2021-07-01,Light goods vehicles,Other,30682.0
-2021-07-01,Light goods vehicles,Petrol,139687.0
-2021-07-01,Light goods vehicles,Pure Electric,23727.0
-2021-07-01,Motorcycles,Diesel,796.0
-2021-07-01,Motorcycles,Hybrid,0.0
-2021-07-01,Motorcycles,Other,8185.0
-2021-07-01,Motorcycles,Petrol,1403581.0
-2021-07-01,Motorcycles,Pure Electric,8102.0
-2021-07-01,Other vehicles,Diesel,604314.0
-2021-07-01,Other vehicles,Hybrid,0.0
-2021-07-01,Other vehicles,Other,124935.0
-2021-07-01,Other vehicles,Petrol,80747.0
-2021-07-01,Other vehicles,Pure Electric,5088.0
-2021-10-01,Buses and coaches,Diesel,138911.0
-2021-10-01,Buses and coaches,Other,1830.0
-2021-10-01,Buses and coaches,Petrol,3517.0
-2021-10-01,Buses and coaches,Pure Electric,1265.0
-2021-10-01,Cars,Diesel,11884303.0
-2021-10-01,Cars,Hybrid,296492.0
-2021-10-01,Cars,Other,1630489.0
-2021-10-01,Cars,Petrol,18723197.0
-2021-10-01,Cars,Pure Electric,384077.0
-2021-10-01,Heavy goods vehicles,Diesel,518086.0
-2021-10-01,Heavy goods vehicles,Other,1800.0
-2021-10-01,Heavy goods vehicles,Petrol,1741.0
-2021-10-01,Heavy goods vehicles,Pure Electric,506.0
-2021-10-01,Light goods vehicles,Diesel,4290274.0
-2021-10-01,Light goods vehicles,Hybrid,1035.0
-2021-10-01,Light goods vehicles,Other,36247.0
-2021-10-01,Light goods vehicles,Petrol,136913.0
-2021-10-01,Light goods vehicles,Pure Electric,29281.0
-2021-10-01,Motorcycles,Diesel,732.0
-2021-10-01,Motorcycles,Hybrid,0.0
-2021-10-01,Motorcycles,Other,9189.0
-2021-10-01,Motorcycles,Petrol,1316262.0
-2021-10-01,Motorcycles,Pure Electric,9111.0
-2021-10-01,Other vehicles,Diesel,606324.0
-2021-10-01,Other vehicles,Hybrid,0.0
-2021-10-01,Other vehicles,Other,128663.0
-2021-10-01,Other vehicles,Petrol,79595.0
-2021-10-01,Other vehicles,Pure Electric,5574.0
-2022-01-01,Buses and coaches,Diesel,138799.0
-2022-01-01,Buses and coaches,Other,2132.0
-2022-01-01,Buses and coaches,Petrol,3485.0
-2022-01-01,Buses and coaches,Pure Electric,1510.0
-2022-01-01,Cars,Diesel,11790437.0
-2022-01-01,Cars,Hybrid,323699.0
-2022-01-01,Cars,Other,1809910.0
-2022-01-01,Cars,Petrol,18745437.0
-2022-01-01,Cars,Pure Electric,446707.0
-2022-01-01,Heavy goods vehicles,Diesel,520995.0
-2022-01-01,Heavy goods vehicles,Other,2089.0
-2022-01-01,Heavy goods vehicles,Petrol,1723.0
-2022-01-01,Heavy goods vehicles,Pure Electric,581.0
-2022-01-01,Light goods vehicles,Diesel,4314521.0
-2022-01-01,Light goods vehicles,Hybrid,1020.0
-2022-01-01,Light goods vehicles,Other,40528.0
-2022-01-01,Light goods vehicles,Petrol,137790.0
-2022-01-01,Light goods vehicles,Pure Electric,33491.0
-2022-01-01,Motorcycles,Diesel,716.0
-2022-01-01,Motorcycles,Hybrid,0.0
-2022-01-01,Motorcycles,Other,10524.0
-2022-01-01,Motorcycles,Petrol,1331569.0
-2022-01-01,Motorcycles,Pure Electric,10448.0
-2022-01-01,Other vehicles,Diesel,607640.0
-2022-01-01,Other vehicles,Hybrid,0.0
-2022-01-01,Other vehicles,Other,127268.0
-2022-01-01,Other vehicles,Petrol,80107.0
-2022-01-01,Other vehicles,Pure Electric,6003.0
-2022-04-01,Buses and coaches,Diesel,139208.0
-2022-04-01,Buses and coaches,Other,2265.0
-2022-04-01,Buses and coaches,Petrol,3605.0
-2022-04-01,Buses and coaches,Pure Electric,1647.0
-2022-04-01,Cars,Diesel,11698381.0
-2022-04-01,Cars,Hybrid,344658.0
-2022-04-01,Cars,Other,1969425.0
-2022-04-01,Cars,Petrol,18814210.0
-2022-04-01,Cars,Pure Electric,496082.0
-2022-04-01,Heavy goods vehicles,Diesel,527054.0
-2022-04-01,Heavy goods vehicles,Other,2419.0
-2022-04-01,Heavy goods vehicles,Petrol,1822.0
-2022-04-01,Heavy goods vehicles,Pure Electric,754.0
-2022-04-01,Light goods vehicles,Diesel,4354704.0
-2022-04-01,Light goods vehicles,Hybrid,1019.0
-2022-04-01,Light goods vehicles,Other,44548.0
-2022-04-01,Light goods vehicles,Petrol,141691.0
-2022-04-01,Light goods vehicles,Pure Electric,37342.0
-2022-04-01,Motorcycles,Diesel,748.0
-2022-04-01,Motorcycles,Hybrid,0.0
-2022-04-01,Motorcycles,Other,11440.0
-2022-04-01,Motorcycles,Petrol,1417023.0
-2022-04-01,Motorcycles,Pure Electric,11361.0
-2022-04-01,Other vehicles,Diesel,609963.0
-2022-04-01,Other vehicles,Hybrid,0.0
-2022-04-01,Other vehicles,Other,127857.0
-2022-04-01,Other vehicles,Petrol,82153.0
-2022-04-01,Other vehicles,Pure Electric,6445.0
+variable,BodyType,Fuel,Keepership,value
+2009-10-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2009-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2009-10-01,Buses and coaches,Other,CompanyPrivate,0.0
+2009-10-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2009-10-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2009-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2009-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2009-10-01,Cars,Other,CompanyPrivate,0.0
+2009-10-01,Cars,Petrol,CompanyPrivate,0.0
+2009-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2009-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2009-10-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2009-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2009-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2009-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2009-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2009-10-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2009-10-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2009-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2009-10-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2009-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2009-10-01,Motorcycles,Other,CompanyPrivate,0.0
+2009-10-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2009-10-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2009-10-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2009-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2009-10-01,Other vehicles,Other,CompanyPrivate,0.0
+2009-10-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2009-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2010-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2010-01-01,Buses and coaches,Other,CompanyPrivate,0.0
+2010-01-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2010-01-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2010-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Cars,Other,CompanyPrivate,0.0
+2010-01-01,Cars,Petrol,CompanyPrivate,0.0
+2010-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2010-01-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2010-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2010-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2010-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2010-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2010-01-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2010-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2010-01-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2010-01-01,Motorcycles,Other,CompanyPrivate,0.0
+2010-01-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2010-01-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2010-01-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2010-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-01-01,Other vehicles,Other,CompanyPrivate,0.0
+2010-01-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2010-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2010-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2010-04-01,Buses and coaches,Other,CompanyPrivate,0.0
+2010-04-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2010-04-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2010-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Cars,Other,CompanyPrivate,0.0
+2010-04-01,Cars,Petrol,CompanyPrivate,0.0
+2010-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2010-04-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2010-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2010-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2010-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2010-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2010-04-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2010-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2010-04-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2010-04-01,Motorcycles,Other,CompanyPrivate,0.0
+2010-04-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2010-04-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2010-04-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2010-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-04-01,Other vehicles,Other,CompanyPrivate,0.0
+2010-04-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2010-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2010-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2010-07-01,Buses and coaches,Other,CompanyPrivate,0.0
+2010-07-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2010-07-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2010-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Cars,Other,CompanyPrivate,0.0
+2010-07-01,Cars,Petrol,CompanyPrivate,0.0
+2010-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2010-07-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2010-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2010-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2010-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2010-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2010-07-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2010-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2010-07-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2010-07-01,Motorcycles,Other,CompanyPrivate,0.0
+2010-07-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2010-07-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2010-07-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2010-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-07-01,Other vehicles,Other,CompanyPrivate,0.0
+2010-07-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2010-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2010-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2010-10-01,Buses and coaches,Other,CompanyPrivate,0.0
+2010-10-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2010-10-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2010-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Cars,Other,CompanyPrivate,0.0
+2010-10-01,Cars,Petrol,CompanyPrivate,0.0
+2010-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2010-10-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2010-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2010-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2010-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2010-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2010-10-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2010-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2010-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2010-10-01,Motorcycles,Other,CompanyPrivate,0.0
+2010-10-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2010-10-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2010-10-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2010-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2010-10-01,Other vehicles,Other,CompanyPrivate,0.0
+2010-10-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2010-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2011-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2011-01-01,Buses and coaches,Other,CompanyPrivate,0.0
+2011-01-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2011-01-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2011-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Cars,Other,CompanyPrivate,0.0
+2011-01-01,Cars,Petrol,CompanyPrivate,0.0
+2011-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2011-01-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2011-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2011-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2011-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2011-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2011-01-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2011-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2011-01-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2011-01-01,Motorcycles,Other,CompanyPrivate,0.0
+2011-01-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2011-01-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2011-01-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2011-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-01-01,Other vehicles,Other,CompanyPrivate,0.0
+2011-01-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2011-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2011-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2011-04-01,Buses and coaches,Other,CompanyPrivate,0.0
+2011-04-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2011-04-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2011-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Cars,Other,CompanyPrivate,0.0
+2011-04-01,Cars,Petrol,CompanyPrivate,0.0
+2011-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2011-04-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2011-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2011-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2011-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2011-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2011-04-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2011-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2011-04-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2011-04-01,Motorcycles,Other,CompanyPrivate,0.0
+2011-04-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2011-04-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2011-04-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2011-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-04-01,Other vehicles,Other,CompanyPrivate,0.0
+2011-04-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2011-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2011-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2011-07-01,Buses and coaches,Other,CompanyPrivate,0.0
+2011-07-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2011-07-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2011-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Cars,Other,CompanyPrivate,0.0
+2011-07-01,Cars,Petrol,CompanyPrivate,0.0
+2011-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2011-07-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2011-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2011-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2011-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2011-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2011-07-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2011-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2011-07-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2011-07-01,Motorcycles,Other,CompanyPrivate,0.0
+2011-07-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2011-07-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2011-07-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2011-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-07-01,Other vehicles,Other,CompanyPrivate,0.0
+2011-07-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2011-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2011-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2011-10-01,Buses and coaches,Other,CompanyPrivate,0.0
+2011-10-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2011-10-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2011-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Cars,Other,CompanyPrivate,0.0
+2011-10-01,Cars,Petrol,CompanyPrivate,0.0
+2011-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2011-10-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2011-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2011-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2011-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2011-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2011-10-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2011-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2011-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2011-10-01,Motorcycles,Other,CompanyPrivate,0.0
+2011-10-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2011-10-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2011-10-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2011-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2011-10-01,Other vehicles,Other,CompanyPrivate,0.0
+2011-10-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2011-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2012-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2012-01-01,Buses and coaches,Other,CompanyPrivate,0.0
+2012-01-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2012-01-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2012-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Cars,Other,CompanyPrivate,0.0
+2012-01-01,Cars,Petrol,CompanyPrivate,0.0
+2012-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2012-01-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2012-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2012-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2012-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2012-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2012-01-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2012-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2012-01-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2012-01-01,Motorcycles,Other,CompanyPrivate,0.0
+2012-01-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2012-01-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2012-01-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2012-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-01-01,Other vehicles,Other,CompanyPrivate,0.0
+2012-01-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2012-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2012-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2012-04-01,Buses and coaches,Other,CompanyPrivate,0.0
+2012-04-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2012-04-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2012-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Cars,Other,CompanyPrivate,0.0
+2012-04-01,Cars,Petrol,CompanyPrivate,0.0
+2012-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2012-04-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2012-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2012-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2012-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2012-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2012-04-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2012-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2012-04-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2012-04-01,Motorcycles,Other,CompanyPrivate,0.0
+2012-04-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2012-04-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2012-04-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2012-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-04-01,Other vehicles,Other,CompanyPrivate,0.0
+2012-04-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2012-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2012-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2012-07-01,Buses and coaches,Other,CompanyPrivate,0.0
+2012-07-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2012-07-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2012-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Cars,Other,CompanyPrivate,0.0
+2012-07-01,Cars,Petrol,CompanyPrivate,0.0
+2012-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2012-07-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2012-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2012-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2012-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2012-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2012-07-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2012-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2012-07-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2012-07-01,Motorcycles,Other,CompanyPrivate,0.0
+2012-07-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2012-07-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2012-07-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2012-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-07-01,Other vehicles,Other,CompanyPrivate,0.0
+2012-07-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2012-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2012-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2012-10-01,Buses and coaches,Other,CompanyPrivate,0.0
+2012-10-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2012-10-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2012-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Cars,Other,CompanyPrivate,0.0
+2012-10-01,Cars,Petrol,CompanyPrivate,0.0
+2012-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2012-10-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2012-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2012-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2012-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2012-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2012-10-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2012-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2012-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2012-10-01,Motorcycles,Other,CompanyPrivate,0.0
+2012-10-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2012-10-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2012-10-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2012-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2012-10-01,Other vehicles,Other,CompanyPrivate,0.0
+2012-10-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2012-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2013-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2013-01-01,Buses and coaches,Other,CompanyPrivate,0.0
+2013-01-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2013-01-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2013-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Cars,Other,CompanyPrivate,0.0
+2013-01-01,Cars,Petrol,CompanyPrivate,0.0
+2013-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2013-01-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2013-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2013-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2013-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2013-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2013-01-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2013-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2013-01-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2013-01-01,Motorcycles,Other,CompanyPrivate,0.0
+2013-01-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2013-01-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2013-01-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2013-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-01-01,Other vehicles,Other,CompanyPrivate,0.0
+2013-01-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2013-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2013-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2013-04-01,Buses and coaches,Other,CompanyPrivate,0.0
+2013-04-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2013-04-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2013-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Cars,Other,CompanyPrivate,0.0
+2013-04-01,Cars,Petrol,CompanyPrivate,0.0
+2013-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2013-04-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2013-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2013-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2013-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2013-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2013-04-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2013-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2013-04-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2013-04-01,Motorcycles,Other,CompanyPrivate,0.0
+2013-04-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2013-04-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2013-04-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2013-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-04-01,Other vehicles,Other,CompanyPrivate,0.0
+2013-04-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2013-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2013-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2013-07-01,Buses and coaches,Other,CompanyPrivate,0.0
+2013-07-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2013-07-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2013-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Cars,Other,CompanyPrivate,0.0
+2013-07-01,Cars,Petrol,CompanyPrivate,0.0
+2013-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2013-07-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2013-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2013-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2013-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2013-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2013-07-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2013-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2013-07-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2013-07-01,Motorcycles,Other,CompanyPrivate,0.0
+2013-07-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2013-07-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2013-07-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2013-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-07-01,Other vehicles,Other,CompanyPrivate,0.0
+2013-07-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2013-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2013-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2013-10-01,Buses and coaches,Other,CompanyPrivate,0.0
+2013-10-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2013-10-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2013-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Cars,Other,CompanyPrivate,0.0
+2013-10-01,Cars,Petrol,CompanyPrivate,0.0
+2013-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2013-10-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2013-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2013-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2013-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2013-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2013-10-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2013-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2013-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2013-10-01,Motorcycles,Other,CompanyPrivate,0.0
+2013-10-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2013-10-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2013-10-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2013-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2013-10-01,Other vehicles,Other,CompanyPrivate,0.0
+2013-10-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2013-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2014-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2014-01-01,Buses and coaches,Other,CompanyPrivate,0.0
+2014-01-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2014-01-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2014-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Cars,Other,CompanyPrivate,0.0
+2014-01-01,Cars,Petrol,CompanyPrivate,0.0
+2014-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2014-01-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2014-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2014-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2014-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2014-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2014-01-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2014-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2014-01-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2014-01-01,Motorcycles,Other,CompanyPrivate,0.0
+2014-01-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2014-01-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2014-01-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2014-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2014-01-01,Other vehicles,Other,CompanyPrivate,0.0
+2014-01-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2014-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Buses and coaches,Diesel,CompanyPrivate,0.0
+2014-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,0.0
+2014-04-01,Buses and coaches,Other,CompanyPrivate,0.0
+2014-04-01,Buses and coaches,Petrol,CompanyPrivate,0.0
+2014-04-01,Buses and coaches,Pure Electric,CompanyPrivate,0.0
+2014-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Cars,Other,CompanyPrivate,0.0
+2014-04-01,Cars,Petrol,CompanyPrivate,0.0
+2014-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,0.0
+2014-04-01,Heavy goods vehicles,Other,CompanyPrivate,0.0
+2014-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,0.0
+2014-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,0.0
+2014-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,0.0
+2014-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Light goods vehicles,Other,CompanyPrivate,0.0
+2014-04-01,Light goods vehicles,Petrol,CompanyPrivate,0.0
+2014-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Motorcycles,Diesel,CompanyPrivate,0.0
+2014-04-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2014-04-01,Motorcycles,Other,CompanyPrivate,0.0
+2014-04-01,Motorcycles,Petrol,CompanyPrivate,0.0
+2014-04-01,Motorcycles,Pure Electric,CompanyPrivate,0.0
+2014-04-01,Other vehicles,Diesel,CompanyPrivate,0.0
+2014-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,0.0
+2014-04-01,Other vehicles,Other,CompanyPrivate,0.0
+2014-04-01,Other vehicles,Petrol,CompanyPrivate,0.0
+2014-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,0.0
+2014-07-01,Buses and coaches,Diesel,CompanyPrivate,164384.0
+2014-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,1.0
+2014-07-01,Buses and coaches,Other,CompanyPrivate,495.0
+2014-07-01,Buses and coaches,Petrol,CompanyPrivate,5076.0
+2014-07-01,Buses and coaches,Pure Electric,CompanyPrivate,152.0
+2014-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,10876418.0
+2014-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,174387.0
+2014-07-01,Cars,Other,CompanyPrivate,68866.0
+2014-07-01,Cars,Petrol,CompanyPrivate,18976410.0
+2014-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,12070.0
+2014-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,489471.0
+2014-07-01,Heavy goods vehicles,Other,CompanyPrivate,1032.0
+2014-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,2702.0
+2014-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,373.0
+2014-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3374639.0
+2014-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,33.0
+2014-07-01,Light goods vehicles,Other,CompanyPrivate,14824.0
+2014-07-01,Light goods vehicles,Petrol,CompanyPrivate,146600.0
+2014-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4089.0
+2014-07-01,Motorcycles,Diesel,CompanyPrivate,1196.0
+2014-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2014-07-01,Motorcycles,Other,CompanyPrivate,1077.0
+2014-07-01,Motorcycles,Petrol,CompanyPrivate,1335719.0
+2014-07-01,Motorcycles,Pure Electric,CompanyPrivate,949.0
+2014-07-01,Other vehicles,Diesel,CompanyPrivate,560664.0
+2014-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,40.0
+2014-07-01,Other vehicles,Other,CompanyPrivate,86165.0
+2014-07-01,Other vehicles,Petrol,CompanyPrivate,70517.0
+2014-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,68.0
+2014-10-01,Buses and coaches,Diesel,CompanyPrivate,161817.0
+2014-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,1.0
+2014-10-01,Buses and coaches,Other,CompanyPrivate,496.0
+2014-10-01,Buses and coaches,Petrol,CompanyPrivate,4682.0
+2014-10-01,Buses and coaches,Pure Electric,CompanyPrivate,168.0
+2014-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,10968692.0
+2014-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,182143.0
+2014-10-01,Cars,Other,CompanyPrivate,72255.0
+2014-10-01,Cars,Petrol,CompanyPrivate,18739477.0
+2014-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,14327.0
+2014-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,486167.0
+2014-10-01,Heavy goods vehicles,Other,CompanyPrivate,1007.0
+2014-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,2439.0
+2014-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,370.0
+2014-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3359301.0
+2014-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,35.0
+2014-10-01,Light goods vehicles,Other,CompanyPrivate,14402.0
+2014-10-01,Light goods vehicles,Petrol,CompanyPrivate,136192.0
+2014-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4215.0
+2014-10-01,Motorcycles,Diesel,CompanyPrivate,1103.0
+2014-10-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2014-10-01,Motorcycles,Other,CompanyPrivate,1012.0
+2014-10-01,Motorcycles,Petrol,CompanyPrivate,1220561.0
+2014-10-01,Motorcycles,Pure Electric,CompanyPrivate,895.0
+2014-10-01,Other vehicles,Diesel,CompanyPrivate,556149.0
+2014-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,45.0
+2014-10-01,Other vehicles,Other,CompanyPrivate,87225.0
+2014-10-01,Other vehicles,Petrol,CompanyPrivate,66926.0
+2014-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,65.0
+2015-01-01,Buses and coaches,Diesel,CompanyPrivate,161798.0
+2015-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,1.0
+2015-01-01,Buses and coaches,Other,CompanyPrivate,510.0
+2015-01-01,Buses and coaches,Petrol,CompanyPrivate,4611.0
+2015-01-01,Buses and coaches,Pure Electric,CompanyPrivate,175.0
+2015-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11165038.0
+2015-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,196390.0
+2015-01-01,Cars,Other,CompanyPrivate,79787.0
+2015-01-01,Cars,Petrol,CompanyPrivate,18714959.0
+2015-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,16996.0
+2015-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,486828.0
+2015-01-01,Heavy goods vehicles,Other,CompanyPrivate,985.0
+2015-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,2372.0
+2015-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,352.0
+2015-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3403956.0
+2015-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,113.0
+2015-01-01,Light goods vehicles,Other,CompanyPrivate,14357.0
+2015-01-01,Light goods vehicles,Petrol,CompanyPrivate,134221.0
+2015-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4297.0
+2015-01-01,Motorcycles,Diesel,CompanyPrivate,1061.0
+2015-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2015-01-01,Motorcycles,Other,CompanyPrivate,968.0
+2015-01-01,Motorcycles,Petrol,CompanyPrivate,1210156.0
+2015-01-01,Motorcycles,Pure Electric,CompanyPrivate,855.0
+2015-01-01,Other vehicles,Diesel,CompanyPrivate,556263.0
+2015-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,47.0
+2015-01-01,Other vehicles,Other,CompanyPrivate,88412.0
+2015-01-01,Other vehicles,Petrol,CompanyPrivate,66304.0
+2015-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,70.0
+2015-04-01,Buses and coaches,Diesel,CompanyPrivate,162749.0
+2015-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,1.0
+2015-04-01,Buses and coaches,Other,CompanyPrivate,503.0
+2015-04-01,Buses and coaches,Petrol,CompanyPrivate,4821.0
+2015-04-01,Buses and coaches,Pure Electric,CompanyPrivate,180.0
+2015-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11370623.0
+2015-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,209792.0
+2015-04-01,Cars,Other,CompanyPrivate,86143.0
+2015-04-01,Cars,Petrol,CompanyPrivate,18770579.0
+2015-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,19037.0
+2015-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,493170.0
+2015-04-01,Heavy goods vehicles,Other,CompanyPrivate,955.0
+2015-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,2503.0
+2015-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,328.0
+2015-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3464859.0
+2015-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,120.0
+2015-04-01,Light goods vehicles,Other,CompanyPrivate,14408.0
+2015-04-01,Light goods vehicles,Petrol,CompanyPrivate,140103.0
+2015-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4470.0
+2015-04-01,Motorcycles,Diesel,CompanyPrivate,1123.0
+2015-04-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2015-04-01,Motorcycles,Other,CompanyPrivate,975.0
+2015-04-01,Motorcycles,Petrol,CompanyPrivate,1307515.0
+2015-04-01,Motorcycles,Pure Electric,CompanyPrivate,855.0
+2015-04-01,Other vehicles,Diesel,CompanyPrivate,562245.0
+2015-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,52.0
+2015-04-01,Other vehicles,Other,CompanyPrivate,89485.0
+2015-04-01,Other vehicles,Petrol,CompanyPrivate,69369.0
+2015-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,70.0
+2015-07-01,Buses and coaches,Diesel,CompanyPrivate,163094.0
+2015-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2015-07-01,Buses and coaches,Other,CompanyPrivate,511.0
+2015-07-01,Buses and coaches,Petrol,CompanyPrivate,4796.0
+2015-07-01,Buses and coaches,Pure Electric,CompanyPrivate,190.0
+2015-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11548124.0
+2015-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,223042.0
+2015-07-01,Cars,Other,CompanyPrivate,91948.0
+2015-07-01,Cars,Petrol,CompanyPrivate,18733408.0
+2015-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,21358.0
+2015-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,497233.0
+2015-07-01,Heavy goods vehicles,Other,CompanyPrivate,887.0
+2015-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,2542.0
+2015-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,314.0
+2015-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3511276.0
+2015-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,127.0
+2015-07-01,Light goods vehicles,Other,CompanyPrivate,14287.0
+2015-07-01,Light goods vehicles,Petrol,CompanyPrivate,140536.0
+2015-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4597.0
+2015-07-01,Motorcycles,Diesel,CompanyPrivate,1116.0
+2015-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2015-07-01,Motorcycles,Other,CompanyPrivate,1028.0
+2015-07-01,Motorcycles,Petrol,CompanyPrivate,1323505.0
+2015-07-01,Motorcycles,Pure Electric,CompanyPrivate,911.0
+2015-07-01,Other vehicles,Diesel,CompanyPrivate,565587.0
+2015-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,49.0
+2015-07-01,Other vehicles,Other,CompanyPrivate,91106.0
+2015-07-01,Other vehicles,Petrol,CompanyPrivate,69918.0
+2015-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,68.0
+2015-10-01,Buses and coaches,Diesel,CompanyPrivate,161691.0
+2015-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2015-10-01,Buses and coaches,Other,CompanyPrivate,503.0
+2015-10-01,Buses and coaches,Petrol,CompanyPrivate,4538.0
+2015-10-01,Buses and coaches,Pure Electric,CompanyPrivate,193.0
+2015-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11651780.0
+2015-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,234752.0
+2015-10-01,Cars,Other,CompanyPrivate,97570.0
+2015-10-01,Cars,Petrol,CompanyPrivate,18574374.0
+2015-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,24450.0
+2015-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,496104.0
+2015-10-01,Heavy goods vehicles,Other,CompanyPrivate,837.0
+2015-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,2312.0
+2015-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,308.0
+2015-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3523051.0
+2015-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,135.0
+2015-10-01,Light goods vehicles,Other,CompanyPrivate,13996.0
+2015-10-01,Light goods vehicles,Petrol,CompanyPrivate,133237.0
+2015-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4738.0
+2015-10-01,Motorcycles,Diesel,CompanyPrivate,990.0
+2015-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2015-10-01,Motorcycles,Other,CompanyPrivate,1021.0
+2015-10-01,Motorcycles,Petrol,CompanyPrivate,1237661.0
+2015-10-01,Motorcycles,Pure Electric,CompanyPrivate,913.0
+2015-10-01,Other vehicles,Diesel,CompanyPrivate,565667.0
+2015-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,40.0
+2015-10-01,Other vehicles,Other,CompanyPrivate,91577.0
+2015-10-01,Other vehicles,Petrol,CompanyPrivate,67785.0
+2015-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,69.0
+2016-01-01,Buses and coaches,Diesel,CompanyPrivate,161448.0
+2016-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2016-01-01,Buses and coaches,Other,CompanyPrivate,500.0
+2016-01-01,Buses and coaches,Petrol,CompanyPrivate,4418.0
+2016-01-01,Buses and coaches,Pure Electric,CompanyPrivate,195.0
+2016-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11899236.0
+2016-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,254578.0
+2016-01-01,Cars,Other,CompanyPrivate,107427.0
+2016-01-01,Cars,Petrol,CompanyPrivate,18631832.0
+2016-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,27591.0
+2016-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,497393.0
+2016-01-01,Heavy goods vehicles,Other,CompanyPrivate,819.0
+2016-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,2288.0
+2016-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,320.0
+2016-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3577595.0
+2016-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,162.0
+2016-01-01,Light goods vehicles,Other,CompanyPrivate,13981.0
+2016-01-01,Light goods vehicles,Petrol,CompanyPrivate,131860.0
+2016-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4895.0
+2016-01-01,Motorcycles,Diesel,CompanyPrivate,969.0
+2016-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2016-01-01,Motorcycles,Other,CompanyPrivate,1109.0
+2016-01-01,Motorcycles,Petrol,CompanyPrivate,1235355.0
+2016-01-01,Motorcycles,Pure Electric,CompanyPrivate,998.0
+2016-01-01,Other vehicles,Diesel,CompanyPrivate,567592.0
+2016-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,46.0
+2016-01-01,Other vehicles,Other,CompanyPrivate,93099.0
+2016-01-01,Other vehicles,Petrol,CompanyPrivate,67786.0
+2016-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,72.0
+2016-04-01,Buses and coaches,Diesel,CompanyPrivate,162131.0
+2016-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2016-04-01,Buses and coaches,Other,CompanyPrivate,493.0
+2016-04-01,Buses and coaches,Petrol,CompanyPrivate,4558.0
+2016-04-01,Buses and coaches,Pure Electric,CompanyPrivate,195.0
+2016-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12047069.0
+2016-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,271719.0
+2016-04-01,Cars,Other,CompanyPrivate,115372.0
+2016-04-01,Cars,Petrol,CompanyPrivate,18624270.0
+2016-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,29478.0
+2016-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,504483.0
+2016-04-01,Heavy goods vehicles,Other,CompanyPrivate,793.0
+2016-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,2393.0
+2016-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,305.0
+2016-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3631265.0
+2016-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,184.0
+2016-04-01,Light goods vehicles,Other,CompanyPrivate,14056.0
+2016-04-01,Light goods vehicles,Petrol,CompanyPrivate,136438.0
+2016-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5099.0
+2016-04-01,Motorcycles,Diesel,CompanyPrivate,1013.0
+2016-04-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2016-04-01,Motorcycles,Other,CompanyPrivate,1128.0
+2016-04-01,Motorcycles,Petrol,CompanyPrivate,1320283.0
+2016-04-01,Motorcycles,Pure Electric,CompanyPrivate,1008.0
+2016-04-01,Other vehicles,Diesel,CompanyPrivate,569588.0
+2016-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,32.0
+2016-04-01,Other vehicles,Other,CompanyPrivate,94715.0
+2016-04-01,Other vehicles,Petrol,CompanyPrivate,70204.0
+2016-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,75.0
+2016-07-01,Buses and coaches,Diesel,CompanyPrivate,162285.0
+2016-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,4.0
+2016-07-01,Buses and coaches,Other,CompanyPrivate,514.0
+2016-07-01,Buses and coaches,Petrol,CompanyPrivate,4477.0
+2016-07-01,Buses and coaches,Pure Electric,CompanyPrivate,231.0
+2016-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12186089.0
+2016-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,290331.0
+2016-07-01,Cars,Other,CompanyPrivate,123732.0
+2016-07-01,Cars,Petrol,CompanyPrivate,18586168.0
+2016-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,32387.0
+2016-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,508089.0
+2016-07-01,Heavy goods vehicles,Other,CompanyPrivate,753.0
+2016-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,2095.0
+2016-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,307.0
+2016-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3674865.0
+2016-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,201.0
+2016-07-01,Light goods vehicles,Other,CompanyPrivate,14106.0
+2016-07-01,Light goods vehicles,Petrol,CompanyPrivate,136193.0
+2016-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5316.0
+2016-07-01,Motorcycles,Diesel,CompanyPrivate,1015.0
+2016-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2016-07-01,Motorcycles,Other,CompanyPrivate,1070.0
+2016-07-01,Motorcycles,Petrol,CompanyPrivate,1337089.0
+2016-07-01,Motorcycles,Pure Electric,CompanyPrivate,954.0
+2016-07-01,Other vehicles,Diesel,CompanyPrivate,573585.0
+2016-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,34.0
+2016-07-01,Other vehicles,Other,CompanyPrivate,98023.0
+2016-07-01,Other vehicles,Petrol,CompanyPrivate,70663.0
+2016-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,79.0
+2016-10-01,Buses and coaches,Diesel,CompanyPrivate,160743.0
+2016-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,4.0
+2016-10-01,Buses and coaches,Other,CompanyPrivate,534.0
+2016-10-01,Buses and coaches,Petrol,CompanyPrivate,4216.0
+2016-10-01,Buses and coaches,Pure Electric,CompanyPrivate,260.0
+2016-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12296019.0
+2016-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,305183.0
+2016-10-01,Cars,Other,CompanyPrivate,129699.0
+2016-10-01,Cars,Petrol,CompanyPrivate,18491903.0
+2016-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,34487.0
+2016-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,507475.0
+2016-10-01,Heavy goods vehicles,Other,CompanyPrivate,724.0
+2016-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1888.0
+2016-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,308.0
+2016-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3680626.0
+2016-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,214.0
+2016-10-01,Light goods vehicles,Other,CompanyPrivate,13779.0
+2016-10-01,Light goods vehicles,Petrol,CompanyPrivate,129358.0
+2016-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5433.0
+2016-10-01,Motorcycles,Diesel,CompanyPrivate,936.0
+2016-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2016-10-01,Motorcycles,Other,CompanyPrivate,1132.0
+2016-10-01,Motorcycles,Petrol,CompanyPrivate,1255226.0
+2016-10-01,Motorcycles,Pure Electric,CompanyPrivate,1035.0
+2016-10-01,Other vehicles,Diesel,CompanyPrivate,572042.0
+2016-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,34.0
+2016-10-01,Other vehicles,Other,CompanyPrivate,99918.0
+2016-10-01,Other vehicles,Petrol,CompanyPrivate,69017.0
+2016-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,81.0
+2017-01-01,Buses and coaches,Diesel,CompanyPrivate,160372.0
+2017-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,6.0
+2017-01-01,Buses and coaches,Other,CompanyPrivate,544.0
+2017-01-01,Buses and coaches,Petrol,CompanyPrivate,4163.0
+2017-01-01,Buses and coaches,Pure Electric,CompanyPrivate,262.0
+2017-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12437261.0
+2017-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,329787.0
+2017-01-01,Cars,Other,CompanyPrivate,140341.0
+2017-01-01,Cars,Petrol,CompanyPrivate,18527572.0
+2017-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,38930.0
+2017-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,506603.0
+2017-01-01,Heavy goods vehicles,Other,CompanyPrivate,726.0
+2017-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1872.0
+2017-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,307.0
+2017-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3720055.0
+2017-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,247.0
+2017-01-01,Light goods vehicles,Other,CompanyPrivate,13852.0
+2017-01-01,Light goods vehicles,Petrol,CompanyPrivate,128611.0
+2017-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5742.0
+2017-01-01,Motorcycles,Diesel,CompanyPrivate,907.0
+2017-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2017-01-01,Motorcycles,Other,CompanyPrivate,1133.0
+2017-01-01,Motorcycles,Petrol,CompanyPrivate,1249961.0
+2017-01-01,Motorcycles,Pure Electric,CompanyPrivate,1040.0
+2017-01-01,Other vehicles,Diesel,CompanyPrivate,572914.0
+2017-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,38.0
+2017-01-01,Other vehicles,Other,CompanyPrivate,102593.0
+2017-01-01,Other vehicles,Petrol,CompanyPrivate,69059.0
+2017-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,81.0
+2017-04-01,Buses and coaches,Diesel,CompanyPrivate,160594.0
+2017-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,6.0
+2017-04-01,Buses and coaches,Other,CompanyPrivate,557.0
+2017-04-01,Buses and coaches,Petrol,CompanyPrivate,4311.0
+2017-04-01,Buses and coaches,Pure Electric,CompanyPrivate,264.0
+2017-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12527054.0
+2017-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,350622.0
+2017-04-01,Cars,Other,CompanyPrivate,149474.0
+2017-04-01,Cars,Petrol,CompanyPrivate,18579475.0
+2017-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,41969.0
+2017-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,513309.0
+2017-04-01,Heavy goods vehicles,Other,CompanyPrivate,757.0
+2017-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1992.0
+2017-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,297.0
+2017-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3767251.0
+2017-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,256.0
+2017-04-01,Light goods vehicles,Other,CompanyPrivate,13993.0
+2017-04-01,Light goods vehicles,Petrol,CompanyPrivate,133517.0
+2017-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5921.0
+2017-04-01,Motorcycles,Diesel,CompanyPrivate,965.0
+2017-04-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2017-04-01,Motorcycles,Other,CompanyPrivate,1226.0
+2017-04-01,Motorcycles,Petrol,CompanyPrivate,1334416.0
+2017-04-01,Motorcycles,Pure Electric,CompanyPrivate,1125.0
+2017-04-01,Other vehicles,Diesel,CompanyPrivate,584800.0
+2017-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,49.0
+2017-04-01,Other vehicles,Other,CompanyPrivate,104338.0
+2017-04-01,Other vehicles,Petrol,CompanyPrivate,71985.0
+2017-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,81.0
+2017-07-01,Buses and coaches,Diesel,CompanyPrivate,160251.0
+2017-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,5.0
+2017-07-01,Buses and coaches,Other,CompanyPrivate,609.0
+2017-07-01,Buses and coaches,Petrol,CompanyPrivate,4253.0
+2017-07-01,Buses and coaches,Pure Electric,CompanyPrivate,284.0
+2017-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12618267.0
+2017-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,378314.0
+2017-07-01,Cars,Other,CompanyPrivate,160315.0
+2017-07-01,Cars,Petrol,CompanyPrivate,18573943.0
+2017-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,46044.0
+2017-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,516057.0
+2017-07-01,Heavy goods vehicles,Other,CompanyPrivate,767.0
+2017-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,2020.0
+2017-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,292.0
+2017-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3808848.0
+2017-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,287.0
+2017-07-01,Light goods vehicles,Other,CompanyPrivate,14115.0
+2017-07-01,Light goods vehicles,Petrol,CompanyPrivate,133619.0
+2017-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6175.0
+2017-07-01,Motorcycles,Diesel,CompanyPrivate,932.0
+2017-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2017-07-01,Motorcycles,Other,CompanyPrivate,1301.0
+2017-07-01,Motorcycles,Petrol,CompanyPrivate,1335963.0
+2017-07-01,Motorcycles,Pure Electric,CompanyPrivate,1195.0
+2017-07-01,Other vehicles,Diesel,CompanyPrivate,588291.0
+2017-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,59.0
+2017-07-01,Other vehicles,Other,CompanyPrivate,106399.0
+2017-07-01,Other vehicles,Petrol,CompanyPrivate,72282.0
+2017-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,76.0
+2017-10-01,Buses and coaches,Diesel,CompanyPrivate,157787.0
+2017-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,6.0
+2017-10-01,Buses and coaches,Other,CompanyPrivate,626.0
+2017-10-01,Buses and coaches,Petrol,CompanyPrivate,4010.0
+2017-10-01,Buses and coaches,Pure Electric,CompanyPrivate,302.0
+2017-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12615647.0
+2017-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,398100.0
+2017-10-01,Cars,Other,CompanyPrivate,169093.0
+2017-10-01,Cars,Petrol,CompanyPrivate,18423195.0
+2017-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,48906.0
+2017-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,513393.0
+2017-10-01,Heavy goods vehicles,Other,CompanyPrivate,727.0
+2017-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1847.0
+2017-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,279.0
+2017-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3800184.0
+2017-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,288.0
+2017-10-01,Light goods vehicles,Other,CompanyPrivate,13846.0
+2017-10-01,Light goods vehicles,Petrol,CompanyPrivate,127689.0
+2017-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6365.0
+2017-10-01,Motorcycles,Diesel,CompanyPrivate,852.0
+2017-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2017-10-01,Motorcycles,Other,CompanyPrivate,1154.0
+2017-10-01,Motorcycles,Petrol,CompanyPrivate,1240564.0
+2017-10-01,Motorcycles,Pure Electric,CompanyPrivate,1054.0
+2017-10-01,Other vehicles,Diesel,CompanyPrivate,588051.0
+2017-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,75.0
+2017-10-01,Other vehicles,Other,CompanyPrivate,104635.0
+2017-10-01,Other vehicles,Petrol,CompanyPrivate,70482.0
+2017-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,78.0
+2018-01-01,Buses and coaches,Diesel,CompanyPrivate,156960.0
+2018-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,6.0
+2018-01-01,Buses and coaches,Other,CompanyPrivate,661.0
+2018-01-01,Buses and coaches,Petrol,CompanyPrivate,3915.0
+2018-01-01,Buses and coaches,Pure Electric,CompanyPrivate,312.0
+2018-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12662997.0
+2018-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,424308.0
+2018-01-01,Cars,Other,CompanyPrivate,179926.0
+2018-01-01,Cars,Petrol,CompanyPrivate,18451639.0
+2018-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,52611.0
+2018-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,511330.0
+2018-01-01,Heavy goods vehicles,Other,CompanyPrivate,727.0
+2018-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1853.0
+2018-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,278.0
+2018-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3834346.0
+2018-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,393.0
+2018-01-01,Light goods vehicles,Other,CompanyPrivate,14156.0
+2018-01-01,Light goods vehicles,Petrol,CompanyPrivate,127159.0
+2018-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6760.0
+2018-01-01,Motorcycles,Diesel,CompanyPrivate,816.0
+2018-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2018-01-01,Motorcycles,Other,CompanyPrivate,1217.0
+2018-01-01,Motorcycles,Petrol,CompanyPrivate,1222570.0
+2018-01-01,Motorcycles,Pure Electric,CompanyPrivate,1117.0
+2018-01-01,Other vehicles,Diesel,CompanyPrivate,587479.0
+2018-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,70.0
+2018-01-01,Other vehicles,Other,CompanyPrivate,101117.0
+2018-01-01,Other vehicles,Petrol,CompanyPrivate,70487.0
+2018-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,149.0
+2018-04-01,Buses and coaches,Diesel,CompanyPrivate,157143.0
+2018-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,6.0
+2018-04-01,Buses and coaches,Other,CompanyPrivate,695.0
+2018-04-01,Buses and coaches,Petrol,CompanyPrivate,4038.0
+2018-04-01,Buses and coaches,Pure Electric,CompanyPrivate,345.0
+2018-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12687306.0
+2018-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,453969.0
+2018-04-01,Cars,Other,CompanyPrivate,192871.0
+2018-04-01,Cars,Petrol,CompanyPrivate,18592655.0
+2018-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,56025.0
+2018-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,515764.0
+2018-04-01,Heavy goods vehicles,Other,CompanyPrivate,705.0
+2018-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1984.0
+2018-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,272.0
+2018-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3877311.0
+2018-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,430.0
+2018-04-01,Light goods vehicles,Other,CompanyPrivate,14293.0
+2018-04-01,Light goods vehicles,Petrol,CompanyPrivate,133702.0
+2018-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6954.0
+2018-04-01,Motorcycles,Diesel,CompanyPrivate,909.0
+2018-04-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2018-04-01,Motorcycles,Other,CompanyPrivate,1331.0
+2018-04-01,Motorcycles,Petrol,CompanyPrivate,1325372.0
+2018-04-01,Motorcycles,Pure Electric,CompanyPrivate,1227.0
+2018-04-01,Other vehicles,Diesel,CompanyPrivate,589277.0
+2018-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,56.0
+2018-04-01,Other vehicles,Other,CompanyPrivate,98960.0
+2018-04-01,Other vehicles,Petrol,CompanyPrivate,73171.0
+2018-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,405.0
+2018-07-01,Buses and coaches,Diesel,CompanyPrivate,156480.0
+2018-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,6.0
+2018-07-01,Buses and coaches,Other,CompanyPrivate,727.0
+2018-07-01,Buses and coaches,Petrol,CompanyPrivate,4055.0
+2018-07-01,Buses and coaches,Pure Electric,CompanyPrivate,377.0
+2018-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12693542.0
+2018-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,488611.0
+2018-07-01,Cars,Other,CompanyPrivate,205975.0
+2018-07-01,Cars,Petrol,CompanyPrivate,18643714.0
+2018-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,60306.0
+2018-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,517253.0
+2018-07-01,Heavy goods vehicles,Other,CompanyPrivate,694.0
+2018-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,2010.0
+2018-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,266.0
+2018-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3911630.0
+2018-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,452.0
+2018-07-01,Light goods vehicles,Other,CompanyPrivate,14370.0
+2018-07-01,Light goods vehicles,Petrol,CompanyPrivate,135561.0
+2018-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,7243.0
+2018-07-01,Motorcycles,Diesel,CompanyPrivate,909.0
+2018-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2018-07-01,Motorcycles,Other,CompanyPrivate,1437.0
+2018-07-01,Motorcycles,Petrol,CompanyPrivate,1343138.0
+2018-07-01,Motorcycles,Pure Electric,CompanyPrivate,1341.0
+2018-07-01,Other vehicles,Diesel,CompanyPrivate,593140.0
+2018-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,53.0
+2018-07-01,Other vehicles,Other,CompanyPrivate,108145.0
+2018-07-01,Other vehicles,Petrol,CompanyPrivate,73801.0
+2018-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,724.0
+2018-10-01,Buses and coaches,Diesel,CompanyPrivate,154236.0
+2018-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,5.0
+2018-10-01,Buses and coaches,Other,CompanyPrivate,761.0
+2018-10-01,Buses and coaches,Petrol,CompanyPrivate,3868.0
+2018-10-01,Buses and coaches,Pure Electric,CompanyPrivate,392.0
+2018-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12661961.0
+2018-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,514585.0
+2018-10-01,Cars,Other,CompanyPrivate,218031.0
+2018-10-01,Cars,Petrol,CompanyPrivate,18568669.0
+2018-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,64880.0
+2018-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,513621.0
+2018-10-01,Heavy goods vehicles,Other,CompanyPrivate,782.0
+2018-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1844.0
+2018-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,266.0
+2018-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3911448.0
+2018-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,517.0
+2018-10-01,Light goods vehicles,Other,CompanyPrivate,14338.0
+2018-10-01,Light goods vehicles,Petrol,CompanyPrivate,131187.0
+2018-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,7520.0
+2018-10-01,Motorcycles,Diesel,CompanyPrivate,812.0
+2018-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2018-10-01,Motorcycles,Other,CompanyPrivate,1538.0
+2018-10-01,Motorcycles,Petrol,CompanyPrivate,1249634.0
+2018-10-01,Motorcycles,Pure Electric,CompanyPrivate,1454.0
+2018-10-01,Other vehicles,Diesel,CompanyPrivate,594311.0
+2018-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,53.0
+2018-10-01,Other vehicles,Other,CompanyPrivate,110477.0
+2018-10-01,Other vehicles,Petrol,CompanyPrivate,72244.0
+2018-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,1265.0
+2019-01-01,Buses and coaches,Diesel,CompanyPrivate,153057.0
+2019-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,4.0
+2019-01-01,Buses and coaches,Other,CompanyPrivate,787.0
+2019-01-01,Buses and coaches,Petrol,CompanyPrivate,3841.0
+2019-01-01,Buses and coaches,Pure Electric,CompanyPrivate,392.0
+2019-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12650079.0
+2019-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,547258.0
+2019-01-01,Cars,Other,CompanyPrivate,229643.0
+2019-01-01,Cars,Petrol,CompanyPrivate,18713381.0
+2019-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,69810.0
+2019-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,512811.0
+2019-01-01,Heavy goods vehicles,Other,CompanyPrivate,777.0
+2019-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1859.0
+2019-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,273.0
+2019-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3952539.0
+2019-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,561.0
+2019-01-01,Light goods vehicles,Other,CompanyPrivate,14755.0
+2019-01-01,Light goods vehicles,Petrol,CompanyPrivate,131834.0
+2019-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,8058.0
+2019-01-01,Motorcycles,Diesel,CompanyPrivate,790.0
+2019-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2019-01-01,Motorcycles,Other,CompanyPrivate,1736.0
+2019-01-01,Motorcycles,Petrol,CompanyPrivate,1260448.0
+2019-01-01,Motorcycles,Pure Electric,CompanyPrivate,1652.0
+2019-01-01,Other vehicles,Diesel,CompanyPrivate,593821.0
+2019-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,51.0
+2019-01-01,Other vehicles,Other,CompanyPrivate,107884.0
+2019-01-01,Other vehicles,Petrol,CompanyPrivate,72591.0
+2019-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,1632.0
+2019-04-01,Buses and coaches,Diesel,CompanyPrivate,153309.0
+2019-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,4.0
+2019-04-01,Buses and coaches,Other,CompanyPrivate,843.0
+2019-04-01,Buses and coaches,Petrol,CompanyPrivate,3945.0
+2019-04-01,Buses and coaches,Pure Electric,CompanyPrivate,412.0
+2019-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12644085.0
+2019-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,574370.0
+2019-04-01,Cars,Other,CompanyPrivate,240374.0
+2019-04-01,Cars,Petrol,CompanyPrivate,18869934.0
+2019-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,75363.0
+2019-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,519677.0
+2019-04-01,Heavy goods vehicles,Other,CompanyPrivate,831.0
+2019-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1959.0
+2019-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,269.0
+2019-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3999703.0
+2019-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,619.0
+2019-04-01,Light goods vehicles,Other,CompanyPrivate,15431.0
+2019-04-01,Light goods vehicles,Petrol,CompanyPrivate,137047.0
+2019-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,8644.0
+2019-04-01,Motorcycles,Diesel,CompanyPrivate,851.0
+2019-04-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2019-04-01,Motorcycles,Other,CompanyPrivate,2123.0
+2019-04-01,Motorcycles,Petrol,CompanyPrivate,1337476.0
+2019-04-01,Motorcycles,Pure Electric,CompanyPrivate,2033.0
+2019-04-01,Other vehicles,Diesel,CompanyPrivate,597055.0
+2019-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,49.0
+2019-04-01,Other vehicles,Other,CompanyPrivate,111321.0
+2019-04-01,Other vehicles,Petrol,CompanyPrivate,74398.0
+2019-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,2161.0
+2019-07-01,Buses and coaches,Diesel,CompanyPrivate,152629.0
+2019-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2019-07-01,Buses and coaches,Other,CompanyPrivate,931.0
+2019-07-01,Buses and coaches,Petrol,CompanyPrivate,3934.0
+2019-07-01,Buses and coaches,Pure Electric,CompanyPrivate,473.0
+2019-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12632912.0
+2019-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,608204.0
+2019-07-01,Cars,Other,CompanyPrivate,258234.0
+2019-07-01,Cars,Petrol,CompanyPrivate,18970552.0
+2019-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,87319.0
+2019-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,518405.0
+2019-07-01,Heavy goods vehicles,Other,CompanyPrivate,856.0
+2019-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,1966.0
+2019-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,273.0
+2019-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4033484.0
+2019-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,654.0
+2019-07-01,Light goods vehicles,Other,CompanyPrivate,16056.0
+2019-07-01,Light goods vehicles,Petrol,CompanyPrivate,137988.0
+2019-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,9357.0
+2019-07-01,Motorcycles,Diesel,CompanyPrivate,873.0
+2019-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2019-07-01,Motorcycles,Other,CompanyPrivate,2508.0
+2019-07-01,Motorcycles,Petrol,CompanyPrivate,1350550.0
+2019-07-01,Motorcycles,Pure Electric,CompanyPrivate,2420.0
+2019-07-01,Other vehicles,Diesel,CompanyPrivate,599678.0
+2019-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,48.0
+2019-07-01,Other vehicles,Other,CompanyPrivate,113556.0
+2019-07-01,Other vehicles,Petrol,CompanyPrivate,75075.0
+2019-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,2739.0
+2019-10-01,Buses and coaches,Diesel,CompanyPrivate,151247.0
+2019-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2019-10-01,Buses and coaches,Other,CompanyPrivate,963.0
+2019-10-01,Buses and coaches,Petrol,CompanyPrivate,3751.0
+2019-10-01,Buses and coaches,Pure Electric,CompanyPrivate,501.0
+2019-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12567706.0
+2019-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,640274.0
+2019-10-01,Cars,Other,CompanyPrivate,279471.0
+2019-10-01,Cars,Petrol,CompanyPrivate,18894083.0
+2019-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,99472.0
+2019-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,515664.0
+2019-10-01,Heavy goods vehicles,Other,CompanyPrivate,946.0
+2019-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1812.0
+2019-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,264.0
+2019-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4023699.0
+2019-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,702.0
+2019-10-01,Light goods vehicles,Other,CompanyPrivate,16830.0
+2019-10-01,Light goods vehicles,Petrol,CompanyPrivate,133570.0
+2019-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,10423.0
+2019-10-01,Motorcycles,Diesel,CompanyPrivate,786.0
+2019-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2019-10-01,Motorcycles,Other,CompanyPrivate,2878.0
+2019-10-01,Motorcycles,Petrol,CompanyPrivate,1256447.0
+2019-10-01,Motorcycles,Pure Electric,CompanyPrivate,2798.0
+2019-10-01,Other vehicles,Diesel,CompanyPrivate,599600.0
+2019-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,50.0
+2019-10-01,Other vehicles,Other,CompanyPrivate,115228.0
+2019-10-01,Other vehicles,Petrol,CompanyPrivate,73768.0
+2019-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,3381.0
+2020-01-01,Buses and coaches,Diesel,CompanyPrivate,124820.0
+2020-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2020-01-01,Buses and coaches,Other,CompanyPrivate,1014.0
+2020-01-01,Buses and coaches,Petrol,CompanyPrivate,3600.0
+2020-01-01,Buses and coaches,Pure Electric,CompanyPrivate,650.0
+2020-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12550275.0
+2020-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,685459.0
+2020-01-01,Cars,Other,CompanyPrivate,311825.0
+2020-01-01,Cars,Petrol,CompanyPrivate,18958741.0
+2020-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,117478.0
+2020-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,485017.0
+2020-01-01,Heavy goods vehicles,Other,CompanyPrivate,957.0
+2020-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1707.0
+2020-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,265.0
+2020-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4004353.0
+2020-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,774.0
+2020-01-01,Light goods vehicles,Other,CompanyPrivate,17846.0
+2020-01-01,Light goods vehicles,Petrol,CompanyPrivate,131853.0
+2020-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,11655.0
+2020-01-01,Motorcycles,Diesel,CompanyPrivate,756.0
+2020-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2020-01-01,Motorcycles,Other,CompanyPrivate,3166.0
+2020-01-01,Motorcycles,Petrol,CompanyPrivate,1240415.0
+2020-01-01,Motorcycles,Pure Electric,CompanyPrivate,3088.0
+2020-01-01,Other vehicles,Diesel,CompanyPrivate,595071.0
+2020-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,47.0
+2020-01-01,Other vehicles,Other,CompanyPrivate,119233.0
+2020-01-01,Other vehicles,Petrol,CompanyPrivate,73493.0
+2020-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,3772.0
+2020-04-01,Buses and coaches,Diesel,CompanyPrivate,121994.0
+2020-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2020-04-01,Buses and coaches,Other,CompanyPrivate,1166.0
+2020-04-01,Buses and coaches,Petrol,CompanyPrivate,3526.0
+2020-04-01,Buses and coaches,Pure Electric,CompanyPrivate,681.0
+2020-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12347802.0
+2020-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,693940.0
+2020-04-01,Cars,Other,CompanyPrivate,326785.0
+2020-04-01,Cars,Petrol,CompanyPrivate,18718091.0
+2020-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,127959.0
+2020-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,480047.0
+2020-04-01,Heavy goods vehicles,Other,CompanyPrivate,926.0
+2020-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1662.0
+2020-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,251.0
+2020-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,3997845.0
+2020-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,846.0
+2020-04-01,Light goods vehicles,Other,CompanyPrivate,18271.0
+2020-04-01,Light goods vehicles,Petrol,CompanyPrivate,131623.0
+2020-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,12143.0
+2020-04-01,Motorcycles,Diesel,CompanyPrivate,799.0
+2020-04-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2020-04-01,Motorcycles,Other,CompanyPrivate,3482.0
+2020-04-01,Motorcycles,Petrol,CompanyPrivate,1307773.0
+2020-04-01,Motorcycles,Pure Electric,CompanyPrivate,3399.0
+2020-04-01,Other vehicles,Diesel,CompanyPrivate,589280.0
+2020-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,43.0
+2020-04-01,Other vehicles,Other,CompanyPrivate,101888.0
+2020-04-01,Other vehicles,Petrol,CompanyPrivate,75321.0
+2020-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,3774.0
+2020-07-01,Buses and coaches,Diesel,CompanyPrivate,137898.0
+2020-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,5.0
+2020-07-01,Buses and coaches,Other,CompanyPrivate,1232.0
+2020-07-01,Buses and coaches,Petrol,CompanyPrivate,3709.0
+2020-07-01,Buses and coaches,Pure Electric,CompanyPrivate,736.0
+2020-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12357154.0
+2020-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,771552.0
+2020-07-01,Cars,Other,CompanyPrivate,388134.0
+2020-07-01,Cars,Petrol,CompanyPrivate,18897306.0
+2020-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,162189.0
+2020-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,498162.0
+2020-07-01,Heavy goods vehicles,Other,CompanyPrivate,944.0
+2020-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,1775.0
+2020-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,246.0
+2020-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4114862.0
+2020-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,940.0
+2020-07-01,Light goods vehicles,Other,CompanyPrivate,19941.0
+2020-07-01,Light goods vehicles,Petrol,CompanyPrivate,136285.0
+2020-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,13691.0
+2020-07-01,Motorcycles,Diesel,CompanyPrivate,815.0
+2020-07-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2020-07-01,Motorcycles,Other,CompanyPrivate,4171.0
+2020-07-01,Motorcycles,Petrol,CompanyPrivate,1363528.0
+2020-07-01,Motorcycles,Pure Electric,CompanyPrivate,4086.0
+2020-07-01,Other vehicles,Diesel,CompanyPrivate,594456.0
+2020-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,40.0
+2020-07-01,Other vehicles,Other,CompanyPrivate,120936.0
+2020-07-01,Other vehicles,Petrol,CompanyPrivate,77434.0
+2020-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4148.0
+2020-10-01,Buses and coaches,Diesel,CompanyPrivate,135294.0
+2020-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2020-10-01,Buses and coaches,Other,CompanyPrivate,1318.0
+2020-10-01,Buses and coaches,Petrol,CompanyPrivate,3549.0
+2020-10-01,Buses and coaches,Pure Electric,CompanyPrivate,807.0
+2020-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12254966.0
+2020-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,826692.0
+2020-10-01,Cars,Other,CompanyPrivate,453802.0
+2020-10-01,Cars,Petrol,CompanyPrivate,18792274.0
+2020-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,201677.0
+2020-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,499379.0
+2020-10-01,Heavy goods vehicles,Other,CompanyPrivate,1126.0
+2020-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1704.0
+2020-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,249.0
+2020-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4118549.0
+2020-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1071.0
+2020-10-01,Light goods vehicles,Other,CompanyPrivate,21929.0
+2020-10-01,Light goods vehicles,Petrol,CompanyPrivate,133583.0
+2020-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,15796.0
+2020-10-01,Motorcycles,Diesel,CompanyPrivate,745.0
+2020-10-01,Motorcycles,Hybrid,PrivateCompany,0.0
+2020-10-01,Motorcycles,Other,CompanyPrivate,4786.0
+2020-10-01,Motorcycles,Petrol,CompanyPrivate,1279864.0
+2020-10-01,Motorcycles,Pure Electric,CompanyPrivate,4708.0
+2020-10-01,Other vehicles,Diesel,CompanyPrivate,593088.0
+2020-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,36.0
+2020-10-01,Other vehicles,Other,CompanyPrivate,122256.0
+2020-10-01,Other vehicles,Petrol,CompanyPrivate,76620.0
+2020-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4295.0
+2021-01-01,Buses and coaches,Diesel,CompanyPrivate,133528.0
+2021-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,4.0
+2021-01-01,Buses and coaches,Other,CompanyPrivate,1419.0
+2021-01-01,Buses and coaches,Petrol,CompanyPrivate,3458.0
+2021-01-01,Buses and coaches,Pure Electric,CompanyPrivate,892.0
+2021-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12154664.0
+2021-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,899420.0
+2021-01-01,Cars,Other,CompanyPrivate,515607.0
+2021-01-01,Cars,Petrol,CompanyPrivate,18724990.0
+2021-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,231411.0
+2021-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,499843.0
+2021-01-01,Heavy goods vehicles,Other,CompanyPrivate,1245.0
+2021-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1617.0
+2021-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,272.0
+2021-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4160952.0
+2021-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1181.0
+2021-01-01,Light goods vehicles,Other,CompanyPrivate,24751.0
+2021-01-01,Light goods vehicles,Petrol,CompanyPrivate,132777.0
+2021-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,18541.0
+2021-01-01,Motorcycles,Diesel,CompanyPrivate,717.0
+2021-01-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2021-01-01,Motorcycles,Other,CompanyPrivate,5513.0
+2021-01-01,Motorcycles,Petrol,CompanyPrivate,1268620.0
+2021-01-01,Motorcycles,Pure Electric,CompanyPrivate,5436.0
+2021-01-01,Other vehicles,Diesel,CompanyPrivate,595424.0
+2021-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,36.0
+2021-01-01,Other vehicles,Other,CompanyPrivate,123303.0
+2021-01-01,Other vehicles,Petrol,CompanyPrivate,77550.0
+2021-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4376.0
+2021-04-01,Buses and coaches,Diesel,CompanyPrivate,138018.0
+2021-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,4.0
+2021-04-01,Buses and coaches,Other,CompanyPrivate,1491.0
+2021-04-01,Buses and coaches,Petrol,CompanyPrivate,3656.0
+2021-04-01,Buses and coaches,Pure Electric,CompanyPrivate,953.0
+2021-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,12126722.0
+2021-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,999872.0
+2021-04-01,Cars,Other,CompanyPrivate,597494.0
+2021-04-01,Cars,Petrol,CompanyPrivate,18910981.0
+2021-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,272472.0
+2021-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,515267.0
+2021-04-01,Heavy goods vehicles,Other,CompanyPrivate,1376.0
+2021-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1809.0
+2021-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,288.0
+2021-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4264040.0
+2021-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1205.0
+2021-04-01,Light goods vehicles,Other,CompanyPrivate,28005.0
+2021-04-01,Light goods vehicles,Petrol,CompanyPrivate,138483.0
+2021-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,21429.0
+2021-04-01,Motorcycles,Diesel,CompanyPrivate,796.0
+2021-04-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2021-04-01,Motorcycles,Other,CompanyPrivate,6816.0
+2021-04-01,Motorcycles,Petrol,CompanyPrivate,1388006.0
+2021-04-01,Motorcycles,Pure Electric,CompanyPrivate,6732.0
+2021-04-01,Other vehicles,Diesel,CompanyPrivate,601591.0
+2021-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,36.0
+2021-04-01,Other vehicles,Other,CompanyPrivate,123789.0
+2021-04-01,Other vehicles,Petrol,CompanyPrivate,80167.0
+2021-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,4678.0
+2021-07-01,Buses and coaches,Diesel,CompanyPrivate,139988.0
+2021-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2021-07-01,Buses and coaches,Other,CompanyPrivate,1609.0
+2021-07-01,Buses and coaches,Petrol,CompanyPrivate,3674.0
+2021-07-01,Buses and coaches,Pure Electric,CompanyPrivate,1045.0
+2021-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11990096.0
+2021-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1093553.0
+2021-07-01,Cars,Other,CompanyPrivate,679424.0
+2021-07-01,Cars,Petrol,CompanyPrivate,18849815.0
+2021-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,320984.0
+2021-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,519332.0
+2021-07-01,Heavy goods vehicles,Other,CompanyPrivate,1462.0
+2021-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,1863.0
+2021-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,308.0
+2021-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4286379.0
+2021-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1224.0
+2021-07-01,Light goods vehicles,Other,CompanyPrivate,30642.0
+2021-07-01,Light goods vehicles,Petrol,CompanyPrivate,139687.0
+2021-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,23878.0
+2021-07-01,Motorcycles,Diesel,CompanyPrivate,796.0
+2021-07-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2021-07-01,Motorcycles,Other,CompanyPrivate,8184.0
+2021-07-01,Motorcycles,Petrol,CompanyPrivate,1403581.0
+2021-07-01,Motorcycles,Pure Electric,CompanyPrivate,8102.0
+2021-07-01,Other vehicles,Diesel,CompanyPrivate,604314.0
+2021-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,34.0
+2021-07-01,Other vehicles,Other,CompanyPrivate,124905.0
+2021-07-01,Other vehicles,Petrol,CompanyPrivate,80747.0
+2021-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5088.0
+2021-10-01,Buses and coaches,Diesel,CompanyPrivate,138910.0
+2021-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2021-10-01,Buses and coaches,Other,CompanyPrivate,1828.0
+2021-10-01,Buses and coaches,Petrol,CompanyPrivate,3517.0
+2021-10-01,Buses and coaches,Pure Electric,CompanyPrivate,1261.0
+2021-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11884060.0
+2021-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1156290.0
+2021-10-01,Cars,Other,CompanyPrivate,771335.0
+2021-10-01,Cars,Petrol,CompanyPrivate,18722903.0
+2021-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,384076.0
+2021-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,518086.0
+2021-10-01,Heavy goods vehicles,Other,CompanyPrivate,1617.0
+2021-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1741.0
+2021-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,325.0
+2021-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4290274.0
+2021-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1223.0
+2021-10-01,Light goods vehicles,Other,CompanyPrivate,36242.0
+2021-10-01,Light goods vehicles,Petrol,CompanyPrivate,136913.0
+2021-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,29462.0
+2021-10-01,Motorcycles,Diesel,CompanyPrivate,732.0
+2021-10-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2021-10-01,Motorcycles,Other,CompanyPrivate,9189.0
+2021-10-01,Motorcycles,Petrol,CompanyPrivate,1316262.0
+2021-10-01,Motorcycles,Pure Electric,CompanyPrivate,9111.0
+2021-10-01,Other vehicles,Diesel,CompanyPrivate,606324.0
+2021-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,34.0
+2021-10-01,Other vehicles,Other,CompanyPrivate,128633.0
+2021-10-01,Other vehicles,Petrol,CompanyPrivate,79595.0
+2021-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,5574.0
+2022-01-01,Buses and coaches,Diesel,CompanyPrivate,138798.0
+2022-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2022-01-01,Buses and coaches,Other,CompanyPrivate,2130.0
+2022-01-01,Buses and coaches,Petrol,CompanyPrivate,3485.0
+2022-01-01,Buses and coaches,Pure Electric,CompanyPrivate,1541.0
+2022-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11790194.0
+2022-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1263964.0
+2022-01-01,Cars,Other,CompanyPrivate,870276.0
+2022-01-01,Cars,Petrol,CompanyPrivate,18745149.0
+2022-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,446706.0
+2022-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,520995.0
+2022-01-01,Heavy goods vehicles,Other,CompanyPrivate,1883.0
+2022-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1723.0
+2022-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,377.0
+2022-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4314521.0
+2022-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1203.0
+2022-01-01,Light goods vehicles,Other,CompanyPrivate,40551.0
+2022-01-01,Light goods vehicles,Petrol,CompanyPrivate,137790.0
+2022-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,33695.0
+2022-01-01,Motorcycles,Diesel,CompanyPrivate,716.0
+2022-01-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2022-01-01,Motorcycles,Other,CompanyPrivate,10523.0
+2022-01-01,Motorcycles,Petrol,CompanyPrivate,1331569.0
+2022-01-01,Motorcycles,Pure Electric,CompanyPrivate,10448.0
+2022-01-01,Other vehicles,Diesel,CompanyPrivate,607640.0
+2022-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,38.0
+2022-01-01,Other vehicles,Other,CompanyPrivate,127234.0
+2022-01-01,Other vehicles,Petrol,CompanyPrivate,80107.0
+2022-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6003.0
+2022-04-01,Buses and coaches,Diesel,CompanyPrivate,139207.0
+2022-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2022-04-01,Buses and coaches,Other,CompanyPrivate,2264.0
+2022-04-01,Buses and coaches,Petrol,CompanyPrivate,3605.0
+2022-04-01,Buses and coaches,Pure Electric,CompanyPrivate,1675.0
+2022-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11698147.0
+2022-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1366298.0
+2022-04-01,Cars,Other,CompanyPrivate,948432.0
+2022-04-01,Cars,Petrol,CompanyPrivate,18813913.0
+2022-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,496081.0
+2022-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,527054.0
+2022-04-01,Heavy goods vehicles,Other,CompanyPrivate,2069.0
+2022-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1822.0
+2022-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,406.0
+2022-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4354704.0
+2022-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1234.0
+2022-04-01,Light goods vehicles,Other,CompanyPrivate,44683.0
+2022-04-01,Light goods vehicles,Petrol,CompanyPrivate,141691.0
+2022-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,37690.0
+2022-04-01,Motorcycles,Diesel,CompanyPrivate,748.0
+2022-04-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2022-04-01,Motorcycles,Other,CompanyPrivate,11439.0
+2022-04-01,Motorcycles,Petrol,CompanyPrivate,1417023.0
+2022-04-01,Motorcycles,Pure Electric,CompanyPrivate,11361.0
+2022-04-01,Other vehicles,Diesel,CompanyPrivate,609963.0
+2022-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,43.0
+2022-04-01,Other vehicles,Other,CompanyPrivate,127818.0
+2022-04-01,Other vehicles,Petrol,CompanyPrivate,82153.0
+2022-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6445.0
+2022-07-01,Buses and coaches,Diesel,CompanyPrivate,137891.0
+2022-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2022-07-01,Buses and coaches,Other,CompanyPrivate,2385.0
+2022-07-01,Buses and coaches,Petrol,CompanyPrivate,3558.0
+2022-07-01,Buses and coaches,Pure Electric,CompanyPrivate,1777.0
+2022-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11599516.0
+2022-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1466057.0
+2022-07-01,Cars,Other,CompanyPrivate,1027070.0
+2022-07-01,Cars,Petrol,CompanyPrivate,18802523.0
+2022-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,549111.0
+2022-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,527629.0
+2022-07-01,Heavy goods vehicles,Other,CompanyPrivate,2251.0
+2022-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,1815.0
+2022-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,430.0
+2022-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4369538.0
+2022-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1356.0
+2022-07-01,Light goods vehicles,Other,CompanyPrivate,48339.0
+2022-07-01,Light goods vehicles,Petrol,CompanyPrivate,142235.0
+2022-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,41326.0
+2022-07-01,Motorcycles,Diesel,CompanyPrivate,763.0
+2022-07-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2022-07-01,Motorcycles,Other,CompanyPrivate,12835.0
+2022-07-01,Motorcycles,Petrol,CompanyPrivate,1427034.0
+2022-07-01,Motorcycles,Pure Electric,CompanyPrivate,12757.0
+2022-07-01,Other vehicles,Diesel,CompanyPrivate,610724.0
+2022-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,45.0
+2022-07-01,Other vehicles,Other,CompanyPrivate,132777.0
+2022-07-01,Other vehicles,Petrol,CompanyPrivate,82584.0
+2022-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,6977.0
+2022-10-01,Buses and coaches,Diesel,CompanyPrivate,135912.0
+2022-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,1.0
+2022-10-01,Buses and coaches,Other,CompanyPrivate,2604.0
+2022-10-01,Buses and coaches,Petrol,CompanyPrivate,3431.0
+2022-10-01,Buses and coaches,Pure Electric,CompanyPrivate,2003.0
+2022-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11494189.0
+2022-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1553468.0
+2022-10-01,Cars,Other,CompanyPrivate,1135691.0
+2022-10-01,Cars,Petrol,CompanyPrivate,18745712.0
+2022-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,629778.0
+2022-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,525098.0
+2022-10-01,Heavy goods vehicles,Other,CompanyPrivate,2451.0
+2022-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1688.0
+2022-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,465.0
+2022-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4355325.0
+2022-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1630.0
+2022-10-01,Light goods vehicles,Other,CompanyPrivate,53749.0
+2022-10-01,Light goods vehicles,Petrol,CompanyPrivate,139375.0
+2022-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,46731.0
+2022-10-01,Motorcycles,Diesel,CompanyPrivate,688.0
+2022-10-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2022-10-01,Motorcycles,Other,CompanyPrivate,13388.0
+2022-10-01,Motorcycles,Petrol,CompanyPrivate,1334194.0
+2022-10-01,Motorcycles,Pure Electric,CompanyPrivate,13316.0
+2022-10-01,Other vehicles,Diesel,CompanyPrivate,611537.0
+2022-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,90.0
+2022-10-01,Other vehicles,Other,CompanyPrivate,135646.0
+2022-10-01,Other vehicles,Petrol,CompanyPrivate,81549.0
+2022-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,7420.0
+2023-01-01,Buses and coaches,Diesel,CompanyPrivate,135194.0
+2023-01-01,Buses and coaches,Hybrid,CompanyPrivateCompany,1.0
+2023-01-01,Buses and coaches,Other,CompanyPrivate,2907.0
+2023-01-01,Buses and coaches,Petrol,CompanyPrivate,3397.0
+2023-01-01,Buses and coaches,Pure Electric,CompanyPrivate,2309.0
+2023-01-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11358408.0
+2023-01-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1674476.0
+2023-01-01,Cars,Other,CompanyPrivate,1241302.0
+2023-01-01,Cars,Petrol,CompanyPrivate,18781390.0
+2023-01-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,701828.0
+2023-01-01,Heavy goods vehicles,Diesel,CompanyPrivate,525172.0
+2023-01-01,Heavy goods vehicles,Other,CompanyPrivate,2701.0
+2023-01-01,Heavy goods vehicles,Petrol,CompanyPrivate,1679.0
+2023-01-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,511.0
+2023-01-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4377231.0
+2023-01-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,1920.0
+2023-01-01,Light goods vehicles,Other,CompanyPrivate,58149.0
+2023-01-01,Light goods vehicles,Petrol,CompanyPrivate,139924.0
+2023-01-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,50966.0
+2023-01-01,Motorcycles,Diesel,CompanyPrivate,668.0
+2023-01-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2023-01-01,Motorcycles,Other,CompanyPrivate,13473.0
+2023-01-01,Motorcycles,Petrol,CompanyPrivate,1334067.0
+2023-01-01,Motorcycles,Pure Electric,CompanyPrivate,13405.0
+2023-01-01,Other vehicles,Diesel,CompanyPrivate,617926.0
+2023-01-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,109.0
+2023-01-01,Other vehicles,Other,CompanyPrivate,136713.0
+2023-01-01,Other vehicles,Petrol,CompanyPrivate,81826.0
+2023-01-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,7857.0
+2023-04-01,Buses and coaches,Diesel,CompanyPrivate,135125.0
+2023-04-01,Buses and coaches,Hybrid,CompanyPrivateCompany,2.0
+2023-04-01,Buses and coaches,Other,CompanyPrivate,3267.0
+2023-04-01,Buses and coaches,Petrol,CompanyPrivate,3520.0
+2023-04-01,Buses and coaches,Pure Electric,CompanyPrivate,2671.0
+2023-04-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11257912.0
+2023-04-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1794681.0
+2023-04-01,Cars,Other,CompanyPrivate,1350942.0
+2023-04-01,Cars,Petrol,CompanyPrivate,18890715.0
+2023-04-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,778683.0
+2023-04-01,Heavy goods vehicles,Diesel,CompanyPrivate,528474.0
+2023-04-01,Heavy goods vehicles,Other,CompanyPrivate,3119.0
+2023-04-01,Heavy goods vehicles,Petrol,CompanyPrivate,1776.0
+2023-04-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,577.0
+2023-04-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4420407.0
+2023-04-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,2031.0
+2023-04-01,Light goods vehicles,Other,CompanyPrivate,62926.0
+2023-04-01,Light goods vehicles,Petrol,CompanyPrivate,144356.0
+2023-04-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,55463.0
+2023-04-01,Motorcycles,Diesel,CompanyPrivate,749.0
+2023-04-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2023-04-01,Motorcycles,Other,CompanyPrivate,13639.0
+2023-04-01,Motorcycles,Petrol,CompanyPrivate,1437711.0
+2023-04-01,Motorcycles,Pure Electric,CompanyPrivate,13561.0
+2023-04-01,Other vehicles,Diesel,CompanyPrivate,616039.0
+2023-04-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,75.0
+2023-04-01,Other vehicles,Other,CompanyPrivate,138219.0
+2023-04-01,Other vehicles,Petrol,CompanyPrivate,84583.0
+2023-04-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,8316.0
+2023-07-01,Buses and coaches,Diesel,CompanyPrivate,134710.0
+2023-07-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2023-07-01,Buses and coaches,Other,CompanyPrivate,3553.0
+2023-07-01,Buses and coaches,Petrol,CompanyPrivate,3439.0
+2023-07-01,Buses and coaches,Pure Electric,CompanyPrivate,2984.0
+2023-07-01,Cars,Diesel,CompanyPrivateCompanyPrivate,11127058.0
+2023-07-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,1945574.0
+2023-07-01,Cars,Other,CompanyPrivate,1468433.0
+2023-07-01,Cars,Petrol,CompanyPrivate,18895569.0
+2023-07-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,861281.0
+2023-07-01,Heavy goods vehicles,Diesel,CompanyPrivate,528318.0
+2023-07-01,Heavy goods vehicles,Other,CompanyPrivate,3362.0
+2023-07-01,Heavy goods vehicles,Petrol,CompanyPrivate,1756.0
+2023-07-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,692.0
+2023-07-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4439303.0
+2023-07-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,2296.0
+2023-07-01,Light goods vehicles,Other,CompanyPrivate,68726.0
+2023-07-01,Light goods vehicles,Petrol,CompanyPrivate,144721.0
+2023-07-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,61208.0
+2023-07-01,Motorcycles,Diesel,CompanyPrivate,727.0
+2023-07-01,Motorcycles,Hybrid,PrivateCompany,2.0
+2023-07-01,Motorcycles,Other,CompanyPrivate,13973.0
+2023-07-01,Motorcycles,Petrol,CompanyPrivate,1438312.0
+2023-07-01,Motorcycles,Pure Electric,CompanyPrivate,13890.0
+2023-07-01,Other vehicles,Diesel,CompanyPrivate,616819.0
+2023-07-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,77.0
+2023-07-01,Other vehicles,Other,CompanyPrivate,139563.0
+2023-07-01,Other vehicles,Petrol,CompanyPrivate,84667.0
+2023-07-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,8662.0
+2023-10-01,Buses and coaches,Diesel,CompanyPrivate,133123.0
+2023-10-01,Buses and coaches,Hybrid,CompanyPrivateCompany,3.0
+2023-10-01,Buses and coaches,Other,CompanyPrivate,3875.0
+2023-10-01,Buses and coaches,Petrol,CompanyPrivate,3252.0
+2023-10-01,Buses and coaches,Pure Electric,CompanyPrivate,3316.0
+2023-10-01,Cars,Diesel,CompanyPrivateCompanyPrivate,10996742.0
+2023-10-01,Cars,Hybrid,CompanyPrivateCompanyPrivate,2086059.0
+2023-10-01,Cars,Other,CompanyPrivate,1570890.0
+2023-10-01,Cars,Petrol,CompanyPrivate,18798147.0
+2023-10-01,Cars,Pure Electric,CompanyPrivateCompanyPrivate,925814.0
+2023-10-01,Heavy goods vehicles,Diesel,CompanyPrivate,522610.0
+2023-10-01,Heavy goods vehicles,Other,CompanyPrivate,3516.0
+2023-10-01,Heavy goods vehicles,Petrol,CompanyPrivate,1629.0
+2023-10-01,Heavy goods vehicles,Pure Electric,CompanyPrivate,729.0
+2023-10-01,Light goods vehicles,Diesel,CompanyPrivatePrivate,4414807.0
+2023-10-01,Light goods vehicles,Hybrid,CompanyPrivateCompanyPrivate,2601.0
+2023-10-01,Light goods vehicles,Other,CompanyPrivate,74116.0
+2023-10-01,Light goods vehicles,Petrol,CompanyPrivate,142041.0
+2023-10-01,Light goods vehicles,Pure Electric,CompanyPrivateCompanyPrivate,66710.0
+2023-10-01,Motorcycles,Diesel,CompanyPrivate,657.0
+2023-10-01,Motorcycles,Hybrid,PrivateCompany,1.0
+2023-10-01,Motorcycles,Other,CompanyPrivate,14185.0
+2023-10-01,Motorcycles,Petrol,CompanyPrivate,1324809.0
+2023-10-01,Motorcycles,Pure Electric,CompanyPrivate,14105.0
+2023-10-01,Other vehicles,Diesel,CompanyPrivate,614617.0
+2023-10-01,Other vehicles,Hybrid,CompanyPrivateCompanyPrivate,80.0
+2023-10-01,Other vehicles,Other,CompanyPrivate,142818.0
+2023-10-01,Other vehicles,Petrol,CompanyPrivate,82954.0
+2023-10-01,Other vehicles,Pure Electric,CompanyPrivateCompanyPrivate,9205.0
