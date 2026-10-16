@@ -1,0 +1,47 @@
+# ZEV Mandate Review consultation (Aug 2026), Option 1: cars 70% / vans 60% in 2030.
+#   https://www.gov.uk/government/consultations/zero-emission-vehicle-mandate-review
+# Not law. Targets 2027-35 are from the consultation's Tables 2-4 (cars) and 7-9 (vans).
+#
+# Flexibilities follow the consultation's illustrative modelling (Table 14, Annex A para 5):
+# - Borrowing, banking and car-van exchange continue to 2034, with interest, time limits and
+#   exchange rates unchanged. "Generosity ... assumed fixed", read here as the borrowing cap
+#   staying at its 2029 level, 10% of the ZEV target, for 2030-34. Repay by 2035.
+# - CO2->ZEV conversion cap, as a share of the ZEV target:
+#   2027: 70%, 2028: 60%, 2029: 50%, 2030: 40%, 2031: 30%, 2032: 20%, 2033: 10%, 2034: 0%, 2035: 0%
+#   Options 1-3: "continues from 2029 before ending in 2034, following the trajectory between
+#   2025 and 2029", i.e. falling 10 points a year to 0 in 2034.
+# - For 2027-29 the caps are re-expressed as shares of this option's targets (para 182: "either a
+#   reduction in the CO2 conversion cap or a reduction in the ZEV target will reduce the
+#   maximum"). The law states them as shares of registrations, so for options 1-3 this is
+#   tighter than keeping the legislated 2027-29 figures.
+# The year tables below are cap x target, i.e. shares of registrations, as the engine expects.
+
+extends: ../vets.yaml
+name: "Review Option 1: cars 70% / vans 60% in 2030"
+scheme_years: [2024, 2035]
+
+vehicle_types:
+
+  car:
+    zev_target: {2027: 0.36, 2028: 0.46, 2029: 0.58, 2030: 0.7, 2031: 0.76, 2032: 0.82, 2033: 0.88, 2034: 0.94, 2035: 1}
+    co2_to_zev:
+      cap: {2027: 0.252, 2028: 0.276, 2029: 0.29, 2030: 0.28, 2031: 0.228, 2032: 0.164, 2033: 0.088, 2034: 0, 2035: 0}
+    borrowing:
+      cap: {2027: 0.072, 2028: 0.069, 2029: 0.058, 2030: 0.07, 2031: 0.076, 2032: 0.082, 2033: 0.088, 2034: 0.094, 2035: 0}
+      repay_by: 2035
+    banking:
+      last_usable_year: 2035
+
+  van:
+    zev_target: {2027: 0.33, 2028: 0.42, 2029: 0.51, 2030: 0.6, 2031: 0.68, 2032: 0.76, 2033: 0.84, 2034: 0.92, 2035: 1}
+    co2_to_zev:
+      cap: {2027: 0.231, 2028: 0.252, 2029: 0.255, 2030: 0.24, 2031: 0.204, 2032: 0.152, 2033: 0.084, 2034: 0, 2035: 0}
+    borrowing:
+      cap: {2027: 0.066, 2028: 0.063, 2029: 0.051, 2030: 0.06, 2031: 0.068, 2032: 0.076, 2033: 0.084, 2034: 0.092, 2035: 0}
+      repay_by: 2035
+    banking:
+      last_usable_year: 2035
+
+
+low_volume:
+  small_status_excluded_years: [2035]
