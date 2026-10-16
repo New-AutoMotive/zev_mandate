@@ -49,8 +49,14 @@ def _read_sql(name: str) -> str:
     return (SQL_DIR / f"{name}.sql").read_text().replace("{project}", PROJECT)
 
 
+def _sql_for_key(sql: str) -> str:
+    """The SQL with comments and blank lines removed, so editing a comment doesn't force a re-pull."""
+    lines = (line.split("--", 1)[0].rstrip() for line in sql.splitlines())
+    return "\n".join(line for line in lines if line.strip())
+
+
 def _cache_paths(name: str, sql: str, params: dict) -> tuple[Path, Path]:
-    key = hashlib.sha1((sql + json.dumps(params, sort_keys=True, default=str)).encode()).hexdigest()[:12]
+    key = hashlib.sha1((_sql_for_key(sql) + json.dumps(params, sort_keys=True, default=str)).encode()).hexdigest()[:12]
     stem = CACHE_DIR / f"{name}-{key}"
     return stem.with_suffix(".parquet"), stem.with_suffix(".json")
 

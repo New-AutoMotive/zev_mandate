@@ -12,6 +12,7 @@ zevm/        The Python package
   rules.py     load and query params
   compliance.py  scheme accounting per participant-year: allowances, CO2<->ZEV conversion,
                banking, borrowing + uplift, market trading, payments
+  scenarios.py history (late-data uplift, current-year estimate) + projections to 2030/35
   data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
   plots.py     chart style
 sql/         One query per file; {project} and @start/@end are filled in by zevm.data
@@ -22,9 +23,7 @@ data/        Downloaded DfT tables (data/cache/ is local only)
 archive/     Original 2023–25 notebooks, kept for reference (see archive/README.md)
 ```
 
-Planned next: (allowances,
-CO2 conversion, banking/borrowing, trading), `zevm/scenarios.py`, `zevm/fleet.py`, and
-slim notebooks in `notebooks/`.
+Planned next: `zevm/fleet.py` (port of the stock model), slim notebooks in `notebooks/`.
 
 ## Setup
 
@@ -71,6 +70,34 @@ Each row of the result is one participant-year with every step: allowances, CO2 
 The step order and what isn't modelled yet are documented at the top of `zevm/compliance.py`.
 Market trading clears pro rata with no price: it shows whether enough allowances exist,
 not who pays whom.
+
+## Scenarios
+
+```python
+from zevm import scenarios
+from zevm.scenarios import Scenario, Strategy
+
+h = scenarios.prepare("car")      # 2024 on by pool; recent months uplifted; current year estimated
+res = scenarios.run_many(h, [
+    Scenario("On target"),
+    Scenario("3pp below target", zev_share_vs_target=-0.03),
+    Scenario("3pp below, no trading", zev_share_vs_target=-0.03, strategy=Strategy(trading="none")),
+    Scenario("Slow growth", zev_share={2027: .315, 2028: .355, 2029: .395, 2030: .435}),
+    Scenario("Indicative to 2035", params="scenarios/indicative_to_2035"),
+])
+scenarios.market_summary(res)     # one row per scenario-year; res has every participant-year
+```
+
+`h.notes` records the fitted late-data curves and the seasonality used for the current year.
+Scenario options: `zev_share` ("target", a constant, or a year table), `zev_share_vs_target`,
+`market_growth` / `market_size`, `nonzev_co2_change`, `group_zev` ("logit", "scale",
+"uniform"), `params` (any params file) and `strategy`. How each one works is documented at
+the top of `zevm/scenarios.py`.
+
+Caveats:
+- The late-data uplift assumes the records VES adds to a month later are genuine new first
+  registrations. That hasn't been checked against DfT or SMMT figures.
+- Vans use the car uplift curve.
 
 ## Changing the mandate
 
