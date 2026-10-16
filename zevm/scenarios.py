@@ -11,16 +11,18 @@
     scenarios.market_summary(res)
 
 How the history is built
-1. Late-data uplift. VES keeps adding records for a month after it is first counted. The
-   rise is measured by comparing today's VES counts with the ECC figure first published for
-   each month (VES_dataset.VRN_reported), as a function of the month's age. It is fitted as
-   ratio(age) = 1 + R(1 - exp(-(age - 1) / tau)), separately for ZEVs and non-ZEVs. Each
-   month's counts are then scaled up to the fitted plateau, (1 + R) / ratio(age).
-   - Only months up to `max_fit_age` (18) old are used in the fit. Older months sit higher,
-     probably because the ECC method changed in early 2025.
-   - Whether the late records are all genuine new first registrations has not been checked
-     against DfT or SMMT figures.
-   - Vans have no published series, so they use the car curves.
+1. Late-data uplift: OFF by default (late_data_uplift=False), and it should stay off.
+   VES keeps adding records for a month after it is first counted, but the additions
+   aren't genuine new registrations. Checked on 16 Oct 2026:
+   - DfT VEH1153 (UK cars, monthly, to June 2024): VES today is 9-17% above DfT, and the
+     gap is bigger for older months (2022 +17%, 2023 +13%, H1 2024 +10%).
+   - SMMT: September 2026 is +1.3% at one month old, Jan-Sep 2026 is +3.8%, and full-year
+     2025 is +8.6% (2.195M vs 2,020,520).
+   - The ECC figure as first published is within about 2% of SMMT for 2025-26.
+   - VES ZEV share matches DfT's BEV share to within about 0.5 points, so shares are
+     reliable but totals for older years are inflated.
+   The fitting code is kept (fit_late_data_curves) for diagnostics: ratio(age) =
+   1 + R(1 - exp(-(age - 1) / tau)) against VRN_reported.
 2. The current year is estimated to full year using the market's seasonality. That is the
    share of the year's registrations that fell in the months seen so far, averaged over the
    prior `prior_years` years. For the rest of the year's ZEV share, each group's
@@ -200,7 +202,7 @@ def prepare(
     params: str | Params = "vets",
     start: str = "2022-01-01",
     as_of: str | pd.Timestamp | None = None,
-    late_data_uplift: bool = True,
+    late_data_uplift: bool = False,
     max_fit_age: int = 18,
     prior_years: int = 2,
     **query_kwargs,

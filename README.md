@@ -13,7 +13,7 @@ zevm/        The Python package
   rules.py     load and query params
   compliance.py  scheme accounting per participant-year: allowances, CO2<->ZEV conversion,
                banking, borrowing + uplift, market trading, payments
-  scenarios.py history (late-data uplift, current-year estimate) + projections to 2030/35
+  scenarios.py history (current-year estimate) + projections to 2030/35
   data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
   fleet.py     car parc -> vehicle miles -> fuel -> tailpipe CO2, driven by scenario registrations;
                validated against NAEI
@@ -83,7 +83,7 @@ not who pays whom.
 from zevm import scenarios
 from zevm.scenarios import Scenario, Strategy
 
-h = scenarios.prepare("car")      # 2024 on by pool; recent months uplifted; current year estimated
+h = scenarios.prepare("car")      # 2024 on by pool; current year estimated
 res = scenarios.run_many(h, [
     Scenario("On target"),
     Scenario("3pp below target", zev_share_vs_target=-0.03),
@@ -100,10 +100,12 @@ Scenario options: `zev_share` ("target", a constant, or a year table), `zev_shar
 "uniform"), `params` (any params file) and `strategy`. How each one works is documented at
 the top of `zevm/scenarios.py`.
 
-Caveats:
-- The late-data uplift assumes the records VES adds to a month later are genuine new first
-  registrations. That hasn't been checked against DfT or SMMT figures.
-- Vans use the car uplift curve.
+Caveat on counts: VES totals for a month drift upward for a year or two after it is first
+published, and end up 9-17% above DfT/SMMT. The ZEV share stays right. Recent months are
+close to official figures; older years are inflated, so absolute shortfalls and £ payments
+for 2024-25 are overstated by roughly that much. The late-data uplift that tried to correct
+for this made it worse and is off by default (`late_data_uplift=False`). Evidence is in the
+`zevm/scenarios.py` docstring.
 
 ## Fleet and emissions
 
