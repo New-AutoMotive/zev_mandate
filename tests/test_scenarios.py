@@ -142,3 +142,20 @@ def test_scenario_params_file_changes_result():
     assert base.loc[2027, "borrowed"] > 0
     assert nob.loc[2027, "borrowed"] == 0
     assert nob.loc[2027, "payment_gbp_m"] > base.loc[2027, "payment_gbp_m"]
+
+
+def test_minimum_compliant_path_complies_and_undercuts_target():
+    h = tiny_history()
+    market = {y: 150_000 for y in range(2027, 2031)}
+    mp = scenarios.minimum_compliant_path(h, "vets", market)
+    assert (mp.min_zev_share <= mp.target + 1e-9).all()
+    assert (mp.min_zev_share < mp.target).any()                # CO2 credits / bank let it undercut
+    # Running the path back through the engine gives no shortfall.
+    s = Scenario("check", zev_share=mp.min_zev_share.to_dict(), market_size=market, group_zev="uniform",
+                 strategy=scenarios.Strategy(borrowing=False, trading="none", co2_trading="none"))
+    from zevm import compliance
+    inp = compliance.market_total(scenarios.project(h, s).drop(columns=["basis"], errors="ignore"))
+    res = compliance.run(inp, rules.load("vets"), "car", s.strategy)
+    assert res[res.year >= 2027].shortfall.max() <= 0.5      # history years are given, not solved
+    floored = scenarios.minimum_compliant_path(h, "vets", market, floor=0.5)
+    assert (floored.min_zev_share >= 0.5).all()

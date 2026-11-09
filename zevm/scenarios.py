@@ -408,3 +408,52 @@ def trailing_inputs(h: History, months: int = 12) -> pd.DataFrame:
     out["co2_baseline"] = out["group"].map(base["co2_baseline"])
     out["basis"] = f"trailing {months}m to {last:%b %Y}"
     return out
+
+
+def minimum_compliant_path(
+    h: History,
+    params: str | Params,
+    market_size: dict,
+    nonzev_co2_change: float = 0.0,
+    years=None,
+    floor: float = 0.0,
+    tolerance: float = 0.5,
+) -> pd.DataFrame:
+    """The lowest market ZEV share each year that still complies with no payments.
+
+    A worst case for ZEV volumes: the market is pooled as one participant (perfect
+    trading), CO2->ZEV credits and banked allowances are used in full, and borrowing is
+    off. Borrowing only moves compliance between years and must be repaid by the deadline.
+    Shares are found year by year by bisection. `floor` stops the share falling below a
+    level, e.g. today's share, because a fall below today's share isn't credible.
+
+    Returns one row per year: target, min_zev_share, market, co2_credits_share,
+    bank_used_share.
+    """
+    p = params if isinstance(params, Params) else rules.load(params)
+    vt = h.vehicle_type
+    years = list(years or range(int(h.yearly["year"].max()) + 1, p.scheme_years.stop))
+    strat = Strategy(borrowing=False, trading="none", co2_trading="none")
+
+    def year_result(path, y):
+        s = Scenario("min", params=p, zev_share=path, market_size=market_size,
+                     nonzev_co2_change=nonzev_co2_change, end_year=y, group_zev="uniform")
+        inp = compliance.market_total(project(h, s).drop(columns=["basis", "co2_baseline_source"], errors="ignore"))
+        return compliance.run(inp, p, vt, strat).set_index("year").loc[y]
+
+    path, rows = {}, []
+    for y in years:
+        lo, hi = 0.0, 1.0
+        for _ in range(30):
+            mid = (lo + hi) / 2
+            if year_result({**path, y: mid}, y).shortfall > tolerance:
+                lo = mid
+            else:
+                hi = mid
+        path[y] = max(hi, floor)
+        r = year_result(path, y)
+        rows.append({"year": y, "target": p.zev_target(vt, y), "min_zev_share": path[y],
+                     "market": r.total_registrations,
+                     "co2_credits_share": r.co2_credits / r.total_registrations,
+                     "bank_used_share": r.banked_used / r.total_registrations})
+    return pd.DataFrame(rows).set_index("year")
