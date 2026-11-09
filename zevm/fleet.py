@@ -1,4 +1,4 @@
-"""Car fleet (parc) and tailpipe emissions: new registrations -> parc -> vehicle miles -> fuel -> CO2.
+"""Car or van fleet (parc) and tailpipe emissions: new registrations -> parc -> vehicle miles -> fuel -> CO2.
 
     from zevm import fleet, scenarios
     fp = fleet.load_params()                       # params/fleet.yaml
@@ -10,7 +10,9 @@
     fleet.validate(hist, fp)                       # fuel-based CO2 vs NAEI, by year
 
 A port of archive notebook "01) UK Car Scenarios", Parts 1-3. Assumptions and sources are
-in params/fleet.yaml.
+in params/fleet.yaml (cars) and params/fleet_van.yaml (vans: `fleet.load_params("fleet_van")`).
+The vehicle type only changes which rows and columns are read (`body_type`,
+`fuel_use.columns`, mileage file, NAEI row); the method is the same.
 
 How it works
 1. The parc starts from the DfT year-end (Q4) count in `base_year`, by fuel group.
@@ -43,7 +45,7 @@ Differences from the notebook (bugs and fudges not carried forward)
   They only shape the retirement schedule, which is rescaled to the parc anyway.
 
 Not modelled: mileage by age, scrappage responding to sales, electricity emissions,
-other fuels (gas etc.), vans.
+other fuels (gas etc.).
 """
 from __future__ import annotations
 
@@ -73,7 +75,15 @@ DFT_FUEL_MAP = {
     "Plug-in hybrid electric (diesel)": "diesel",
     "Battery electric": "bev",
     "Fuel cell electric": "bev",
-    "Gas": None, "Others": None, "Other fuels": None,
+    "Gas": None, "Others": None, "Other fuels": None, "Other fuel types": None,
+    # VEH1153 labels from the 2026 editions
+    "Hybrid Electric - Petrol": "hybrid",
+    "Plug-in Hybrid Electric - Petrol": "hybrid",
+    "Range Extended Electric": "hybrid",
+    "Hybrid Electric - Diesel": "diesel",
+    "Plug-in Hybrid Electric - Diesel": "diesel",
+    "Battery Electric": "bev",
+    "Fuel Cell Electric": "bev",
 }
 MILEAGE_FUEL_MAP = {"Petrol": "petrol", "Diesel": "diesel", "Hybrid": "hybrid", "Pure electric": "bev"}
 UK_CODE = "K02000001"
@@ -223,7 +233,8 @@ class FleetHistory:
     parc: pd.DataFrame              # year-end parc, year x fuel (UK)
     registrations: pd.DataFrame     # new registrations, year x fuel (UK; pre-2015 = GB x ratio)
     mileage: pd.DataFrame           # mean annual miles per car, year x fuel
-    fuel: pd.DataFrame              # ktoe: columns petrol_cars, diesel_cars
+    fuel: pd.DataFrame              # ktoe: columns petrol_cars, diesel_cars (petrol / diesel used by
+                                    #   this vehicle type; the names are kept from the car-only version)
     naei_mt: pd.Series              # Mt CO2e, NAEI 1A3bi
     base_year: int
     uk_gb_ratio: float
@@ -261,8 +272,8 @@ def read_parc(veh0105: Path, veh0142: Path, body_type: str = "Cars") -> pd.DataF
     b = q4(veh0142, "VEH0142", 1)                          # number
     a = a.dropna(how="any")                                # UK figures start at 2014 Q4 ("[x]" before)
     b = b.reindex(a.index)
-    # Plug-ins are inside VEH0105 "Other fuels"; take them from VEH0142 instead.
-    wide = pd.concat([a.drop(columns=["Other fuels"], errors="ignore"), b], axis=1)
+    # Plug-ins are inside VEH0105 "Other fuels" ("Other fuel types" from 2026); take them from VEH0142.
+    wide = pd.concat([a.drop(columns=["Other fuels", "Other fuel types"], errors="ignore"), b], axis=1)
     return _group_fuels(wide).sort_index().rename_axis("year").dropna(how="all")
 
 
@@ -290,9 +301,11 @@ def read_mileage(path: Path, first_year: int = 2007) -> pd.DataFrame:
     return out.reindex(columns=FUELS).rename_axis("year")
 
 
-def read_fuel(path: Path) -> pd.DataFrame:
-    """UK petrol and diesel car fuel consumption (ktoe) from the DESNZ sub-national tables,
-    one sheet per year."""
+def read_fuel(path: Path, columns: dict | None = None) -> pd.DataFrame:
+    """UK petrol and diesel fuel consumption (ktoe) for one vehicle type from the DESNZ
+    sub-national tables, one sheet per year. `columns` maps petrol/diesel to the table's
+    column names (default: cars)."""
+    columns = columns or {"petrol": "Petrol cars total", "diesel": "Diesel cars total"}
     xl = pd.ExcelFile(path, engine="calamine")
     rows = {}
     for sheet in xl.sheet_names:
@@ -302,7 +315,7 @@ def read_fuel(path: Path) -> pd.DataFrame:
         hdr = raw.index[raw.apply(lambda r: r.astype(str).str.contains("Local Authority Code", regex=False).any(), axis=1)][0]
         df = raw.iloc[hdr + 1:].set_axis([str(c).split("[")[0].strip() for c in raw.iloc[hdr]], axis=1)
         uk = df[df["Local Authority Code"] == UK_CODE].iloc[0]
-        rows[int(sheet)] = {"petrol_cars": float(uk["Petrol cars total"]), "diesel_cars": float(uk["Diesel cars total"])}
+        rows[int(sheet)] = {"petrol_cars": float(uk[columns["petrol"]]), "diesel_cars": float(uk[columns["diesel"]])}
     return pd.DataFrame.from_dict(rows, orient="index").sort_index().rename_axis("year")
 
 
@@ -322,14 +335,17 @@ def load_history(fp: FleetParams | None = None, data_dir: Path | None = None) ->
     fp = fp or load_params()
     d = data_dir or ROOT / "data"
     path = lambda p: d / Path(p).name if data_dir else ROOT / p
-    parc = read_parc(d / "veh0105.ods", d / "veh0142.ods")
-    regs, ratio = read_registrations(d / "veh1153.ods")
+    body = fp.data.get("body_type", "Cars")
+    files = fp.data.get("files", {})
+    dft = lambda name: path(files[name]) if name in files else d / f"{name}.ods"
+    parc = read_parc(dft("veh0105"), dft("veh0142"), body)
+    regs, ratio = read_registrations(dft("veh1153"), body)
     base = fp.get("base_year") or int(parc.index.max())
     return FleetHistory(
         parc=parc,
         registrations=regs,
         mileage=read_mileage(path(fp.get("mileage.file")), fp.get("mileage.first_year")),
-        fuel=read_fuel(path(fp.get("fuel_use.file"))),
+        fuel=read_fuel(path(fp.get("fuel_use.file")), fp.data["fuel_use"].get("columns")),
         naei_mt=read_naei(path(fp.get("naei.file")), fp.get("naei.sheet"), fp.get("naei.row")),
         base_year=int(base),
         uk_gb_ratio=ratio,
@@ -365,8 +381,12 @@ def calibration(hist: FleetHistory, fp: FleetParams) -> dict:
     v = validate(hist, fp)
     n = fp.get("fuel_use.calibration_years")
     recent = v[~v.index.isin(fp.get("fuel_use.exclude_years") or [])].tail(n)
-    # NAEI ratio over the same years: it drifts down over time (0.97 in 2014, 0.91 in 2020).
-    scale = float(recent["ratio"].mean()) if fp.get("emissions.calibrate_to_naei") and recent["ratio"].notna().all() else 1.0
+    # NAEI ratio over the same years, or, where the NAEI file stops earlier than the fuel
+    # data, over the latest years that have both. It drifts down over time (0.97 in 2014, 0.91 in 2020).
+    both = v["ratio"].dropna()
+    both = both[~both.index.isin(fp.get("fuel_use.exclude_years") or [])]
+    ratios = recent["ratio"] if recent["ratio"].notna().all() else both.tail(n)
+    scale = float(ratios.mean()) if fp.get("emissions.calibrate_to_naei") and len(ratios) else 1.0
     return {
         "fuel_per_mile": recent["fuel_per_mile"].mean().reindex(FUELS).fillna(0.0),
         "calibration_years": [int(y) for y in recent.index],

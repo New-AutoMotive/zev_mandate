@@ -15,6 +15,13 @@ name: UK car fleet, archive notebook 01 assumptions
 
 vehicle_type: car
 
+# DfT vehicle licensing tables (updated 23 Sep 2026, data to 2026 Q2). Sources in
+# data/raw/SOURCES.md. The older copies in data/ run to 2023/24.
+files:
+  veh0105: data/raw/dft_vehicles/veh0105.ods
+  veh0142: data/raw/dft_vehicles/veh0142.ods
+  veh1153: data/raw/dft_vehicles/veh1153.ods
+
 # Base year: the stock model starts from the year-end (Q4) parc in VEH0105/VEH0142.
 # null = the latest year with a Q4 column in the files in data/.
 base_year: null
@@ -59,7 +66,8 @@ fuel_use:
   # Fuel used per vehicle mile is calibrated from history: DESNZ sub-national road
   # transport fuel consumption (petrol and diesel cars, ktoe, UK row K02000001)
   # divided by modelled vehicle miles (parc x mileage).
-  file: data/sub-national-road-transport-fuel-consumption-statistics-2005-2020.ods
+  # 2005-2024 edition (DESNZ, Jun 2026); includes blended biofuel. data/raw/SOURCES.md
+  file: data/raw/desnz_road_fuel/subnational-road-transport-fuel-consumption-tables-2005-2024.xlsx
   calibration_years: 3      # mean of the last N years with fuel data (notebook: 3)
   # Left out of the calibration: lockdown years, when MOT-based mileage and fuel sales
   # moved differently (fuel per mile 15% below 2019 in 2020).

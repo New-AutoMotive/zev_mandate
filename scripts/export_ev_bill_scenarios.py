@@ -36,74 +36,30 @@ from pathlib import Path
 
 import pandas as pd
 
-from zevm import rules, scenarios
+from zevm import scenarios
 
 ROOT = Path(__file__).resolve().parent.parent
 YEARS = range(2026, 2036)
-POLICIES = {
-    "Current mandate": "scenarios/indicative_to_2035",
-    "Review Option 1 (cars 70%, vans 60%)": "scenarios/review_option1_cars70_vans60",
-    "Review Option 2 (cars 60%, vans 50%)": "scenarios/review_option2_cars60_vans50",
-    "Review Option 3 (cars 50%, vans 40%)": "scenarios/review_option3_cars50_vans40",
-    "Review Option 4 (cars 80%, vans 70%, flex to 2034)": "scenarios/review_option4_cars80_vans70_extended",
-}
 VEHICLE_TYPES = ("bev_car", "phev_car", "bev_van")
 MEASURES = ("sales", "stock")
 
 
 def build(car_market_2026: float, growth: float, phev_share: float, offline: bool) -> tuple[pd.DataFrame, dict]:
-    kw = {"offline": offline}
-    hc, hv = scenarios.prepare("car", **kw), scenarios.prepare("van", **kw)
-
-    def last(h):
-        y = h.yearly[h.yearly["year"] == 2026]
-        return y["total_registrations"].sum(), y["zev_registrations"].sum() / y["total_registrations"].sum()
-
-    car_ves, car_share26 = last(hc)
-    van_ves, van_share26 = last(hv)
-    scale = car_market_2026 / car_ves
-    markets = {
-        "car": {y: car_market_2026 * (1 + growth) ** (y - 2026) for y in YEARS},
-        "van": {y: van_ves * scale * (1 + growth) ** (y - 2026) for y in YEARS},
-    }
-    share26 = {"car": car_share26, "van": van_share26}
-    hist = {"car": hc, "van": hv}
-    proj_years = [y for y in YEARS if y > 2026]
-
-    def on_target(params, vt):
-        p = rules.load(params)
-        return {2026: share26[vt], **{y: p.zev_target(vt, y) for y in proj_years}}
-
-    def heavy_flex(params, vt, co2=0.0):
-        mp = scenarios.minimum_compliant_path(
-            hist[vt], params, {y: markets[vt][y] for y in proj_years}, nonzev_co2_change=co2,
-            years=proj_years, floor=share26[vt])
-        return {2026: share26[vt], **mp["min_zev_share"].to_dict()}
-
-    paths = {}
-    for name, params in POLICIES.items():
-        paths[f"{name} | on target"] = {vt: on_target(params, vt) for vt in ("car", "van")}
-    for name, params in POLICIES.items():
-        paths[f"{name} | heavy flex"] = {vt: heavy_flex(params, vt) for vt in ("car", "van")}
-    o3 = POLICIES["Review Option 3 (cars 50%, vans 40%)"]
-    paths["Review Option 3 (cars 50%, vans 40%) | heavy flex, non-ZEV CO2 -6%/yr"] = {
-        "car": heavy_flex(o3, "car", -0.06), "van": heavy_flex(o3, "van")}
-
+    paths, info = scenarios.policy_paths(car_market_2026, growth, offline=offline)
+    w = paths[paths["year"].isin(YEARS)].pivot_table(index=["scenario", "year"], columns="vehicle_type",
+                                                     values=["total_registrations", "zev_share"], sort=False)
     rows = []
-    for scen, by_vt in paths.items():
-        for y in YEARS:
-            cars, vans = markets["car"][y], markets["van"][y]
-            bev_car = by_vt["car"][y] * cars
-            rows += [
-                (scen, y, "bev_car", "sales", bev_car),
-                (scen, y, "phev_car", "sales", phev_share * (cars - bev_car)),
-                (scen, y, "bev_van", "sales", by_vt["van"][y] * vans),
-            ]
+    for (scen, y), r in w.iterrows():
+        cars, vans = r[("total_registrations", "car")], r[("total_registrations", "van")]
+        bev_car = r[("zev_share", "car")] * cars
+        rows += [
+            (scen, y, "bev_car", "sales", bev_car),
+            (scen, y, "phev_car", "sales", phev_share * (cars - bev_car)),
+            (scen, y, "bev_van", "sales", r[("zev_share", "van")] * vans),
+        ]
     df = pd.DataFrame(rows, columns=["scenario", "year", "vehicle_type", "measure", "value"])
     df["value"] = df["value"].round(0)
-    info = {"car_market_2026": car_market_2026, "van_market_2026": markets["van"][2026], "growth": growth,
-            "car_bev_share_2026": car_share26, "van_bev_share_2026": van_share26, "phev_share_of_non_bev": phev_share}
-    return df, info
+    return df, {**info, "phev_share_of_non_bev": phev_share}
 
 
 def validate(df: pd.DataFrame) -> list[str]:

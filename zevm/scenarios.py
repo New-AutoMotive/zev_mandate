@@ -457,3 +457,87 @@ def minimum_compliant_path(
                      "co2_credits_share": r.co2_credits / r.total_registrations,
                      "bank_used_share": r.banked_used / r.total_registrations})
     return pd.DataFrame(rows).set_index("year")
+
+
+# ---------------------------------------------------------------- review policy scenarios
+
+REVIEW_POLICIES = {
+    "Current mandate": "scenarios/indicative_to_2035",
+    "Review Option 1 (cars 70%, vans 60%)": "scenarios/review_option1_cars70_vans60",
+    "Review Option 2 (cars 60%, vans 50%)": "scenarios/review_option2_cars60_vans50",
+    "Review Option 3 (cars 50%, vans 40%)": "scenarios/review_option3_cars50_vans40",
+    "Review Option 4 (cars 80%, vans 70%, flex to 2034)": "scenarios/review_option4_cars80_vans70_extended",
+}
+
+
+def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, policies: dict | None = None,
+                 heavy_flex: bool = True, worst_case: bool = True, histories: dict | None = None,
+                 end_year: int = 2035, **prepare_kwargs) -> tuple[pd.DataFrame, dict]:
+    """Market size and ZEV share by scenario, vehicle type and year, 2024 to `end_year`, for
+    the current mandate and the review options.
+
+    Scenarios, for each policy in `policies` (default REVIEW_POLICIES):
+    - "<policy> | on target": the market ZEV share equals the headline target.
+    - "<policy> | heavy flex": minimum_compliant_path with non-ZEV CO2 flat, floored at
+      this year's share.
+    - "Review Option 3 ... | heavy flex, non-ZEV CO2 -6%/yr" (worst_case=True).
+    The `nonzev_co2_change` column carries each scenario's annual change in new non-ZEV
+    CO2 (0 except the worst case), so the fleet model can use the same assumption.
+
+    Markets are on an official basis, not VES. Cars use `car_market_2026` (default SMMT's
+    2026 forecast) growing at `growth`. Vans and the 2024-25 history are VES counts scaled
+    by the same ratio, because VES overcounts official totals. History years (basis actual or
+    estimated) are the same in every scenario. `histories` = {"car": History, "van": History}
+    skips the BigQuery step.
+
+    Returns (long frame: scenario, vehicle_type, year, total_registrations, zev_share,
+    basis; info dict of the assumptions used).
+    """
+    policies = policies or REVIEW_POLICIES
+    hist = histories or {vt: prepare(vt, **prepare_kwargs) for vt in ("car", "van")}
+    est_year = int(hist["car"].yearly["year"].max())
+
+    def market_hist(h):
+        g = h.yearly.groupby("year")[["total_registrations", "zev_registrations"]].sum()
+        return g["total_registrations"], g["zev_registrations"] / g["total_registrations"], h.yearly.groupby("year")["basis"].first()
+
+    car_tot, car_share, basis = market_hist(hist["car"])
+    van_tot, van_share, _ = market_hist(hist["van"])
+    scale = car_market_2026 / car_tot.loc[est_year]
+    future = range(est_year + 1, end_year + 1)
+    markets = {
+        "car": {**(car_tot * scale).to_dict(), **{y: car_market_2026 * (1 + growth) ** (y - est_year) for y in future}},
+        "van": {**(van_tot * scale).to_dict(), **{y: van_tot.loc[est_year] * scale * (1 + growth) ** (y - est_year) for y in future}},
+    }
+    share_hist = {"car": car_share.to_dict(), "van": van_share.to_dict()}
+
+    def on_target(params, vt):
+        p = rules.load(params)
+        return {y: p.zev_target(vt, y) for y in future}
+
+    def flex(params, vt, co2=0.0):
+        mp = minimum_compliant_path(hist[vt], params, {y: markets[vt][y] for y in future},
+                                    nonzev_co2_change=co2, years=list(future), floor=share_hist[vt][est_year])
+        return mp["min_zev_share"].to_dict()
+
+    paths = {f"{n} | on target": {vt: on_target(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
+    if heavy_flex:
+        paths |= {f"{n} | heavy flex": {vt: flex(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
+    o3 = "Review Option 3 (cars 50%, vans 40%)"
+    if worst_case and o3 in policies:
+        paths[f"{o3} | heavy flex, non-ZEV CO2 -6%/yr"] = {"car": flex(policies[o3], "car", -0.06),
+                                                           "van": flex(policies[o3], "van")}
+    co2_change = {s: {"car": -0.06 if s.endswith("non-ZEV CO2 -6%/yr") else 0.0, "van": 0.0} for s in paths}
+    rows = []
+    for scen, by_vt in paths.items():
+        for vt in ("car", "van"):
+            for y in sorted(markets[vt]):
+                hist_year = y in share_hist[vt]
+                rows.append((scen, vt, y, markets[vt][y], share_hist[vt][y] if hist_year else by_vt[vt][y],
+                             basis.get(y, "projected") if hist_year else "projected", co2_change[scen][vt]))
+    df = pd.DataFrame(rows, columns=["scenario", "vehicle_type", "year", "total_registrations", "zev_share", "basis",
+                                     "nonzev_co2_change"])
+    info = {"car_market": car_market_2026, "market_year": est_year, "growth": growth, "ves_to_official_scale": scale,
+            "van_market": markets["van"][est_year],
+            "car_zev_share_" + str(est_year): share_hist["car"][est_year], "van_zev_share_" + str(est_year): share_hist["van"][est_year]}
+    return df, info
