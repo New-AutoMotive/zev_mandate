@@ -15,8 +15,9 @@ zevm/        The Python package
                banking, borrowing + uplift, market trading, payments
   scenarios.py history (current-year estimate) + projections to 2030/35
   data.py      BigQuery pulls (cached to data/cache/), ZEV/non-ZEV split, grouping by make/entity/pool
-  fleet.py     car parc -> vehicle miles -> fuel -> tailpipe CO2, driven by scenario registrations;
-               validated against NAEI
+  fleet.py     car or van parc -> vehicle miles -> fuel -> tailpipe CO2, driven by scenario
+               registrations; validated against NAEI (params/fleet.yaml, fleet_van.yaml)
+  oil.py       UK oil demand and oil intensity of GDP by scenario (params/oil.yaml)
   plots.py     charts for the notebooks (style in zevm/style/)
 notebooks/   tracker.ipynb (this year by manufacturer), scenarios.ipynb (projections),
              fleet.ipynb (parc and emissions to 2035 by scenario)
@@ -151,6 +152,26 @@ Caveats:
 - The post-2023 split of non-ZEVs, new-car fuel use and flat mileage are assumptions
   (marked in `params/fleet.yaml`). The CO2 factors are the DESNZ 2023 ones from the notebook.
 - Only tailpipe CO2 is counted. Electricity is not.
+
+## Oil intensity of GDP
+
+```bash
+.venv/bin/python scripts/oil_intensity.py        # outputs/oil_intensity_by_scenario.csv + 2 charts
+```
+
+UK oil demand (DUKES total demand for oil products, which includes non-energy use and
+international aviation and leaves out marine bunkers and biofuels) divided by real GDP
+(ONS ABMI, then OBR March 2026 growth), for every scenario in `scenarios.policy_paths`.
+From the 2025 DUKES outturn:
+- **Cars and vans** move with the fleet model's fuel use for each scenario. This is the
+  only part that differs between scenarios.
+- **HGVs, buses and motorcycles** follow their 2014-24 trend (-0.7% a year).
+- **All non-road oil** follows the DESNZ Energy and Emissions Projections reference
+  scenario.
+
+The method and its caveats are in `zevm/oil.py`. Source files go in `data/raw/` (not
+committed; URLs in `data/raw/SOURCES.md`). The fleet model reads the 2026 DfT tables and
+the 2005-2024 DESNZ road fuel tables from there.
 
 ## Changing the mandate
 

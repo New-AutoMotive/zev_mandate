@@ -1,0 +1,36 @@
+# Van (LGV) fleet and tailpipe emissions model: assumptions for zevm.fleet
+#
+# Extends params/fleet.yaml; only what differs for vans is set here. Same data files
+# (DfT VEH0105/0142/1153, DESNZ sub-national road fuel, NAEI), different rows/columns.
+
+extends: fleet.yaml
+name: UK van (LGV) fleet
+
+vehicle_type: van
+body_type: Light goods vehicles        # DfT BodyType
+
+retirement:
+  # Set by backtest against the DfT van parc (fleet.backtest). See notebooks/fleet.ipynb.
+  lifespan_years: 15
+  spread_years: 10
+
+registrations:
+  # Shares of non-ZEV van registrations. Observed UK 2023 (VEH1153a LGV): diesel 0.96,
+  # petrol 0.027, hybrids ~0.01. ASSUMPTION after 2023: petrol and hybrids edge up.
+  # Every year in fleet.yaml's tables is listed: year tables merge year by year with
+  # the file this extends, so a missing year would take the car value.
+  nonzev_split:
+    hybrid: {2024: 0.01, 2025: 0.01, 2026: 0.02, 2027: 0.02, 2028: 0.03, 2029: 0.03}
+    diesel: {2024: 0.96, 2025: 0.96, 2026: 0.95, 2027: 0.95, 2028: 0.93}
+
+mileage:
+  file: data/vans_average_mileage.csv   # MOT odometer readings, by fuel
+
+fuel_use:
+  columns: {petrol: Petrol LGV total, diesel: Diesel LGV total}
+  # New vans vs the base-year van fleet, per mile. ASSUMPTION: Euro 6 diesel vans ~10%
+  # better than the fleet average; few petrol/hybrid vans, so set like cars.
+  new_vs_fleet: {petrol: 0.9, diesel: 0.9, hybrid: 0.8}
+
+naei:
+  row: 1A3bii_Light_duty_trucks

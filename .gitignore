@@ -40,3 +40,7 @@ outputs/
 !params/**/*.csv
 !tests/fixtures/*.csv
 !reference/*.csv
+
+# Downloaded source data (see data/raw/SOURCES.md for URLs; re-download to reproduce)
+data/raw/*
+!data/raw/SOURCES.md

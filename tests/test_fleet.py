@@ -194,4 +194,35 @@ def test_real_tables_load():
     assert 1.01 < h.uk_gb_ratio < 1.04
     assert h.naei_mt.loc[2019] == pytest.approx(68.8, abs=0.5)
     v = fleet.validate(h, FP)
-    assert v["ratio"].between(0.85, 1.05).all()
+    assert v["ratio"].dropna().between(0.85, 1.05).all()
+
+
+def test_van_params_extend_car_params():
+    vp = fleet.load_params("fleet_van")
+    assert vp.data["body_type"] == "Light goods vehicles"
+    assert vp.get("naei.row") == "1A3bii_Light_duty_trucks"
+    assert vp.get("fuel_use.columns")["diesel"] == "Diesel LGV total"
+    assert vp.get("retirement.lifespan_years") == 15
+    assert vp.get("emissions.kwh_per_toe") == FP.get("emissions.kwh_per_toe")      # inherited
+    assert vp.get("registrations.nonzev_split.diesel", 2030) == 0.93
+
+
+@pytest.mark.skipif(not (fleet.ROOT / "data" / "veh0105.ods").exists(), reason="DfT tables not present")
+def test_real_van_tables_load():
+    vp = fleet.load_params("fleet_van")
+    h = fleet.load_history(vp)
+    assert 4e6 < h.parc.loc[2023].sum() < 5.5e6
+    assert h.parc.loc[2023, "diesel"] / h.parc.loc[2023].sum() > 0.9
+    assert 5000 < h.fuel.loc[2019, "diesel_cars"] < 8000                       # ktoe, diesel LGVs
+    assert fleet.validate(h, vp)["ratio"].dropna().between(0.85, 1.05).all()
+    assert fleet.calibration(h, vp)["co2_scale"] < 1                                 # still scaled to NAEI
+    bt = fleet.backtest(h, vp, 2014)
+    last = bt[bt.year == bt.year.max()]
+    assert abs(last.modelled.sum() / last.actual.sum() - 1) < 0.05
+
+
+def test_van_split_has_no_car_values_leaking_in():
+    vp = fleet.load_params("fleet_van")
+    for y in range(2024, 2036):
+        assert vp.get("registrations.nonzev_split.hybrid", y) <= 0.03
+        assert vp.get("registrations.nonzev_split.diesel", y) >= 0.9

@@ -308,3 +308,65 @@ def parc_by_fuel(tidy: pd.DataFrame, scenario: str, column: str = "parc", title:
     _end_labels(ax, ends, fmt=fmt)
     ax.set_xlim(right=s["year"].max() + 1.5)
     return fig
+
+
+# ---------------------------------------------------------------- oil
+
+def oil_intensity_lines(oil: pd.DataFrame, scenarios: list[str], labels: dict | None = None,
+                        end_labels: dict | None = None, ymin: float | None = 10,
+                        title: str = "UK oil intensity of GDP by ZEV mandate scenario"):
+    """Oil per £m of real GDP: the observed history once, then one line per chosen scenario
+    (zevm.oil.scenario_oil output). At most six scenarios, so colours stay distinct."""
+    if len(scenarios) > len(SERIES):
+        raise ValueError(f"At most {len(SERIES)} scenarios; facet or pick fewer")
+    labels = labels or {}
+    end_labels = end_labels or {}
+    cols = colours_for(scenarios)
+    fig, ax = plt.subplots(figsize=(10, 6))
+    _shade_projection(ax, oil["year"], oil["basis"])
+    hist = oil[(oil["scenario"] == scenarios[0]) & (oil["basis"] == "actual")].sort_values("year")
+    ax.plot(hist["year"], hist["oil_t_per_gdp_m"], color=INK_2, label="Actual (DUKES ÷ ONS GDP)")
+    last = hist.iloc[-1]
+    ends = []
+    for s in scenarios:
+        g = oil[(oil["scenario"] == s) & (oil["basis"] != "actual")].sort_values("year")
+        x = [last["year"]] + list(g["year"]); y = [last["oil_t_per_gdp_m"]] + list(g["oil_t_per_gdp_m"])
+        ax.plot(x, y, color=cols[s], label=labels.get(s, s))
+        ends.append((end_labels.get(s, _short(labels.get(s, s))), g["year"].iloc[-1], g["oil_t_per_gdp_m"].iloc[-1], cols[s]))
+    # A line chart need not start at zero; the default starts at 10 so the gaps between
+    # scenarios are visible. Pass ymin=0 for the full scale.
+    ax.set_ylim(ymin if ymin is not None else 0, hist["oil_t_per_gdp_m"].max() * 1.08)
+    ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+    ax.set_ylabel("tonnes of oil per £m of real GDP (2024 prices)")
+    ax.set_title(title)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=2, fontsize=9)
+    _end_labels(ax, ends, fmt="{:.1f}")
+    ax.set_xlim(right=oil["year"].max() + 2.5)
+    return fig
+
+
+def oil_gap_bars(oil: pd.DataFrame, reference: str, year: int | None = None, cumulative_from: int | None = None,
+                 title: str | None = None):
+    """Extra oil in each scenario vs `reference`: in `year`, or summed from `cumulative_from`
+    to the last year. One colour (it's one measure); value labels at the bar ends."""
+    proj = oil[oil["basis"] != "actual"]
+    if cumulative_from is not None:
+        v = proj[proj["year"] >= cumulative_from].groupby("scenario")["oil_kt"].sum() / 1e3
+        what = f"{cumulative_from}–{int(proj['year'].max())}, cumulative"
+    else:
+        year = year or int(proj["year"].max())
+        v = proj[proj["year"] == year].set_index("scenario")["oil_kt"] / 1e3
+        what = str(year)
+    gap = (v - v[reference]).drop(reference).sort_values()
+    fig, ax = plt.subplots(figsize=(10, max(3.5, 0.45 * len(gap) + 1.2)))
+    y = np.arange(len(gap))
+    ax.barh(y, gap.values, color=BLUE, height=0.6, edgecolor="white", linewidth=1.5)
+    for yi, val in zip(y, gap.values):
+        ax.text(val + gap.abs().max() * 0.01, yi, f"{val:+.1f} Mt", va="center", fontsize=9, color=INK_2)
+    ax.set_yticks(y, [s.replace(" | ", " · ") for s in gap.index], fontsize=9)
+    ax.axvline(0, color=INK_2, lw=0.8)
+    ax.grid(axis="x"); ax.grid(axis="y", visible=False)
+    ax.set_xlim(min(0, gap.min() * 1.15), gap.max() * 1.18)
+    ax.set_xlabel("million tonnes of oil")
+    ax.set_title(title or f"Extra UK oil demand vs {reference.replace(' | ', ', ')}, {what}")
+    return fig

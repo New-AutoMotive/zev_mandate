@@ -1,0 +1,63 @@
+# UK oil demand and oil intensity of GDP: inputs and assumptions for zevm.oil
+#
+# Oil = DUKES "Total demand" for oil products (Table 3.2, "Total products"), thousand
+# tonnes. It includes non-energy use and international aviation. It excludes
+# international marine bunkers and biofuels. Every file is listed in data/raw/SOURCES.md.
+
+name: UK oil intensity of GDP
+
+base_year: 2025            # last DUKES outturn year; projections start the year after
+
+dukes:
+  # Commodity balances: one sheet per year, label column "Column1", value column "Total products".
+  file: data/raw/dukes_oil/DUKES_3.2.xlsx
+  header: 3
+  total_row: Total demand
+  road_row: Road
+
+road_split:
+  # Share of road fuel used by cars and vans, from DESNZ sub-national road fuel
+  # consumption (UK row, ktoe, includes blended biofuel; only the shares are used).
+  # Years after the last edition year use the last year's shares.
+  file: data/raw/desnz_road_fuel/subnational-road-transport-fuel-consumption-tables-2005-2024.xlsx
+  car_columns: [Petrol cars total, Diesel cars total]
+  van_columns: [Petrol LGV total, Diesel LGV total, LPG LGV total]
+  total_column: Fuel consumption by all vehicles
+
+other_road:
+  # HGVs, buses, motorcycles. EEP has no split of road transport by vehicle, so this is
+  # an ASSUMPTION: the 2014-2024 trend continues. Their share of DUKES road oil fell
+  # 0.7% a year over 2014-2024 (oil.road_history), through efficiency and a little
+  # electrification.
+  annual_change: -0.007
+
+non_road:
+  # Everything that isn't road: aviation incl. international, shipping, rail, industry,
+  # buildings, agriculture, non-energy use, energy-industry use. It follows the DESNZ
+  # Energy and Emissions Projections 2024-2050 (Feb 2026), Annex F reference scenario:
+  # petroleum products "Total including international aviation" minus "Road transport".
+  # Annex F leaves out non-energy and energy-industry use, which are assumed to follow
+  # the same index.
+  file: data/raw/desnz_eep/Annex_F_final_energy_demand_ktoe.ods
+  sheet: Reference
+  header: 2
+  total: {coverage: Total including international aviation, fuel: Petroleum products}
+  road: {coverage: Transport, fuel: Petroleum products (Road transport)}
+
+gdp:
+  # ONS ABMI, real GDP, chained volume, £m, reference year 2024 (released 30 Sep 2026).
+  file: data/raw/ons_gdp/abmi_ukea.csv
+  # OBR March 2026 EFO, Table A.1 "GDP" growth (calendar years), then the OBR long-term
+  # economic determinants (March 2026 EFO) real GDP growth by fiscal year, with fiscal
+  # year y/y+1 used for calendar year y.
+  growth:
+    2026: 0.0110
+    2027: 0.0159
+    2028: 0.0158
+    2029: 0.0154
+    2030: 0.0152
+    2031: 0.0160
+    2032: 0.0169
+    2033: 0.0172
+    2034: 0.0172
+    2035: 0.0176
