@@ -62,12 +62,12 @@ def load_params(name_or_path: str | Path = "oil") -> OilParams:
 
 def read_dukes(path: Path, header: int = 3, total_row: str = "Total demand", road_row: str = "Road") -> pd.DataFrame:
     """Total and road demand for oil products (thousand tonnes) from DUKES 3.2, one sheet per year."""
-    xl = pd.ExcelFile(path)
+    xl = pd.ExcelFile(path, engine="calamine")
     rows = {}
     for sheet in xl.sheet_names:
         if not str(sheet).strip().isdigit():
             continue
-        df = xl.parse(sheet, header=header)
+        df = pd.read_excel(xl, sheet_name=sheet, header=header)
         label = df[df.columns[0]].astype(str).str.strip()
         val = lambda name: float(df.loc[label == name, "Total products"].iloc[0])
         rows[int(sheet)] = {"total_kt": val(total_row), "road_kt": val(road_row)}
@@ -81,7 +81,7 @@ def read_road_split(path: Path, car_columns: list[str], van_columns: list[str], 
     for sheet in xl.sheet_names:
         if not str(sheet).strip().isdigit():
             continue
-        raw = xl.parse(sheet, header=None)
+        raw = pd.read_excel(xl, sheet_name=sheet, header=None)
         hdr = raw.index[raw.apply(lambda r: r.astype(str).str.contains("Local Authority Code", regex=False).any(), axis=1)][0]
         df = raw.iloc[hdr + 1:].set_axis([str(c).split("[")[0].replace("\n", "").strip() for c in raw.iloc[hdr]], axis=1)
         uk = df[df["Local Authority Code"] == UK_CODE].iloc[0]
@@ -180,9 +180,10 @@ def _finish(df: pd.DataFrame, inputs: OilInputs) -> pd.DataFrame:
 
 def fleet_fuel(paths: pd.DataFrame, vehicle_type: str, fp: fleet.FleetParams | None = None,
                hist: fleet.FleetHistory | None = None) -> pd.DataFrame:
-    """Fuel use (ktoe) by scenario and year from the fleet model, and as an index on the
-    fleet's base-year fuel use. `paths`: scenario, vehicle_type, year, total_registrations,
-    zev_share, basis (e.g. scenarios.policy_paths)."""
+    """Fuel use (ktoe) and battery-electric vehicle miles by scenario and year from the fleet
+    model, with fuel as an index on the fleet's base-year fuel use. `paths`: scenario,
+    vehicle_type, year, total_registrations, zev_share, basis (e.g. scenarios.policy_paths).
+    attrs: fleet_base_year, base_fuel_ktoe, base_bev_miles."""
     fp = fp or fleet.load_params("fleet" if vehicle_type == "car" else "fleet_van")
     hist = hist or fleet.load_history(fp)
     summary = paths[paths["vehicle_type"] == vehicle_type].drop(columns="vehicle_type")
@@ -202,9 +203,13 @@ def fleet_fuel(paths: pd.DataFrame, vehicle_type: str, fp: fleet.FleetParams | N
     out = pd.concat(parts, ignore_index=True)
     order = list(dict.fromkeys(summary["scenario"]))
     fuel = out.groupby(["scenario", "year"])["fuel_ktoe"].sum().rename("fuel_ktoe").reset_index()
+    bev = out[out["fuel"] == "bev"].groupby(["scenario", "year"])["vehicle_miles"].sum().rename("bev_miles")
+    fuel = fuel.merge(bev.reset_index(), on=["scenario", "year"], how="left")
     fuel = fuel.sort_values("scenario", key=lambda s: s.map(order.index), kind="stable").reset_index(drop=True)
     fuel["fuel_index"] = fuel["fuel_ktoe"] / base
-    fuel.attrs["fleet_base_year"] = hist.base_year
+    miles0 = fleet.mileage_path(hist, fp, [hist.base_year]).loc[hist.base_year]
+    fuel.attrs.update(fleet_base_year=hist.base_year, base_fuel_ktoe=base,
+                      base_bev_miles=float(hist.parc.loc[hist.base_year, "bev"] * miles0["bev"]))
     return fuel
 
 

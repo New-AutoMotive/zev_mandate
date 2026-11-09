@@ -293,6 +293,37 @@ def read_registrations(veh1153: Path, body_type: str = "Cars") -> tuple[pd.DataF
     return pd.concat([early, uk]).sort_index().rename_axis("year"), ratio
 
 
+PLUGIN_HYBRID_COLUMNS = {
+    "VEH0142": ["Plug-in hybrid electric (petrol)", "Plug-in hybrid electric (diesel)"],
+    "VEH1153": ["Plug-in hybrid electric (petrol)", "Plug-in hybrid electric (diesel)",
+                "Plug-in Hybrid Electric - Petrol", "Plug-in Hybrid Electric - Diesel"],
+}
+
+
+def read_plugin_hybrids(veh0142: Path, veh1153: Path, body_type: str = "Cars") -> tuple[pd.Series, pd.Series]:
+    """Plug-in hybrids on their own, which the fuel groups fold into hybrid/diesel:
+    UK year-end licensed stock (VEH0142) and annual UK new registrations (VEH1153;
+    GB x the UK/GB ratio before UK data). Returns (parc by year, registrations by year)."""
+    df = _read_ods(veh0142, "VEH0142")
+    df = df[(df["BodyType"] == body_type) & (df["Keepership"] == "Total") & (df["ONS Code"] == UK_CODE)
+            & (df["Fuel"].isin(PLUGIN_HYBRID_COLUMNS["VEH0142"]))]
+    cols = [c for c in df.columns if c.endswith("Q4")]
+    parc = df[cols].apply(pd.to_numeric, errors="coerce").sum(min_count=1)
+    parc.index = [int(c.split()[0]) for c in cols]
+    regs = _read_ods(veh1153, "VEH1153a_RoadUsing")
+    regs = regs[(regs["BodyType"] == body_type) & (regs["Keepership"] == "Total") & (regs["Units"] == "Thousands")
+                & (regs["Date Interval"] == "Annual")]
+    regs = regs.assign(year=pd.to_numeric(regs["Date"], errors="coerce")).dropna(subset=["year"])
+    present = [c for c in PLUGIN_HYBRID_COLUMNS["VEH1153"] if c in regs]
+    regs["phev"] = regs[present].apply(pd.to_numeric, errors="coerce").fillna(0.0).sum(axis=1) * 1000
+    by_geo = {g: d.set_index(d["year"].astype(int))["phev"] for g, d in regs.groupby("Geography")}
+    uk, gb = by_geo["United Kingdom"], by_geo["Great Britain"]
+    both = uk.index.intersection(gb.index)
+    ratio = float((uk.loc[both] / gb.loc[both]).replace([np.inf], np.nan).dropna().mean()) if len(both) else 1.0
+    early = gb[gb.index < uk.index.min()] * ratio
+    return parc.dropna().sort_index().rename("phev"), pd.concat([early, uk]).sort_index().rename("phev")
+
+
 def read_mileage(path: Path, first_year: int = 2007) -> pd.DataFrame:
     df = pd.read_csv(path)
     year_col = "completedYear" if "completedYear" in df else "year"
@@ -311,7 +342,7 @@ def read_fuel(path: Path, columns: dict | None = None) -> pd.DataFrame:
     for sheet in xl.sheet_names:
         if not sheet.strip().isdigit():
             continue
-        raw = xl.parse(sheet, header=None)
+        raw = pd.read_excel(xl, sheet_name=sheet, header=None)
         hdr = raw.index[raw.apply(lambda r: r.astype(str).str.contains("Local Authority Code", regex=False).any(), axis=1)][0]
         df = raw.iloc[hdr + 1:].set_axis([str(c).split("[")[0].strip() for c in raw.iloc[hdr]], axis=1)
         uk = df[df["Local Authority Code"] == UK_CODE].iloc[0]
