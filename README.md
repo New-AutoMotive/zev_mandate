@@ -18,6 +18,7 @@ zevm/        The Python package
   fleet.py     car or van parc -> vehicle miles -> fuel -> tailpipe CO2, driven by scenario
                registrations; validated against NAEI (params/fleet.yaml, fleet_van.yaml)
   oil.py       UK oil demand and oil intensity of GDP by scenario (params/oil.yaml)
+  electricity.py  electricity share of UK final energy by scenario (params/electricity.yaml)
   plots.py     charts for the notebooks (style in zevm/style/)
 notebooks/   tracker.ipynb (this year by manufacturer), scenarios.ipynb (projections),
              fleet.ipynb (parc and emissions to 2035 by scenario)
@@ -172,6 +173,24 @@ From the 2025 DUKES outturn:
 The method and its caveats are in `zevm/oil.py`. Source files go in `data/raw/` (not
 committed; URLs in `data/raw/SOURCES.md`). The fleet model reads the 2026 DfT tables and
 the 2005-2024 DESNZ road fuel tables from there.
+
+## Electricity share of final energy
+
+```bash
+.venv/bin/python scripts/electricity_share.py --as-of 2026-10-01   # pin the data cut used for the bill export
+```
+
+Electricity as a share of UK final energy consumption (DUKES final consumption less
+non-energy use, which includes international aviation; 18.6% in 2025). The share is also
+given without international aviation.
+- **Cars and vans:** petrol and diesel follow the fleet model. Electricity = battery-electric
+  miles + 25% of plug-in hybrid miles, at the EV bill model's kWh per mile plus 10%
+  charging losses. It's added to DUKES road electricity as a change from 2025.
+- **Everything else:** follows the DESNZ Energy and Emissions Projections reference
+  scenario (mode `eep`), or is held at 2025 (mode `held`) to show the ZEV mandate's own effect.
+
+The method is in `zevm/electricity.py`. Plug-in hybrid stock is tracked separately
+(`fleet.read_plugin_hybrids`) only to count their electric miles.
 
 ## Changing the mandate
 

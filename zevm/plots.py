@@ -312,37 +312,61 @@ def parc_by_fuel(tidy: pd.DataFrame, scenario: str, column: str = "parc", title:
 
 # ---------------------------------------------------------------- oil
 
-def oil_intensity_lines(oil: pd.DataFrame, scenarios: list[str], labels: dict | None = None,
-                        end_labels: dict | None = None, ymin: float | None = 10,
-                        title: str = "UK oil intensity of GDP by ZEV mandate scenario"):
-    """Oil per £m of real GDP: the observed history once, then one line per chosen scenario
-    (zevm.oil.scenario_oil output). At most six scenarios, so colours stay distinct."""
+def history_and_scenarios(df: pd.DataFrame, value: str, scenarios: list[str], labels: dict | None = None,
+                          end_labels: dict | None = None, ymin: float | None = None, ymax: float | None = None,
+                          title: str = "", ylabel: str = "", history_label: str = "Actual", pct: bool = False):
+    """One measure over time: the observed history once (rows with basis 'actual'), then one
+    line per chosen scenario from the last observed year. At most six scenarios, so colours
+    stay distinct. A line chart need not start at zero; set ymin to show the spread."""
     if len(scenarios) > len(SERIES):
         raise ValueError(f"At most {len(SERIES)} scenarios; facet or pick fewer")
-    labels = labels or {}
-    end_labels = end_labels or {}
+    labels, end_labels = labels or {}, end_labels or {}
     cols = colours_for(scenarios)
     fig, ax = plt.subplots(figsize=(10, 6))
-    _shade_projection(ax, oil["year"], oil["basis"])
-    hist = oil[(oil["scenario"] == scenarios[0]) & (oil["basis"] == "actual")].sort_values("year")
-    ax.plot(hist["year"], hist["oil_t_per_gdp_m"], color=INK_2, label="Actual (DUKES ÷ ONS GDP)")
+    _shade_projection(ax, df["year"], df["basis"])
+    hist = df[(df["scenario"] == scenarios[0]) & (df["basis"] == "actual")].sort_values("year")
+    ax.plot(hist["year"], hist[value], color=INK_2, label=history_label)
     last = hist.iloc[-1]
     ends = []
     for s in scenarios:
-        g = oil[(oil["scenario"] == s) & (oil["basis"] != "actual")].sort_values("year")
-        x = [last["year"]] + list(g["year"]); y = [last["oil_t_per_gdp_m"]] + list(g["oil_t_per_gdp_m"])
-        ax.plot(x, y, color=cols[s], label=labels.get(s, s))
-        ends.append((end_labels.get(s, _short(labels.get(s, s))), g["year"].iloc[-1], g["oil_t_per_gdp_m"].iloc[-1], cols[s]))
-    # A line chart need not start at zero; the default starts at 10 so the gaps between
-    # scenarios are visible. Pass ymin=0 for the full scale.
-    ax.set_ylim(ymin if ymin is not None else 0, hist["oil_t_per_gdp_m"].max() * 1.08)
+        g = df[(df["scenario"] == s) & (df["basis"] != "actual")].sort_values("year")
+        ax.plot([last["year"]] + list(g["year"]), [last[value]] + list(g[value]), color=cols[s], label=labels.get(s, s))
+        ends.append((end_labels.get(s, _short(labels.get(s, s))), g["year"].iloc[-1], g[value].iloc[-1], cols[s]))
+    lo = ymin if ymin is not None else 0
+    hi = ymax if ymax is not None else max(hist[value].max(), df[value].max()) * 1.08
+    ax.set_ylim(lo, hi)
+    if pct:
+        _pct(ax)
     ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
-    ax.set_ylabel("tonnes of oil per £m of real GDP (2024 prices)")
+    ax.set_ylabel(ylabel)
     ax.set_title(title)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=2, fontsize=9)
-    _end_labels(ax, ends, fmt="{:.1f}")
-    ax.set_xlim(right=oil["year"].max() + 2.5)
+    _end_labels(ax, ends, fmt="{:.1%}" if pct else "{:.1f}")
+    ax.set_xlim(right=df["year"].max() + 2.5)
     return fig
+
+
+def oil_intensity_lines(oil: pd.DataFrame, scenarios: list[str], labels: dict | None = None,
+                        end_labels: dict | None = None, ymin: float | None = 10,
+                        title: str = "UK oil intensity of GDP by ZEV mandate scenario"):
+    """Oil per £m of real GDP (zevm.oil.scenario_oil output), history then scenarios."""
+    return history_and_scenarios(oil, "oil_t_per_gdp_m", scenarios, labels, end_labels, ymin=ymin, title=title,
+                                 ylabel="tonnes of oil per £m of real GDP (2024 prices)",
+                                 history_label="Actual (DUKES ÷ ONS GDP)")
+
+
+def electricity_share_lines(elec: pd.DataFrame, scenarios: list[str], mode: str = "eep", labels: dict | None = None,
+                            end_labels: dict | None = None, ymin: float | None = 0.15, ymax: float | None = 0.30,
+                            title: str | None = None, ex_intl_aviation: bool = False):
+    """Electricity as a share of UK final energy (zevm.electricity.scenario_electricity output)
+    for one rest-of-economy mode, history then scenarios."""
+    value = "electricity_share_ex_intl_aviation" if ex_intl_aviation else "electricity_share"
+    default = {"eep": "Electricity share of UK final energy by ZEV mandate scenario",
+               "held": "Electricity share of UK final energy: the ZEV mandate's effect alone"}[mode]
+    return history_and_scenarios(elec[elec["mode"] == mode], value, scenarios, labels, end_labels, ymin=ymin, ymax=ymax,
+                                 title=title or default, pct=True, history_label="Actual (DUKES)",
+                                 ylabel="electricity, % of final energy consumption"
+                                        + (" excl. international aviation" if ex_intl_aviation else ""))
 
 
 def oil_gap_bars(oil: pd.DataFrame, reference: str, year: int | None = None, cumulative_from: int | None = None,

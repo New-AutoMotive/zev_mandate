@@ -1,0 +1,54 @@
+# Electricity as a share of UK final energy demand: inputs and assumptions for zevm.electricity
+#
+# Headline definition: final energy consumption = DUKES "Final consumption" minus
+# "Non energy use" (ktoe, Table 1.1 aggregate energy balance). It includes international
+# aviation. The alternative excludes international aviation as well. Files: data/raw/SOURCES.md.
+
+name: Electricity share of UK final energy
+
+base_year: 2025
+
+dukes:
+  # Aggregate energy balance, one sheet per year, header on row 4, label column "Column1", ktoe.
+  file: data/raw/dukes_oil/DUKES_1.1.xlsx
+  header: 3
+  columns:
+    petroleum: Petroleum products
+    bioenergy: Bioenergy & waste [note 3]
+    gas: Natural gas [note 2]
+    electricity: Electricity
+    total: Total
+  rows:
+    final: Final consumption
+    non_energy: Non energy use
+    road: Road
+    air: Air
+
+eep:
+  # DESNZ Energy and Emissions Projections 2024-2050 (Feb 2026), Annex F, reference scenario, ktoe.
+  file: data/raw/desnz_eep/Annex_F_final_energy_demand_ktoe.ods
+  sheet: Reference
+  header: 2
+  total: {coverage: Total including international aviation}
+  transport: {coverage: Transport}
+  international_aviation: {coverage: International aviation, fuel: Petroleum products (Aviation)}
+  aviation: {coverage: Transport, fuel: Petroleum products (Aviation)}
+
+ev:
+  # Charging demand per vehicle mile, matching the EV household-bill model's defaults
+  # (ev_bill_model.py DEFAULTS: bev_eff 3.5, van_eff 2.2, phev_eff 3.2 miles/kWh, loss 0.10,
+  # phev_share 0.25 of PHEV miles on electricity).
+  miles_per_kwh: {car: 3.5, van: 2.2, phev: 3.2}
+  charging_losses: 0.10
+  phev_electric_share: 0.25
+  # Plug-in hybrid cars as a share of non-battery-electric car sales (ECC, Apr-Sep 2026),
+  # the same assumption as scripts/export_ev_bill_scenarios.py.
+  phev_share_of_non_bev: 0.20
+
+rest_of_economy:
+  # How energy outside cars and vans moves after the base year:
+  #   eep  = the DESNZ EEP reference projection (electricity and other fuels separately);
+  #   held = held at base-year levels, to isolate what the ZEV mandate scenarios do.
+  # HGVs, buses and motorcycles follow params/oil.yaml other_road.annual_change under "eep"
+  # and are held under "held".
+  modes: [eep, held]
