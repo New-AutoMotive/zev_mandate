@@ -12,11 +12,11 @@ Scenarios
   four ZEV Mandate Review options (params/scenarios/review_option*.yaml). Option 4 on
   target is identical to the current mandate, because its targets are the same; it differs
   only through flexibility use.
-- "<policy> | heavy flex": the lowest ZEV share that still complies each year
+- "<policy> | continued use of flex": the lowest ZEV share that still complies each year
   (zevm.scenarios.minimum_compliant_path). The market is pooled, CO2->ZEV credits and
   banked allowances are used in full, there's no borrowing, and non-ZEV CO2 is held at its
   2026 level. The share never falls below 2026's.
-- "Review Option 3 | heavy flex, non-ZEV CO2 -6%/yr": the worst case, where manufacturers
+- "Review Option 3 | continued use of flex, non-ZEV CO2 -6%/yr": the worst case, where manufacturers
   also cut non-ZEV CO2 hard to earn more credits.
 
 Assumptions (change with the flags)
@@ -44,8 +44,10 @@ VEHICLE_TYPES = ("bev_car", "phev_car", "bev_van")
 MEASURES = ("sales", "stock")
 
 
-def build(car_market_2026: float, growth: float, phev_share: float, offline: bool) -> tuple[pd.DataFrame, dict]:
-    paths, info = scenarios.policy_paths(car_market_2026, growth, offline=offline)
+def build(car_market_2026: float, growth: float, phev_share: float, offline: bool,
+          as_of: str | None = None) -> tuple[pd.DataFrame, dict]:
+    kw = {"offline": offline} | ({"as_of": as_of} if as_of else {})
+    paths, info = scenarios.policy_paths(car_market_2026, growth, **kw)
     w = paths[paths["year"].isin(YEARS)].pivot_table(index=["scenario", "year"], columns="vehicle_type",
                                                      values=["total_registrations", "zev_share"], sort=False)
     rows = []
@@ -99,10 +101,11 @@ def main():
     ap.add_argument("--car-market-2026", type=float, default=2.183e6)
     ap.add_argument("--growth", type=float, default=0.015)
     ap.add_argument("--phev-share", type=float, default=0.20, help="PHEV share of non-BEV car sales")
+    ap.add_argument("--as-of", default=None, help="registrations data cut, e.g. 2026-10-01 (default: latest month)")
     ap.add_argument("--offline", action="store_true", help="use cached BigQuery results only")
     a = ap.parse_args()
 
-    df, info = build(a.car_market_2026, a.growth, a.phev_share, a.offline)
+    df, info = build(a.car_market_2026, a.growth, a.phev_share, a.offline, a.as_of)
     problems = validate(df)
     if problems:
         raise SystemExit("Output fails the scenario-file spec:\n  " + "\n  ".join(problems))

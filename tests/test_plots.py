@@ -67,3 +67,12 @@ def test_fleet_charts():
     assert plots.emissions_vs_naei(v, fleet.totals(out), co2_scale=0.95).axes
     assert plots.parc_by_fuel(out, "A").axes
     assert plots.parc_by_fuel(out, "B", column="co2_mt").axes
+
+
+def test_bundled_roboto_is_used_including_bold():
+    from matplotlib import font_manager
+    plots.use_style()
+    regular = font_manager.findfont(font_manager.FontProperties(family=["sans-serif"]))
+    bold = font_manager.findfont(font_manager.FontProperties(family=["sans-serif"], weight="bold"))
+    assert "Roboto" in str(regular)                 # bundled static file or an installed Roboto
+    assert str(bold).endswith("Roboto-Bold.ttf")      # bold needs the static file (variable fonts give 400 only)

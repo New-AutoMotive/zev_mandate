@@ -28,7 +28,7 @@ build-backend = "setuptools.build_meta"
 include = ["zevm*"]
 
 [tool.setuptools.package-data]
-zevm = ["style/*.mplstyle"]
+zevm = ["style/*.mplstyle", "style/fonts/*.ttf", "style/fonts/*.txt"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
