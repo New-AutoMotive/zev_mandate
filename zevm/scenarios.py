@@ -461,6 +461,8 @@ def minimum_compliant_path(
 
 # ---------------------------------------------------------------- review policy scenarios
 
+FLEX = "continued use of flex"     # scenario-name suffix for minimum_compliant_path runs
+
 REVIEW_POLICIES = {
     "Current mandate": "scenarios/indicative_to_2035",
     "Review Option 1 (cars 70%, vans 60%)": "scenarios/review_option1_cars70_vans60",
@@ -471,16 +473,19 @@ REVIEW_POLICIES = {
 
 
 def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, policies: dict | None = None,
-                 heavy_flex: bool = True, worst_case: bool = True, histories: dict | None = None,
+                 continued_flex: bool = True, worst_case: bool = True, histories: dict | None = None,
                  end_year: int = 2035, **prepare_kwargs) -> tuple[pd.DataFrame, dict]:
     """Market size and ZEV share by scenario, vehicle type and year, 2024 to `end_year`, for
     the current mandate and the review options.
 
     Scenarios, for each policy in `policies` (default REVIEW_POLICIES):
     - "<policy> | on target": the market ZEV share equals the headline target.
-    - "<policy> | heavy flex": minimum_compliant_path with non-ZEV CO2 flat, floored at
+    - "<policy> | continued use of flex": minimum_compliant_path with non-ZEV CO2 flat, floored at
       this year's share.
-    - "Review Option 3 ... | heavy flex, non-ZEV CO2 -6%/yr" (worst_case=True).
+    - "Review Option 3 ... | continued use of flex, non-ZEV CO2 -6%/yr" (worst_case=True).
+    "Continued use of flex" = manufacturers keep using the flexibilities at today's level of
+    performance: all CO2 credits earned at 2026 non-ZEV CO2, banked allowances, perfect
+    trading. It is not the legal maximum.
     The `nonzev_co2_change` column carries each scenario's annual change in new non-ZEV
     CO2 (0 except the worst case), so the fleet model can use the same assumption.
 
@@ -521,11 +526,11 @@ def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, polici
         return mp["min_zev_share"].to_dict()
 
     paths = {f"{n} | on target": {vt: on_target(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
-    if heavy_flex:
-        paths |= {f"{n} | heavy flex": {vt: flex(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
+    if continued_flex:
+        paths |= {f"{n} | {FLEX}": {vt: flex(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
     o3 = "Review Option 3 (cars 50%, vans 40%)"
     if worst_case and o3 in policies:
-        paths[f"{o3} | heavy flex, non-ZEV CO2 -6%/yr"] = {"car": flex(policies[o3], "car", -0.06),
+        paths[f"{o3} | {FLEX}, non-ZEV CO2 -6%/yr"] = {"car": flex(policies[o3], "car", -0.06),
                                                            "van": flex(policies[o3], "van")}
     co2_change = {s: {"car": -0.06 if s.endswith("non-ZEV CO2 -6%/yr") else 0.0, "van": 0.0} for s in paths}
     rows = []

@@ -1,52 +1,67 @@
-# New AutoMotive chart style (from the old design.pkl, revised Oct 2026)
+# New AutoMotive chart style (revised Nov 2026: cleaner, financial-press look)
 #
-# Kept: brand blue and coral as the first two series, monospace type, no spines.
-# Changed: 2px lines (were 5px) and a hairline grid (was 1.3px). Slots 3-6 are now a
-# colour-blind-checked set; the old orange/green pair was indistinguishable for protanopes.
-# Order validated with the dataviz palette checker on a white surface:
-#   416FF4 E06760 eda100 1baf7a 8a5cd6 008300
-# Slots 3-4 (yellow, aqua) are below 3:1 contrast, so charts must label lines directly.
+# Sans serif: Roboto, bundled in zevm/style/fonts and registered by zevm.plots.use_style()
+# (falls back to Helvetica Neue / Helvetica / Arial if the style is used directly). Small grey
+# ticks, a light horizontal grid, only the bottom axis line, thin lines. Titles,
+# subtitles, legends and source lines are placed by zevm.plots._header / add_source, not
+# by matplotlib's title, so they sit left-aligned above the plot.
+# Palette unchanged: brand blue and coral first, then a colour-blind-checked set
+# (validated with the dataviz palette checker on white: 416FF4 E06760 eda100 1baf7a 8a5cd6 008300).
 
-lines.linewidth: 2
-lines.solid_capstyle: round
-lines.markersize: 7
-figure.figsize: 10, 6
+font.family: sans-serif
+font.sans-serif: Roboto, Helvetica Neue, Helvetica, Arial, DejaVu Sans
+font.size: 10
+text.color: 1a1a1a
+
+figure.figsize: 9, 5.2
 figure.dpi: 110
 figure.facecolor: white
-figure.autolayout: True
+figure.autolayout: False
 savefig.dpi: 200
 savefig.facecolor: white
+savefig.bbox: tight
+savefig.pad_inches: 0.25
+
 axes.facecolor: white
-axes.labelsize: 12
-axes.titlesize: 14
-axes.titlelocation: left
-axes.titlepad: 12
-axes.labelcolor: 52514e
-axes.labelweight: normal
+axes.edgecolor: 4d4d4d
 axes.linewidth: 0.8
-axes.edgecolor: d4d3cf
+axes.spines.top: False
+axes.spines.right: False
+axes.spines.left: False
+axes.spines.bottom: True
 axes.grid: True
 axes.grid.axis: y
 axes.axisbelow: True
-axes.spines.bottom: True
-axes.spines.left: False
-axes.spines.right: False
-axes.spines.top: False
+axes.titlesize: 14
+axes.titleweight: bold
+axes.titlelocation: left
+axes.titlepad: 10
+axes.labelsize: 9
+axes.labelcolor: 666666
 axes.prop_cycle: cycler('color', ['416FF4', 'E06760', 'eda100', '1baf7a', '8a5cd6', '008300'])
-grid.color: ebeae6
-grid.linewidth: 0.8
+
+grid.color: e6e6e6
+grid.linewidth: 0.6
 grid.linestyle: -
-legend.fontsize: 10
-legend.loc: best
-legend.fancybox: False
-legend.frameon: False
-xtick.labelsize: 10
-ytick.labelsize: 10
-xtick.color: 52514e
-ytick.color: 52514e
-xtick.major.size: 0
+
+lines.linewidth: 1.8
+lines.solid_capstyle: round
+lines.markersize: 5
+
+xtick.labelsize: 9
+ytick.labelsize: 9
+xtick.color: 666666
+ytick.color: 666666
+xtick.major.size: 3
+xtick.major.width: 0.8
 ytick.major.size: 0
-text.color: 0b0b0b
-font.family: monospace
-font.monospace: Terminal, Andale Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, Courier, monospace
-font.size: 10
+xtick.major.pad: 4
+ytick.major.pad: 6
+
+legend.fontsize: 9
+legend.frameon: False
+legend.handlelength: 1.6
+legend.columnspacing: 1.4
+legend.borderaxespad: 0.2
+
+hatch.linewidth: 0.8

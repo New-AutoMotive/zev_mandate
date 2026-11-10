@@ -8,6 +8,8 @@ Conventions:
   end as well as in a legend, because two palette slots are below 3:1 contrast on white.
 - One y-axis per chart. Two measures in different units become separate panels.
 - Projected years are shaded so they never pass for data.
+- Layout: a bold title, a grey subtitle carrying the units (no y-axis label), the legend in
+  a row above the plot, and an optional grey source line below it (_header, add_source).
 """
 from __future__ import annotations
 
@@ -36,8 +38,15 @@ COVERAGE = [
 ]
 
 
+FONTS = Path(__file__).parent / "style" / "fonts"
+
+
 def use_style() -> None:
-    """Apply the New AutoMotive matplotlib style."""
+    """Apply the New AutoMotive matplotlib style, registering the bundled Roboto fonts
+    (static Regular/Medium/Bold, Apache 2.0) so charts look the same on every machine."""
+    from matplotlib import font_manager
+    for f in sorted(FONTS.glob("*.ttf")):
+        font_manager.fontManager.addfont(str(f))
     plt.style.use(STYLE)
 
 
@@ -81,6 +90,51 @@ def _end_labels(ax, items, fmt="{:.0%}", min_gap=None):
                     textcoords="offset pixels", va="center", fontsize=9, color=INK_2, annotation_clip=False)
 
 
+def _left_edge(ax) -> float:
+    """x, in axes fraction, of the leftmost thing drawn for this axes (tick labels included),
+    so the title block and source line line up with the far left of the chart."""
+    fig = ax.figure
+    fig.canvas.draw()
+    bb = ax.get_tightbbox(fig.canvas.get_renderer())
+    return min(0.0, (bb.x0 - ax.bbox.x0) / ax.bbox.width)
+
+
+def _header(ax, title: str, subtitle: str | None = None, ncol: int | None = None, handles=None, labels=None,
+            legend: bool = True):
+    """Title block above the plot, aligned with the chart's far left: bold title, grey
+    subtitle, then the legend in a row (or rows) directly above the axes. Replaces
+    matplotlib's title and bottom legend."""
+    fig = ax.figure
+    ax.set_title("")
+    x = _left_edge(ax)
+    y = 4.0
+    if legend:
+        if handles is None:
+            handles, labels = ax.get_legend_handles_labels()
+        elif labels is None:
+            labels = [h.get_label() for h in handles]
+        if handles:
+            n = ncol or min(len(handles), 3)
+            leg = ax.legend(handles, labels, loc="lower left", bbox_to_anchor=(x, 1.0), ncol=n, borderaxespad=0.3)
+            fig.canvas.draw()
+            y = leg.get_window_extent().height * 72 / fig.dpi + 10
+    if subtitle:
+        ax.annotate(subtitle, (x, 1), xycoords="axes fraction", xytext=(0, y), textcoords="offset points",
+                    ha="left", va="bottom", fontsize=10, color="#666666", annotation_clip=False)
+        y += 17
+    ax.annotate(title, (x, 1), xycoords="axes fraction", xytext=(0, y), textcoords="offset points",
+                ha="left", va="bottom", fontsize=14, fontweight="bold", color="#1a1a1a", annotation_clip=False)
+    return ax
+
+
+def add_source(ax, text: str):
+    """Grey source line below the plot, aligned with the chart's far left."""
+    below = 34 if ax.get_xlabel() else 22
+    ax.annotate(text, (_left_edge(ax), 0), xycoords="axes fraction", xytext=(0, -below), textcoords="offset points",
+                ha="left", va="top", fontsize=8, color=MUTED, annotation_clip=False)
+    return ax
+
+
 def _short(name: str) -> str:
     """End-label text: "A. On target" -> "A"; "Opt 1 (70%) | steady" -> "Opt 1 (70%)"."""
     if len(name) > 2 and name[1] == "." and name[0].isalnum():
@@ -117,11 +171,12 @@ def zev_share_monthly(monthly: pd.DataFrame, params, vehicle_type: str = "car", 
         ax.step(tx, ty + ty[-1:], where="post", color=INK_2, lw=1.2, label="Target (scheme year)")
     _pct(ax)
     ax.set_ylim(0, max(share.max(), max(ty) if years else 0) * 1.15)
-    ax.set_title(title or f"New {vehicle_type} ZEV share vs mandate target")
-    ax.legend(loc="upper left")
     last = roll.dropna()
     if not last.empty:
         _end_labels(ax, [("rolling", last.index[-1], last.iloc[-1], BLUE)])
+    _header(ax, title or f"New {vehicle_type} ZEV share vs mandate target",
+            f"Share of new {vehicle_type} registrations that are zero-emission, %")
+    add_source(ax, "Source: DVLA registrations (New AutoMotive); VETS Order 2023 as amended")
     return fig
 
 
@@ -150,15 +205,15 @@ def position_bars(results: pd.DataFrame, year: int, top_n: int = 20, per_vehicle
     ax.grid(axis="x"); ax.grid(axis="y", visible=False)
     _pct(ax, "x") if per_vehicle else _thousands(ax, "x")
     basis = r["basis"].iloc[0] if "basis" in r else ""
-    ax.set_title(title or f"Allowance surplus / shortfall by participant, {year}" + (f" ({basis})" if basis and basis != "actual" else ""))
-    ax.set_xlabel("share of registrations" if per_vehicle else "allowances")
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
-    ax.legend(handles=[
-        Patch(color=BLUE, label="Surplus after own CO2 credits + bank"),
-        Patch(color=CORAL, label="Shortfall after own CO2 credits + bank"),
-        Line2D([], [], marker="o", ls="", markerfacecolor="white", markeredgecolor=INK_2, label="Registration allowances only"),
-    ], loc="upper center", bbox_to_anchor=(0.5, -0.06 - 0.6 / len(r)), ncol=3, fontsize=9)
+    _header(ax, title or f"Allowance surplus / shortfall by participant, {year}" + (f" ({basis})" if basis and basis != "actual" else ""),
+            "Share of registrations" if per_vehicle else "Allowances", handles=[
+                Patch(color=BLUE, label="Surplus after own CO2 credits + bank"),
+                Patch(color=CORAL, label="Shortfall after own CO2 credits + bank"),
+                Line2D([], [], marker="o", ls="", markerfacecolor="white", markeredgecolor=INK_2, label="Registration allowances only"),
+            ], ncol=2)
+    add_source(ax, "Source: New AutoMotive ZEV mandate model; DVLA registrations")
     return fig
 
 
@@ -184,13 +239,11 @@ def scenario_lines(summary: pd.DataFrame, column: str, title: str, pct: bool = F
         ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f"£{v:,.0f}m"))
     ax.set_ylim(bottom=0)
     ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
-    ax.set_title(title)
-    if ylabel:
-        ax.set_ylabel(ylabel)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=3)
+    _header(ax, title, ylabel)
     fmt = "{:.0%}" if pct else ("£{:,.0f}m" if money else "{:,.0f}")
     _end_labels(ax, ends, fmt=fmt)
     ax.set_xlim(right=summary["year"].max() + 1.2)
+    add_source(ax, "Source: New AutoMotive ZEV mandate model")
     return fig
 
 
@@ -210,9 +263,8 @@ def coverage_stack(summary: pd.DataFrame, scenario: str, title: str | None = Non
     _thousands(ax)
     ax.set_ylim(0, bottom.max() * 1.08)
     ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
-    ax.set_title(title or f"How non-ZEV registrations are covered: {scenario}")
-    ax.set_ylabel("non-ZEV registrations")
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=6, fontsize=9)
+    _header(ax, title or f"How non-ZEV registrations are covered: {scenario}", "Non-ZEV registrations", ncol=3)
+    add_source(ax, "Source: New AutoMotive ZEV mandate model")
     return fig
 
 
@@ -225,13 +277,19 @@ def bank_and_debt(summary: pd.DataFrame, title: str = "Banked allowances and out
         for name, g in summary.groupby("scenario", sort=False):
             g = g.sort_values("year")
             ax.plot(g["year"], g[col], color=cols[name], marker="o", markersize=4, label=name)
-        ax.set_title(sub, fontsize=12)
+        ax.annotate(sub, (0, 1), xycoords="axes fraction", xytext=(0, 6), textcoords="offset points",
+                    ha="left", va="bottom", fontsize=10, fontweight="bold", color=INK_2)
         _thousands(ax)
         ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
     axes[0].set_ylim(bottom=0)
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.06), fontsize=9)
-    fig.suptitle(title, x=0.01, ha="left", fontsize=14)
+    axes[1].legend(handles, labels, loc="upper left", fontsize=8.5)
+    ax0 = axes[0]
+    ax0.annotate(title, (0, 1), xycoords="axes fraction", xytext=(0, 40), textcoords="offset points",
+                 ha="left", va="bottom", fontsize=14, fontweight="bold", color="#1a1a1a", annotation_clip=False)
+    ax0.annotate("Allowances, end of year", (0, 1), xycoords="axes fraction", xytext=(0, 23), textcoords="offset points",
+                 ha="left", va="bottom", fontsize=10, color="#666666", annotation_clip=False)
+    add_source(ax0, "Source: New AutoMotive ZEV mandate model")
     return fig
 
 
@@ -271,13 +329,12 @@ def emissions_vs_naei(validation: pd.DataFrame, totals: pd.DataFrame | None = No
             label="From DESNZ fuel use" + (f" (x{co2_scale:.3f} to NAEI)" if co2_scale != 1 else ""))
     ax.set_ylim(bottom=0)
     ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
-    ax.set_ylabel("Mt CO2e")
-    ax.set_title(title)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=2, fontsize=9)
+    _header(ax, title, "Mt CO2e a year", ncol=2)
     if not naei.empty:
         ends.append(("NAEI", naei.index[-1], naei.iloc[-1], INK))
     _end_labels(ax, ends, fmt="{:.1f} Mt")
     ax.set_xlim(right=ax.get_xlim()[1] + 1.2)
+    add_source(ax, "Source: NAEI; DESNZ road fuel consumption; New AutoMotive fleet model")
     return fig
 
 
@@ -298,15 +355,16 @@ def parc_by_fuel(tidy: pd.DataFrame, scenario: str, column: str = "parc", title:
     ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
     if column == "co2_mt":
         fmt = "{:.1f} Mt"
-        ax.set_ylabel("Mt CO2e")
+        unit = "Mt CO2e a year"
     else:
         _millions(ax)
         fmt = None
+        unit = "Vehicles"
     default = {"parc": "Cars on the road by fuel", "co2_mt": "Tailpipe CO2e by fuel"}.get(column, f"{column} by fuel")
-    ax.set_title(title or f"{default}: {scenario}")
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=4)
+    _header(ax, title or f"{default}: {scenario}", unit, ncol=4)
     _end_labels(ax, ends, fmt=fmt)
     ax.set_xlim(right=s["year"].max() + 1.5)
+    add_source(ax, "Source: DfT vehicle licensing statistics; New AutoMotive fleet model")
     return fig
 
 
@@ -314,7 +372,8 @@ def parc_by_fuel(tidy: pd.DataFrame, scenario: str, column: str = "parc", title:
 
 def history_and_scenarios(df: pd.DataFrame, value: str, scenarios: list[str], labels: dict | None = None,
                           end_labels: dict | None = None, ymin: float | None = None, ymax: float | None = None,
-                          title: str = "", ylabel: str = "", history_label: str = "Actual", pct: bool = False):
+                          title: str = "", ylabel: str = "", history_label: str = "Actual", pct: bool = False,
+                          source: str | None = "Source: New AutoMotive ZEV mandate model"):
     """One measure over time: the observed history once (rows with basis 'actual'), then one
     line per chosen scenario from the last observed year. At most six scenarios, so colours
     stay distinct. A line chart need not start at zero; set ymin to show the spread."""
@@ -338,11 +397,11 @@ def history_and_scenarios(df: pd.DataFrame, value: str, scenarios: list[str], la
     if pct:
         _pct(ax)
     ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
-    ax.set_ylabel(ylabel)
-    ax.set_title(title)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=2, fontsize=9)
+    _header(ax, title, ylabel, ncol=2)
     _end_labels(ax, ends, fmt="{:.1%}" if pct else "{:.1f}")
     ax.set_xlim(right=df["year"].max() + 2.5)
+    if source:
+        add_source(ax, source)
     return fig
 
 
@@ -351,8 +410,9 @@ def oil_intensity_lines(oil: pd.DataFrame, scenarios: list[str], labels: dict | 
                         title: str = "UK oil intensity of GDP by ZEV mandate scenario"):
     """Oil per £m of real GDP (zevm.oil.scenario_oil output), history then scenarios."""
     return history_and_scenarios(oil, "oil_t_per_gdp_m", scenarios, labels, end_labels, ymin=ymin, title=title,
-                                 ylabel="tonnes of oil per £m of real GDP (2024 prices)",
-                                 history_label="Actual (DUKES ÷ ONS GDP)")
+                                 ylabel="Tonnes of oil per £m of real GDP (2024 prices)",
+                                 history_label="Actual (DUKES ÷ ONS GDP)",
+                                 source="Source: DESNZ DUKES and EEP; ONS; OBR; New AutoMotive ZEV mandate model")
 
 
 def electricity_share_lines(elec: pd.DataFrame, scenarios: list[str], mode: str = "eep", labels: dict | None = None,
@@ -365,8 +425,9 @@ def electricity_share_lines(elec: pd.DataFrame, scenarios: list[str], mode: str 
                "held": "Electricity share of UK final energy: the ZEV mandate's effect alone"}[mode]
     return history_and_scenarios(elec[elec["mode"] == mode], value, scenarios, labels, end_labels, ymin=ymin, ymax=ymax,
                                  title=title or default, pct=True, history_label="Actual (DUKES)",
-                                 ylabel="electricity, % of final energy consumption"
-                                        + (" excl. international aviation" if ex_intl_aviation else ""))
+                                 ylabel="Electricity, % of UK final energy consumption"
+                                        + (" (excl. international aviation)" if ex_intl_aviation else ""),
+                                 source="Source: DESNZ DUKES and EEP; New AutoMotive ZEV mandate model")
 
 
 def oil_gap_bars(oil: pd.DataFrame, reference: str, year: int | None = None, cumulative_from: int | None = None,
@@ -387,10 +448,66 @@ def oil_gap_bars(oil: pd.DataFrame, reference: str, year: int | None = None, cum
     ax.barh(y, gap.values, color=BLUE, height=0.6, edgecolor="white", linewidth=1.5)
     for yi, val in zip(y, gap.values):
         ax.text(val + gap.abs().max() * 0.01, yi, f"{val:+.1f} Mt", va="center", fontsize=9, color=INK_2)
-    ax.set_yticks(y, [s.replace(" | ", " · ") for s in gap.index], fontsize=9)
+    # Drop a " | <suffix>" every bar shares (the title already says it), else show it as " · ".
+    suffix = reference.split(" | ", 1)[1] if " | " in reference else None
+    if suffix and all(f" | {suffix}" in n for n in gap.index):
+        names = [n.replace(f" | {suffix}", "").replace(", non-ZEV", " · non-ZEV") for n in gap.index]
+    else:
+        names = [n.replace(" | ", " · ") for n in gap.index]
+    ax.set_yticks(y, names, fontsize=9)
     ax.axvline(0, color=INK_2, lw=0.8)
     ax.grid(axis="x"); ax.grid(axis="y", visible=False)
     ax.set_xlim(min(0, gap.min() * 1.15), gap.max() * 1.18)
-    ax.set_xlabel("million tonnes of oil")
-    ax.set_title(title or f"Extra UK oil demand vs {reference.replace(' | ', ', ')}, {what}")
+    _header(ax, title or f"Extra UK oil demand vs {reference.replace(' | ', ', ')}", f"Million tonnes of oil, {what}",
+            legend=False)
+    add_source(ax, "Source: DESNZ DUKES and EEP; New AutoMotive ZEV mandate model")
+    return fig
+
+
+def electrification_gap_bars(elec: pd.DataFrame, scenarios: list[str], labels: dict | None = None,
+                             target: float = 0.35, year: int | None = None, ex_intl_aviation: bool = True):
+    """One bar per scenario from the base year's electricity share up to `target`, split into
+    what cars and vans add (mode 'held' minus base), what the rest of the economy adds on the
+    DESNZ projection (mode 'eep' minus 'held'), and what is still to find."""
+    from matplotlib.patches import Patch
+    labels = labels or {}
+    col = "electricity_share_ex_intl_aviation" if ex_intl_aviation else "electricity_share"
+    year = year or int(elec["year"].max())
+    base_year = int(elec.loc[elec["basis"] == "actual", "year"].max())
+    s0 = elec[(elec["year"] == base_year)][col].iloc[0]
+    rows = []
+    for k in scenarios:
+        g = elec[(elec["scenario"] == k) & (elec["year"] == year)].set_index("mode")[col]
+        rows.append((labels.get(k, k), s0, g["held"] - s0, g["eep"] - g["held"], target - g["eep"]))
+    road = [r[2] for r in rows]
+    fig, ax = plt.subplots(figsize=(9, 0.62 * len(rows) + 1.3))
+    y = np.arange(len(rows))[::-1]
+    fills = [OTHER, BLUE, "#9aa7b8", "white"]
+    for yi, (_, *vals) in zip(y, rows):
+        left = 0.0
+        for i, (v, c) in enumerate(zip(vals, fills)):
+            kw = dict(color=c, height=0.58, edgecolor="white", linewidth=1.2)
+            if i == 3:
+                kw.update(edgecolor=CORAL, linewidth=1.0, hatch="////")
+            ax.barh(yi, v, left=left, **kw)
+            if i in (1, 2):
+                ax.text(left + v / 2, yi, f"+{v * 100:.1f}", ha="center", va="center",
+                        color="white" if i == 1 else INK, fontsize=8.5)
+            elif i == 3 and v > 0:
+                ax.text(left + v / 2, yi, f"{v * 100:.1f}", ha="center", va="center", color=INK, fontsize=8.5,
+                        bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none"))
+            left += v
+    ax.axvline(target, color="#1a1a1a", lw=1)
+    ax.set_yticks(y, [r[0] for r in rows])
+    ax.grid(axis="y", visible=False); ax.grid(axis="x")
+    _pct(ax, "x")
+    ax.set_xlim(0, target * 1.06)
+    handles = [Patch(color=OTHER, label=f"{base_year} ({s0:.1%})"), Patch(color=BLUE, label="Cars and vans"),
+               Patch(color="#9aa7b8", label="Rest of economy, DESNZ projection"),
+               Patch(facecolor="white", edgecolor=CORAL, hatch="////", label=f"Still to find for {target:.0%}")]
+    lo, hi = min(road) * 100, max(road) * 100
+    _header(ax, f"Cars and vans deliver {lo:.1f}–{hi:.1f} of the {(target - s0) * 100:.1f} points needed for {target:.0%} by {year}",
+            f"Electricity, % of UK final energy{' (excl. international aviation)' if ex_intl_aviation else ''}, {year}. "
+            "Labels in percentage points", handles=handles, ncol=4)
+    add_source(ax, "Source: DESNZ DUKES and Energy and Emissions Projections (Feb 2026); New AutoMotive ZEV mandate model")
     return fig
