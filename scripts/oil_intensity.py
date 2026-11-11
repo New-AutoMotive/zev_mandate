@@ -7,11 +7,11 @@ Writes:
   tonnes split into cars, vans, other road and non-road, plus real GDP (£m, 2024 prices),
   tonnes of oil per £m of GDP, and an index (2025 = 100).
 - oil_intensity_lines.png: history and five headline scenarios.
-- oil_gap_cumulative.png: extra oil 2026-35 in each continued-use-of-flex scenario vs the current
-  mandate with continued use of flex.
+- oil_gap_cumulative.png: extra oil 2026-35 in each continued-use-of-flex (CO2 on trend)
+  scenario vs the current mandate on the same basis.
 
 Scenarios come from zevm.scenarios.policy_paths (the current mandate and the four review
-options, on target and with continued use of flex). The charts show continued use of flex. The method is described in zevm/oil.py.
+options, on target and with continued use of flex). The charts show continued use of flex with non-ZEV CO2 on its 2021-26 trend. The method is described in zevm/oil.py.
 Input files are listed in data/raw/SOURCES.md.
 """
 from __future__ import annotations
@@ -27,13 +27,13 @@ from zevm import oil, plots, scenarios
 
 ROOT = Path(__file__).resolve().parent.parent
 HEADLINE = {
-    "Current mandate | continued use of flex": ("Current mandate (cars 80% in 2030)", "Current"),
-    "Review Option 1 (cars 70%, vans 60%) | continued use of flex": ("Option 1 (cars 70%)", "Opt 1"),
-    "Review Option 2 (cars 60%, vans 50%) | continued use of flex": ("Option 2 (cars 60%)", "Opt 2"),
-    "Review Option 3 (cars 50%, vans 40%) | continued use of flex": ("Option 3 (cars 50%)", "Opt 3"),
-    "Review Option 4 (cars 80%, vans 70%, flex to 2034) | continued use of flex": ("Option 4 (cars 80%, flex to 2034)", "Opt 4"),
+    "Current mandate | continued use of flex, non-ZEV CO2 on trend": ("Current mandate (cars 80% in 2030)", "Current"),
+    "Review Option 1 (cars 70%, vans 60%) | continued use of flex, non-ZEV CO2 on trend": ("Option 1 (cars 70%)", "Opt 1"),
+    "Review Option 2 (cars 60%, vans 50%) | continued use of flex, non-ZEV CO2 on trend": ("Option 2 (cars 60%)", "Opt 2"),
+    "Review Option 3 (cars 50%, vans 40%) | continued use of flex, non-ZEV CO2 on trend": ("Option 3 (cars 50%)", "Opt 3"),
+    "Review Option 4 (cars 80%, vans 70%, flex to 2034) | continued use of flex, non-ZEV CO2 on trend": ("Option 4 (cars 80%, flex to 2034)", "Opt 4"),
 }
-REFERENCE = "Current mandate | continued use of flex"
+REFERENCE = "Current mandate | continued use of flex, non-ZEV CO2 on trend"
 
 
 def main():
@@ -55,8 +55,8 @@ def main():
     plots.use_style()
     plots.oil_intensity_lines(result, list(HEADLINE), {k: v[0] for k, v in HEADLINE.items()},
                               {k: v[1] for k, v in HEADLINE.items()},
-                              title="UK oil intensity of GDP, continued use of flex").savefig(out_dir / "oil_intensity_lines.png")
-    flex = result[result["scenario"].str.contains("continued use of flex")]
+                              title="UK oil intensity of GDP, continued use of flex, CO2 on trend").savefig(out_dir / "oil_intensity_lines.png")
+    flex = result[result["scenario"].str.endswith("non-ZEV CO2 on trend")]
     plots.oil_gap_bars(flex, REFERENCE, cumulative_from=op.data["base_year"] + 1).savefig(out_dir / "oil_gap_cumulative.png")
 
     y = result[result["year"] == result["year"].max()].set_index("scenario")["oil_t_per_gdp_m"]

@@ -16,7 +16,7 @@ Writes:
   reported publicly as about 21%).
 
 Scenarios come from zevm.scenarios.policy_paths (current mandate and the four review
-options, on target and with continued use of flex). The charts show continued use of flex. The method is described in
+options, on target and with continued use of flex). The charts show continued use of flex with non-ZEV CO2 on its 2021-26 trend. The method is described in
 zevm/electricity.py. `--as-of` pins the registrations data cut (default: the latest month).
 """
 from __future__ import annotations
@@ -32,13 +32,13 @@ from zevm import electricity, plots, scenarios
 
 ROOT = Path(__file__).resolve().parent.parent
 HEADLINE = {
-    "Current mandate | continued use of flex": ("Current mandate (cars 80% in 2030)", "Current"),
-    "Review Option 1 (cars 70%, vans 60%) | continued use of flex": ("Option 1 (cars 70%)", "Opt 1"),
-    "Review Option 2 (cars 60%, vans 50%) | continued use of flex": ("Option 2 (cars 60%)", "Opt 2"),
-    "Review Option 3 (cars 50%, vans 40%) | continued use of flex": ("Option 3 (cars 50%)", "Opt 3"),
-    "Review Option 4 (cars 80%, vans 70%, flex to 2034) | continued use of flex": ("Option 4 (cars 80%, flex to 2034)", "Opt 4"),
+    "Current mandate | continued use of flex, non-ZEV CO2 on trend": ("Current mandate (cars 80% in 2030)", "Current"),
+    "Review Option 1 (cars 70%, vans 60%) | continued use of flex, non-ZEV CO2 on trend": ("Option 1 (cars 70%)", "Opt 1"),
+    "Review Option 2 (cars 60%, vans 50%) | continued use of flex, non-ZEV CO2 on trend": ("Option 2 (cars 60%)", "Opt 2"),
+    "Review Option 3 (cars 50%, vans 40%) | continued use of flex, non-ZEV CO2 on trend": ("Option 3 (cars 50%)", "Opt 3"),
+    "Review Option 4 (cars 80%, vans 70%, flex to 2034) | continued use of flex, non-ZEV CO2 on trend": ("Option 4 (cars 80%, flex to 2034)", "Opt 4"),
 }
-REFERENCE = "Current mandate | continued use of flex"
+REFERENCE = "Current mandate | continued use of flex, non-ZEV CO2 on trend"
 
 
 def main():
@@ -60,10 +60,10 @@ def main():
     plots.use_style()
     labels, ends = {k: v[0] for k, v in HEADLINE.items()}, {k: v[1] for k, v in HEADLINE.items()}
     plots.electricity_share_lines(result, list(HEADLINE), "eep", labels, ends,
-                                  title="Electricity share of UK final energy, continued use of flex").savefig(
+                                  title="Electricity share of UK final energy, continued use of flex, CO2 on trend").savefig(
         out_dir / "electricity_share_lines.png")
     plots.electricity_share_lines(result, list(HEADLINE), "held", labels, ends,
-                                  title="Electricity share of UK final energy: cars and vans alone, continued use of flex").savefig(
+                                  title="Electricity share of UK final energy: cars and vans alone, continued use of flex, CO2 on trend").savefig(
         out_dir / "electricity_share_held_lines.png")
     plots.electrification_gap_bars(result, list(HEADLINE), labels, target=a.target).savefig(
         out_dir / f"electrification_gap_{int(result['year'].max())}.png")
