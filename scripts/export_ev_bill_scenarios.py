@@ -22,9 +22,8 @@ Scenarios
   also cut non-ZEV CO2 hard to earn more credits.
 
 Assumptions (change with the flags)
-- Car market: SMMT's 2026 forecast, 2.183M, growing 1.5% a year.
-- Van market: our 2026 VES estimate scaled by the same VES-to-SMMT ratio as cars, growing
-  1.5% a year.
+- Car market: SMMT's 2026 forecast, 2.183M, held flat to 2035 (--growth to change).
+- Van market: our 2026 VES estimate scaled by the same VES-to-SMMT ratio as cars, held flat.
 - 2026 BEV shares: our full-year estimates (scenarios.prepare). 2026 is the same in every
   scenario.
 - PHEV car sales: 20% of non-BEV car sales (the ECC share for Apr-Sep 2026), held
@@ -101,7 +100,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--out", default=str(ROOT / "outputs" / "ev_bill_scenarios.csv"))
     ap.add_argument("--car-market-2026", type=float, default=2.183e6)
-    ap.add_argument("--growth", type=float, default=0.015)
+    ap.add_argument("--growth", type=float, default=0.0, help="annual car and van market growth after 2026 (default flat)")
     ap.add_argument("--phev-share", type=float, default=0.20, help="PHEV share of non-BEV car sales")
     ap.add_argument("--as-of", default=None, help="registrations data cut, e.g. 2026-10-01 (default: latest month)")
     ap.add_argument("--offline", action="store_true", help="use cached BigQuery results only")

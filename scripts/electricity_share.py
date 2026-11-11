@@ -45,7 +45,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--out", default=str(ROOT / "outputs"))
     ap.add_argument("--car-market-2026", type=float, default=2.183e6)
-    ap.add_argument("--growth", type=float, default=0.015)
+    ap.add_argument("--growth", type=float, default=0.0, help="annual car and van market growth after 2026 (default flat)")
     ap.add_argument("--as-of", default=None, help="registrations data cut, e.g. 2026-10-01 (default: latest month)")
     ap.add_argument("--target", type=float, default=0.35, help="electrification target for the gap chart (share, e.g. 0.35)")
     ap.add_argument("--offline", action="store_true", help="use cached BigQuery results only")

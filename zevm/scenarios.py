@@ -497,7 +497,7 @@ REVIEW_POLICIES = {
 }
 
 
-def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, policies: dict | None = None,
+def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.0, policies: dict | None = None,
                  continued_flex: bool = True, co2_trend: bool = True, worst_case: bool = True,
                  histories: dict | None = None,
                  end_year: int = 2035, **prepare_kwargs) -> tuple[pd.DataFrame, dict]:
@@ -520,7 +520,7 @@ def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, polici
     CO2, so the fleet model can use the same assumption. The trend rates are in info.
 
     Markets are on an official basis, not VES. Cars use `car_market_2026` (default SMMT's
-    2026 forecast) growing at `growth`. Vans and the 2024-25 history are VES counts scaled
+    2026 forecast) growing at `growth` (default 0: flat). Vans and the 2024-25 history are VES counts scaled
     by the same ratio, because VES overcounts official totals. History years (basis actual or
     estimated) are the same in every scenario. `histories` = {"car": History, "van": History}
     skips the BigQuery step.
