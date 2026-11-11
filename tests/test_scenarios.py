@@ -159,3 +159,21 @@ def test_minimum_compliant_path_complies_and_undercuts_target():
     assert res[res.year >= 2027].shortfall.max() <= 0.5      # history years are given, not solved
     floored = scenarios.minimum_compliant_path(h, "vets", market, floor=0.5)
     assert (floored.min_zev_share >= 0.5).all()
+
+
+def test_nonzev_co2_trend_uses_same_months_and_skips_zevs(monkeypatch):
+    rows = []
+    for y, co2 in ((2021, 140.0), (2022, 126.0)):
+        for m in range(1, 13):
+            late = m > 9                       # months after the latest complete month in 2022
+            rows.append({"month": pd.Timestamp(y, m, 1), "fuel_type": "PETROL", "registrations": 10,
+                         "with_co2": 10, "co2_sum": 10 * (60.0 if late else co2)})
+            rows.append({"month": pd.Timestamp(y, m, 1), "fuel_type": "ELECTRICITY", "registrations": 10,
+                         "with_co2": 10, "co2_sum": 0.0})
+    raw = pd.DataFrame(rows)
+    monkeypatch.setattr(scenarios.data, "registrations",
+                        lambda vt, start, end, **kw: raw[raw["month"] < pd.Timestamp(end)])
+    t = scenarios.nonzev_co2_trend("car", first_year=2021, as_of="2022-10-01")
+    assert t["rate"] == pytest.approx(-0.10)
+    assert t["mean_co2"] == {2021: 140.0, 2022: 126.0}
+    assert t["months"] == "Jan-Sep"

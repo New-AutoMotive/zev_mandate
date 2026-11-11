@@ -16,6 +16,8 @@ Scenarios
   (zevm.scenarios.minimum_compliant_path). The market is pooled, CO2->ZEV credits and
   banked allowances are used in full, there's no borrowing, and non-ZEV CO2 is held at its
   2026 level. The share never falls below 2026's.
+- "<policy> | continued use of flex, non-ZEV CO2 on trend": the same, but non-ZEV CO2 keeps
+  falling at its 2021-26 rate (about -3.5%/yr for cars, -3.3%/yr for vans), so credits grow.
 - "Review Option 3 | continued use of flex, non-ZEV CO2 -6%/yr": the worst case, where manufacturers
   also cut non-ZEV CO2 hard to earn more credits.
 

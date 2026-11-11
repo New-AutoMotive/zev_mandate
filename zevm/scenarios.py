@@ -462,6 +462,31 @@ def minimum_compliant_path(
 # ---------------------------------------------------------------- review policy scenarios
 
 FLEX = "continued use of flex"     # scenario-name suffix for minimum_compliant_path runs
+TREND = "non-ZEV CO2 on trend"     # flex with non-ZEV CO2 falling at its recent rate
+
+
+def nonzev_co2_trend(vehicle_type: str = "car", first_year: int = 2021, as_of: str | pd.Timestamp | None = None,
+                     **query_kwargs) -> dict:
+    """The recent annual change in the mean official CO2 of new non-ZEVs (g/km), market-wide.
+
+    Compares the same months each year (January to the latest complete month), so the
+    current part-year is like for like. The rate is the compound change from `first_year`
+    to the latest year. For cars most of the fall comes from hybrids taking a bigger share
+    of non-ZEV sales, not from cleaner petrol cars.
+
+    Returns {"rate", "first_year", "last_year", "months", "mean_co2": {year: g/km}}.
+    """
+    as_of = pd.Timestamp(as_of or data.last_complete_month_end()).replace(day=1)
+    raw = data.registrations(vehicle_type, start=f"{first_year}-01-01", end=as_of.date(), **query_kwargs)
+    r = raw[~raw["fuel_type"].isin(["ELECTRICITY", "FUEL CELLS"])]
+    last_month = (as_of - pd.DateOffset(months=1)).month
+    r = r[r["month"].dt.month <= last_month]
+    g = r.groupby(r["month"].dt.year)[["co2_sum", "with_co2"]].sum()
+    mean = g["co2_sum"] / g["with_co2"]
+    y0, y1 = int(mean.index.min()), int(mean.index.max())
+    rate = (mean.loc[y1] / mean.loc[y0]) ** (1 / (y1 - y0)) - 1
+    return {"rate": float(rate), "first_year": y0, "last_year": y1, "months": f"Jan-{pd.Timestamp(2000, last_month, 1):%b}",
+            "mean_co2": mean.round(1).to_dict()}
 
 REVIEW_POLICIES = {
     "Current mandate": "scenarios/indicative_to_2035",
@@ -473,7 +498,8 @@ REVIEW_POLICIES = {
 
 
 def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, policies: dict | None = None,
-                 continued_flex: bool = True, worst_case: bool = True, histories: dict | None = None,
+                 continued_flex: bool = True, co2_trend: bool = True, worst_case: bool = True,
+                 histories: dict | None = None,
                  end_year: int = 2035, **prepare_kwargs) -> tuple[pd.DataFrame, dict]:
     """Market size and ZEV share by scenario, vehicle type and year, 2024 to `end_year`, for
     the current mandate and the review options.
@@ -482,12 +508,16 @@ def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, polici
     - "<policy> | on target": the market ZEV share equals the headline target.
     - "<policy> | continued use of flex": minimum_compliant_path with non-ZEV CO2 flat, floored at
       this year's share.
+    - "<policy> | continued use of flex, non-ZEV CO2 on trend" (co2_trend=True): the same,
+      but non-ZEV CO2 keeps falling at its recent market-wide rate (nonzev_co2_trend,
+      2021 to this year, about -3.5%/yr for cars and -3.3%/yr for vans in 2026). More
+      credits are earned each year, so flexibility use grows rather than staying at today's.
     - "Review Option 3 ... | continued use of flex, non-ZEV CO2 -6%/yr" (worst_case=True).
     "Continued use of flex" = manufacturers keep using the flexibilities at today's level of
     performance: all CO2 credits earned at 2026 non-ZEV CO2, banked allowances, perfect
     trading. It is not the legal maximum.
     The `nonzev_co2_change` column carries each scenario's annual change in new non-ZEV
-    CO2 (0 except the worst case), so the fleet model can use the same assumption.
+    CO2, so the fleet model can use the same assumption. The trend rates are in info.
 
     Markets are on an official basis, not VES. Cars use `car_market_2026` (default SMMT's
     2026 forecast) growing at `growth`. Vans and the 2024-25 history are VES counts scaled
@@ -526,13 +556,25 @@ def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, polici
         return mp["min_zev_share"].to_dict()
 
     paths = {f"{n} | on target": {vt: on_target(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
+    co2_change = {s: {"car": 0.0, "van": 0.0} for s in paths}
     if continued_flex:
-        paths |= {f"{n} | {FLEX}": {vt: flex(p, vt) for vt in ("car", "van")} for n, p in policies.items()}
+        for n, p in policies.items():
+            paths[f"{n} | {FLEX}"] = {vt: flex(p, vt) for vt in ("car", "van")}
+            co2_change[f"{n} | {FLEX}"] = {"car": 0.0, "van": 0.0}
+    trends = {}
+    if co2_trend:
+        prep_keys = {"by", "params", "start", "late_data_uplift", "max_fit_age", "prior_years"}
+        qkw = {k: v for k, v in prepare_kwargs.items() if k not in prep_keys}
+        trends = {vt: nonzev_co2_trend(vt, **qkw) for vt in ("car", "van")}
+        rate = {vt: trends[vt]["rate"] for vt in trends}
+        for n, p in policies.items():
+            paths[f"{n} | {FLEX}, {TREND}"] = {vt: flex(p, vt, rate[vt]) for vt in ("car", "van")}
+            co2_change[f"{n} | {FLEX}, {TREND}"] = dict(rate)
     o3 = "Review Option 3 (cars 50%, vans 40%)"
     if worst_case and o3 in policies:
         paths[f"{o3} | {FLEX}, non-ZEV CO2 -6%/yr"] = {"car": flex(policies[o3], "car", -0.06),
                                                            "van": flex(policies[o3], "van")}
-    co2_change = {s: {"car": -0.06 if s.endswith("non-ZEV CO2 -6%/yr") else 0.0, "van": 0.0} for s in paths}
+        co2_change[f"{o3} | {FLEX}, non-ZEV CO2 -6%/yr"] = {"car": -0.06, "van": 0.0}
     rows = []
     for scen, by_vt in paths.items():
         for vt in ("car", "van"):
@@ -545,4 +587,5 @@ def policy_paths(car_market_2026: float = 2.183e6, growth: float = 0.015, polici
     info = {"car_market": car_market_2026, "market_year": est_year, "growth": growth, "ves_to_official_scale": scale,
             "van_market": markets["van"][est_year],
             "car_zev_share_" + str(est_year): share_hist["car"][est_year], "van_zev_share_" + str(est_year): share_hist["van"][est_year]}
+    info |= {f"{vt}_nonzev_co2_trend": round(t["rate"], 4) for vt, t in trends.items()}
     return df, info

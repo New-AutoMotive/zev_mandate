@@ -113,7 +113,9 @@ market, uses CO2 credits and banked allowances in full, and has no borrowing.
 Export for the EV household-bill model: `.venv/bin/python scripts/export_ev_bill_scenarios.py`
 writes `outputs/ev_bill_scenarios.csv` (bev_car / phev_car / bev_van sales, 2026-35) for
 the current mandate and each review option, both on target and with continued use of flex
-(flexibilities used at today's level of performance; not the legal maximum).
+(flexibilities used at today's level of performance; not the legal maximum), and with
+continued use of flex while non-ZEV CO2 keeps falling at its 2021-26 rate
+(`scenarios.nonzev_co2_trend`).
 Its assumptions are listed at the top of the script.
 
 Caveat on counts: VES totals for a month drift upward for a year or two after it is first
